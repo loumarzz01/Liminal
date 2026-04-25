@@ -37,7 +37,7 @@ export default function About() {
     }
   };
 
-  const visible = width > 400;
+  const visible = width > 800;
 
   const [fontsLoaded] = useFonts({
     Inter_400Regular,
