@@ -280,7 +280,7 @@ export default function About() {
                 <TouchableOpacity
                   onPress={() => scrollToSection(contactRef)}
                   style={{
-                    paddingHorizontal: 50,
+                    paddingHorizontal: 35,
                     paddingVertical: 20,
                     backgroundColor: "#ff5252",
                     borderRadius: 99,
