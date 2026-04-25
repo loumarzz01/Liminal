@@ -51,7 +51,8 @@ export default function About() {
       <View
         style={{
           position: "absolute",
-
+          maxWidth: 800,
+          flexWrap: "wrap",
           zIndex: 10,
           alignItems: "center",
           marginTop: 40,
@@ -61,7 +62,7 @@ export default function About() {
           paddingVertical: 10,
           paddingHorizontal: 20,
           gap: 20,
-          width: "50%",
+          width: "95%",
 
           borderRadius: 99,
 
@@ -81,7 +82,14 @@ export default function About() {
           />
         </TouchableOpacity>
 
-        <View style={{ flexDirection: "row", gap: 20 }}>
+        <View
+          style={{
+            flexDirection: "row",
+            gap: 20,
+            flexWrap: "wrap",
+            justifyContent: "center",
+          }}
+        >
           <TouchableOpacity onPress={() => scrollToSection(aboutRef)}>
             <Text
               style={{
@@ -167,6 +175,7 @@ export default function About() {
         <View
           ref={aboutRef}
           style={{
+            width: "100%",
             minHeight: 920,
             justifyContent: "center",
             padding: 20,
@@ -176,9 +185,7 @@ export default function About() {
           <View
             style={{
               flex: 1,
-
               width: "100%",
-
               alignItems: "center",
               justifyContent: "center",
               backgroundColor: "#ffffff",
@@ -190,7 +197,6 @@ export default function About() {
               style={{
                 width: "100%",
                 height: "100%",
-
                 position: "absolute",
               }}
               source={require("./assets/meeting9.png")}
@@ -198,13 +204,21 @@ export default function About() {
             />
 
             {/* Intro text*/}
-            <View style={{ justifyContent: "center", alignItems: "center" }}>
+            <View
+              style={{
+                justifyContent: "center",
+                alignItems: "center",
+                paddingHorizontal: 20,
+              }}
+            >
               <Text
                 style={{
                   fontFamily: "Inter_600SemiBold",
-                  fontSize: 65,
+                  fontSize: 40,
                   letterSpacing: 0.3,
                   color: "#ff5252",
+                  textAlign: "center",
+                  alignSelf: "center",
                 }}
               >
                 Strategic Fundraising Support
@@ -215,7 +229,8 @@ export default function About() {
                   fontFamily: "PlayfairDisplay_400Regular",
                   fontStyle: "italic",
                   fontWeight: "500",
-                  fontSize: 65,
+                  fontSize: 40,
+                  textAlign: "center",
                   color: "#000000",
                 }}
               >
@@ -252,12 +267,18 @@ export default function About() {
               </Text>
 
               <View
-                style={{ gap: 20, flexDirection: "row", alignItems: "center" }}
+                style={{
+                  flexWrap: "wrap",
+                  justifyContent: "center",
+                  gap: 20,
+                  flexDirection: "row",
+                  alignItems: "center",
+                  marginTop: 40,
+                }}
               >
                 <TouchableOpacity
                   onPress={() => scrollToSection(contactRef)}
                   style={{
-                    marginTop: 40,
                     paddingHorizontal: 50,
                     paddingVertical: 20,
                     backgroundColor: "#ff5252",
@@ -283,7 +304,6 @@ export default function About() {
                 <TouchableOpacity
                   onPress={() => scrollToSection(servicesRef)}
                   style={{
-                    marginTop: 40,
                     paddingHorizontal: 30,
                     paddingVertical: 20,
                     backgroundColor: "rgba(0, 0, 0, 0)",
@@ -320,11 +340,10 @@ export default function About() {
           ref={servicesRef}
           style={{
             minHeight: 750,
+            width: "100%",
             backgroundColor: "white",
-            paddingTop: 20,
-            paddingBottom: 20,
-            paddingLeft: 20,
-            paddingRight: 20,
+            paddingVertical: 20,
+            paddingHorizontal: 20,
             alignItems: "center",
             justifyContent: "center",
           }}
@@ -332,14 +351,13 @@ export default function About() {
           <View
             style={{
               flex: 1,
-
               width: "100%",
-
               alignItems: "center",
               justifyContent: "center",
               backgroundColor: "#f5f5f5",
               borderRadius: 40,
               overflow: "hidden",
+              paddingVertical: 40,
             }}
           >
             <Image
@@ -375,6 +393,8 @@ export default function About() {
                 marginTop: 40,
                 fontFamily: "Inter_400Regular",
                 color: "#494949",
+                textAlign: "center",
+                paddingHorizontal: 20,
               }}
             >
               {" "}
@@ -403,27 +423,33 @@ export default function About() {
               the funding they need.
             </Text>
 
-            {/* Service Boxes */}
-
-            <View style={{ gap: 30, marginTop: 50, flexDirection: "row" }}>
+            {/* Service Boxes Container */}
+            <View
+              style={{
+                flexDirection: "row",
+                flexWrap: "wrap",
+                gap: 30,
+                justifyContent: "center",
+                alignItems: "center",
+                marginTop: 50,
+                width: "100%",
+              }}
+            >
               {/* Pipeline Audit */}
-
               <View
                 style={{
-                  width: 320,
+                  width: "90%",
+                  maxWidth: 340,
                   height: 350,
                   backgroundColor: "#ffffff",
                   borderRadius: 30,
                   padding: 30,
-
                   shadowColor: "#000000",
                   shadowOffset: { width: 2, height: 3 },
                   shadowOpacity: 0.05,
                   shadowRadius: 10,
-
                   justifyContent: "center",
                   opacity: 0.8,
-                  backdropFilter: "blur(2px)",
                 }}
               >
                 <View
@@ -443,10 +469,8 @@ export default function About() {
                     name="magnify-scan"
                     size={40}
                     color="#ff5252"
-                    style={{}}
                   />
                 </View>
-
                 <Text
                   style={{
                     fontFamily: "Inter_600SemiBold",
@@ -470,20 +494,18 @@ export default function About() {
               </View>
 
               {/* High-Value Bidding */}
-
               <View
                 style={{
-                  width: 340,
-                  height: 370,
+                  width: "90%",
+                  maxWidth: 340,
+                  height: 350,
                   backgroundColor: "#ffffff",
                   borderRadius: 30,
                   padding: 30,
-
                   shadowColor: "#000000",
                   shadowOffset: { width: 2, height: 3 },
                   shadowOpacity: 0.05,
                   shadowRadius: 10,
-
                   justifyContent: "center",
                   opacity: 0.8,
                 }}
@@ -507,7 +529,6 @@ export default function About() {
                     color="#ff5252"
                   />
                 </View>
-
                 <Text
                   style={{
                     fontFamily: "Inter_600SemiBold",
@@ -531,20 +552,18 @@ export default function About() {
               </View>
 
               {/* Change and Project Management */}
-
               <View
                 style={{
-                  width: 340,
-                  height: 370,
+                  width: "90%",
+                  maxWidth: 340,
+                  height: 350,
                   backgroundColor: "#ffffff",
                   borderRadius: 30,
                   padding: 30,
-
                   shadowColor: "#000000",
                   shadowOffset: { width: 2, height: 3 },
                   shadowOpacity: 0.05,
                   shadowRadius: 10,
-
                   justifyContent: "center",
                   opacity: 0.8,
                 }}
@@ -566,10 +585,8 @@ export default function About() {
                     name="update"
                     size={40}
                     color="#ff5252"
-                    style={{}}
                   />
                 </View>
-
                 <Text
                   style={{
                     fontFamily: "Inter_600SemiBold",
@@ -593,22 +610,19 @@ export default function About() {
               </View>
 
               {/* Bespoke Stewardship */}
-
               <View
                 style={{
-                  width: 320,
+                  width: "90%",
+                  maxWidth: 340,
                   height: 350,
                   backgroundColor: "#ffffff",
                   borderRadius: 30,
                   padding: 30,
-
                   shadowColor: "#000000",
                   shadowOffset: { width: 2, height: 3 },
                   shadowOpacity: 0.05,
                   shadowRadius: 10,
-
                   opacity: 0.8,
-
                   justifyContent: "center",
                 }}
               >
@@ -629,10 +643,8 @@ export default function About() {
                     name="shield-star"
                     size={40}
                     color="#ff5252"
-                    style={{}}
                   />
                 </View>
-
                 <Text
                   style={{
                     fontFamily: "Inter_600SemiBold",
@@ -663,16 +675,19 @@ export default function About() {
           style={{
             minHeight: 800,
             backgroundColor: "white",
-            paddingTop: 20,
-            paddingBottom: 20,
-            paddingLeft: 20,
-            paddingRight: 20,
+            paddingVertical: 40,
+            paddingHorizontal: 20,
             alignItems: "center",
             justifyContent: "center",
           }}
         >
-          <Text style={{ fontFamily: "Inter_600SemiBold", fontSize: 50 }}>
-            {" "}
+          <Text
+            style={{
+              fontFamily: "Inter_600SemiBold",
+              fontSize: 50,
+              textAlign: "center",
+            }}
+          >
             Contact me
           </Text>
 
@@ -682,6 +697,7 @@ export default function About() {
               marginTop: 20,
               fontFamily: "Inter_600SemiBold",
               color: "#494949",
+              textAlign: "center",
             }}
           >
             If you'd like to talk about your fundraising needs, please get in
@@ -689,50 +705,48 @@ export default function About() {
           </Text>
 
           {/* Image / contact UI */}
-
           <View
             style={{
               flexDirection: "row",
+              flexWrap: "wrap",
               justifyContent: "center",
               alignItems: "center",
-              gap: 60,
+              gap: 40,
+              marginTop: 40,
+              width: "100%",
             }}
           >
-            {/* Women smiling */}
-
+            {/* Image Container */}
             <View
               style={{
-                width: 600,
-                height: 600,
+                width: "100%",
+                maxWidth: 500,
+                aspectRatio: 1,
                 backgroundColor: "#494949",
                 borderRadius: 30,
                 overflow: "hidden",
-                marginTop: 40,
               }}
             >
               <Image
                 source={require("./assets/smiling2.png")}
-                style={{ resizeMode: "cover", width: 600, height: 600 }}
+                style={{ resizeMode: "cover", width: "100%", height: "100%" }}
               />
             </View>
 
-            {/* Contact UI */}
-
+            {/* Contact Form Container */}
             <View
               style={{
-                width: 600,
-                height: 600,
+                width: "100%",
+                maxWidth: 600,
+                minHeight: 600,
                 backgroundColor: "#f8f8f8",
                 borderRadius: 30,
                 overflow: "hidden",
-                marginTop: 40,
                 justifyContent: "center",
                 alignItems: "center",
                 padding: 30,
               }}
             >
-              {/* Enter name */}
-
               <Text
                 style={{
                   alignSelf: "flex-start",
@@ -741,7 +755,6 @@ export default function About() {
               >
                 Full Name
               </Text>
-
               <View
                 style={{
                   flexDirection: "row",
@@ -759,7 +772,6 @@ export default function About() {
                   size={20}
                   color="#303030"
                 />
-
                 <TextInput
                   placeholder="Enter your name"
                   style={{
@@ -769,13 +781,10 @@ export default function About() {
                     fontFamily: "Inter_400Regular",
                     fontSize: 14,
                     outlineStyle: "none",
-                    shadowOpacity: 0,
                     color: "#888888",
                   }}
                 />
               </View>
-
-              {/* Enter email */}
 
               <Text
                 style={{
@@ -786,7 +795,6 @@ export default function About() {
               >
                 Email
               </Text>
-
               <View
                 style={{
                   flexDirection: "row",
@@ -804,7 +812,6 @@ export default function About() {
                   size={20}
                   color="#303030"
                 />
-
                 <TextInput
                   placeholder="Enter your email"
                   style={{
@@ -814,13 +821,10 @@ export default function About() {
                     fontFamily: "Inter_400Regular",
                     fontSize: 14,
                     outlineStyle: "none",
-                    shadowOpacity: 0,
                     color: "#888888",
                   }}
                 />
               </View>
-
-              {/* Message */}
 
               <Text
                 style={{
@@ -831,7 +835,6 @@ export default function About() {
               >
                 Message
               </Text>
-
               <View
                 style={{
                   flexDirection: "row",
@@ -850,11 +853,9 @@ export default function About() {
                   style={{
                     flex: 1,
                     height: "100%",
-                    marginLeft: 0,
                     fontFamily: "Inter_400Regular",
                     fontSize: 14,
                     outlineStyle: "none",
-                    shadowOpacity: 0,
                     color: "#888888",
                     textAlignVertical: "top",
                     paddingTop: 15,
@@ -862,21 +863,18 @@ export default function About() {
                 />
               </View>
 
-              {/* Send message button*/}
-
               <TouchableOpacity
                 style={{
                   backgroundColor: "#ff5252",
                   paddingHorizontal: 30,
                   paddingVertical: 20,
                   alignSelf: "flex-start",
-                  marginTop: 100,
+                  marginTop: 40,
                   borderRadius: 99,
                   flexDirection: "row",
                   alignItems: "center",
                   justifyContent: "center",
                   gap: 10,
-
                   shadowColor: "#ff5252",
                   shadowOffset: { width: 0, height: 4 },
                   shadowOpacity: 0.3,
@@ -890,10 +888,8 @@ export default function About() {
                     fontSize: 16,
                   }}
                 >
-                  {" "}
                   Send message
                 </Text>
-
                 <MaterialCommunityIcons
                   name="arrow-right"
                   size={20}
