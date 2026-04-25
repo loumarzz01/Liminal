@@ -19,7 +19,7 @@ import {
 import { useRef } from "react";
 
 export default function About() {
-  const { height } = useWindowDimensions();
+  const { height, width } = useWindowDimensions();
 
   const scrollRef = useRef(null);
   const aboutRef = useRef(null);
@@ -37,6 +37,8 @@ export default function About() {
     }
   };
 
+  const visible = width > 400;
+
   const [fontsLoaded] = useFonts({
     Inter_400Regular,
     Inter_600SemiBold,
@@ -47,128 +49,127 @@ export default function About() {
 
   return (
     <View style={{ flex: 1 }}>
-      {/* Fixed Navigation bar */}
-      <View
-        style={{
-          position: "absolute",
-          maxWidth: 800,
-          flexWrap: "wrap",
-          zIndex: 10,
-          alignItems: "center",
-          marginTop: 40,
-          alignSelf: "center",
-          flexDirection: "row",
-          justifyContent: "space-between",
-          paddingVertical: 10,
-          paddingHorizontal: 20,
-          gap: 20,
-          width: "95%",
-
-          borderRadius: 99,
-
-          borderColor: "#ececece0",
-          borderWidth: 2,
-
-          backgroundColor: "rgba(255, 255, 255, 0.7)",
-          backdropFilter: "blur(2px)",
-          opacity: 0.95,
-          borderBottomWidth: 1,
-        }}
-      >
-        <TouchableOpacity>
-          <Image
-            source={require("./assets/Liminal logo2.png")}
-            style={{ width: 75, height: 20, resizeMode: "contain" }}
-          />
-        </TouchableOpacity>
-
+      {/* Navigation bar */}
+      {visible && (
         <View
           style={{
-            flexDirection: "row",
-            gap: 20,
+            position: "absolute",
+            maxWidth: 800,
             flexWrap: "wrap",
-            justifyContent: "center",
+            zIndex: 10,
+            alignItems: "center",
+            marginTop: 40,
+            alignSelf: "center",
+            flexDirection: "row",
+            justifyContent: "space-between",
+            paddingVertical: 10,
+            paddingHorizontal: 20,
+            gap: 20,
+            width: "95%",
+            borderRadius: 99,
+            borderColor: "#ececece0",
+            borderWidth: 2,
+            backgroundColor: "rgba(255, 255, 255, 0.7)",
+            backdropFilter: "blur(2px)",
+            opacity: 0.95,
+            borderBottomWidth: 1,
           }}
         >
-          <TouchableOpacity onPress={() => scrollToSection(aboutRef)}>
-            <Text
-              style={{
-                fontFamily: "Inter_600SemiBold",
-                fontSize: 14,
-                color: "#000000",
-              }}
-            >
-              About
-            </Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity onPress={() => scrollToSection(servicesRef)}>
-            <Text
-              style={{
-                fontFamily: "Inter_600SemiBold",
-                fontSize: 14,
-                color: "#000000",
-              }}
-            >
-              Services
-            </Text>
-          </TouchableOpacity>
-
           <TouchableOpacity>
-            <Text
-              style={{
-                fontFamily: "Inter_600SemiBold",
-                fontSize: 14,
-                color: "#000000",
-              }}
-            >
-              Case Studies
-            </Text>
+            <Image
+              source={require("./assets/Liminal logo2.png")}
+              style={{ width: 75, height: 20, resizeMode: "contain" }}
+            />
           </TouchableOpacity>
 
-          <TouchableOpacity>
+          <View
+            style={{
+              flexDirection: "row",
+              gap: 20,
+              flexWrap: "wrap",
+              justifyContent: "center",
+            }}
+          >
+            <TouchableOpacity onPress={() => scrollToSection(aboutRef)}>
+              <Text
+                style={{
+                  fontFamily: "Inter_600SemiBold",
+                  fontSize: 14,
+                  color: "#000000",
+                }}
+              >
+                About
+              </Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity onPress={() => scrollToSection(servicesRef)}>
+              <Text
+                style={{
+                  fontFamily: "Inter_600SemiBold",
+                  fontSize: 14,
+                  color: "#000000",
+                }}
+              >
+                Services
+              </Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity>
+              <Text
+                style={{
+                  fontFamily: "Inter_600SemiBold",
+                  fontSize: 14,
+                  color: "#000000",
+                }}
+              >
+                Case Studies
+              </Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity>
+              <Text
+                style={{
+                  fontFamily: "Inter_600SemiBold",
+                  fontSize: 14,
+                  color: "#000000",
+                }}
+              >
+                Resources
+              </Text>
+            </TouchableOpacity>
+          </View>
+
+          <TouchableOpacity
+            onPress={() => scrollToSection(contactRef)}
+            style={{
+              alignItems: "center",
+              justifyContent: "center",
+              flexDirection: "row",
+              paddingHorizontal: 15,
+              paddingVertical: 10,
+              borderRadius: 99,
+              marginRight: -10,
+              backgroundColor: "#ff5252",
+              gap: 5,
+              shadowColor: "#ff5252",
+              shadowOffset: { width: 0, height: 2 },
+              shadowOpacity: 0.5,
+              shadowRadius: 5,
+            }}
+          >
             <Text
               style={{
-                fontFamily: "Inter_600SemiBold",
-                fontSize: 14,
-                color: "#000000",
+                color: "#ffffff",
+                fontWeight: "500",
+                letterSpacing: 0.3,
+                lineHeight: 16,
               }}
             >
-              Resources
+              Contact
             </Text>
           </TouchableOpacity>
         </View>
-
-        <TouchableOpacity
-          onPress={() => scrollToSection(contactRef)}
-          style={{
-            alignItems: "center",
-            justifyContent: "center",
-            flexDirection: "row",
-            paddingHorizontal: 15,
-            paddingVertical: 10,
-            borderRadius: 99,
-            marginRight: -10,
-            backgroundColor: "#ff5252",
-            gap: 5,
-            shadowColor: "#ff5252",
-            shadowOffset: { width: 0, height: 2 },
-            shadowOpacity: 0.5,
-            shadowRadius: 5,
-          }}
-        >
-          <Text
-            style={{
-              color: "#ffffff",
-              fontWeight: "500",
-              letterSpacing: 0.3,
-              lineHeight: 16,
-            }}
-          >
-            Contact
-          </Text>
-        </TouchableOpacity>
-      </View>
+      )}
 
       <ScrollView ref={scrollRef} style={{ flex: 1 }}>
         {/* ABOUT SECTION */}
@@ -738,13 +739,13 @@ export default function About() {
               style={{
                 width: "100%",
                 maxWidth: 600,
+                padding: 30,
                 minHeight: 600,
                 backgroundColor: "#f8f8f8",
                 borderRadius: 30,
                 overflow: "hidden",
                 justifyContent: "center",
                 alignItems: "center",
-                padding: 30,
               }}
             >
               <Text
@@ -768,7 +769,7 @@ export default function About() {
                 }}
               >
                 <MaterialCommunityIcons
-                  name="email-outline"
+                  name="account-outline"
                   size={20}
                   color="#303030"
                 />
