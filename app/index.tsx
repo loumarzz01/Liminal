@@ -329,7 +329,7 @@ export default function About() {
                   gap: 60,
                   flexDirection: "row",
                   flexWrap: "wrap",
-                  maxWidth: 600,
+                  maxWidth: 650,
                   maxHeight: 300,
                   marginTop: 60,
                 }}
@@ -360,7 +360,7 @@ export default function About() {
                   <Text
                     style={{ fontSize: 40, fontFamily: "Inter_600Semibold" }}
                   >
-                    £700K+
+                    Multiple 6 & 7 figure
                   </Text>
 
                   <Text
@@ -370,7 +370,7 @@ export default function About() {
                       fontFamily: "Inter_400Regular",
                     }}
                   >
-                    secured in partnerships
+                    partnerships
                   </Text>
                 </View>
               </View>
@@ -826,7 +826,7 @@ export default function About() {
                     fontSize: 15,
                   }}
                 >
-                  Turned a sensitive topic into highly fundable statutory
+                  Turned a sensitive topic into a highly fundable statutory
                   proposal. I presented a clear, stratetgic, low-risk
                   investment.
                 </Text>
