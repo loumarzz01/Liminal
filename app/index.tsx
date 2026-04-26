@@ -22,8 +22,9 @@ export default function About() {
   const { height, width } = useWindowDimensions();
 
   const scrollRef = useRef(null);
-  const aboutRef = useRef(null);
+  const introRef = useRef(null);
   const servicesRef = useRef(null);
+  const caseStudiesRef = useRef(null);
   const contactRef = useRef(null);
 
   const scrollToSection = (ref) => {
@@ -90,7 +91,7 @@ export default function About() {
               justifyContent: "center",
             }}
           >
-            <TouchableOpacity onPress={() => scrollToSection(aboutRef)}>
+            <TouchableOpacity onPress={() => scrollToSection(introRef)}>
               <Text
                 style={{
                   fontFamily: "Inter_600SemiBold",
@@ -114,7 +115,7 @@ export default function About() {
               </Text>
             </TouchableOpacity>
 
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => scrollToSection(caseStudiesRef)}>
               <Text
                 style={{
                   fontFamily: "Inter_600SemiBold",
@@ -123,18 +124,6 @@ export default function About() {
                 }}
               >
                 Case Studies
-              </Text>
-            </TouchableOpacity>
-
-            <TouchableOpacity>
-              <Text
-                style={{
-                  fontFamily: "Inter_600SemiBold",
-                  fontSize: 14,
-                  color: "#000000",
-                }}
-              >
-                Resources
               </Text>
             </TouchableOpacity>
           </View>
@@ -172,9 +161,9 @@ export default function About() {
       )}
 
       <ScrollView ref={scrollRef} style={{ flex: 1 }}>
-        {/* ABOUT SECTION */}
+        {/* INTRO SECTION */}
         <View
-          ref={aboutRef}
+          ref={introRef}
           style={{
             width: "100%",
             minHeight: 920,
@@ -332,6 +321,59 @@ export default function About() {
                   />
                 </TouchableOpacity>
               </View>
+
+              {/* Qualities */}
+
+              <View
+                style={{
+                  gap: 60,
+                  flexDirection: "row",
+                  flexWrap: "wrap",
+                  maxWidth: 600,
+                  maxHeight: 300,
+                  marginTop: 60,
+                }}
+              >
+                {/* Years experience */}
+
+                <View style={{ flexDirection: "column" }}>
+                  <Text
+                    style={{ fontSize: 40, fontFamily: "Inter_600Semibold" }}
+                  >
+                    15+
+                  </Text>
+
+                  <Text
+                    style={{
+                      color: "#9b9b9b",
+                      fontSize: 20,
+                      fontFamily: "Inter_400Regular",
+                    }}
+                  >
+                    years experience
+                  </Text>
+                </View>
+
+                {/* 7 figure partnerships */}
+
+                <View style={{ flexDirection: "column" }}>
+                  <Text
+                    style={{ fontSize: 40, fontFamily: "Inter_600Semibold" }}
+                  >
+                    £7M+
+                  </Text>
+
+                  <Text
+                    style={{
+                      color: "#9b9b9b",
+                      fontSize: 20,
+                      fontFamily: "Inter_400Regular",
+                    }}
+                  >
+                    secured in partnerships
+                  </Text>
+                </View>
+              </View>
             </View>
           </View>
         </View>
@@ -362,28 +404,18 @@ export default function About() {
             }}
           >
             <Image
-              source={require("./assets/aesthetic backgroundv2.png")}
-              style={{
-                width: "100%",
-                height: "100%",
-                position: "absolute",
-                opacity: 0.5,
-              }}
+              source={require("./assets/work3.png")}
+              style={{ width: "100%", height: "100%", position: "absolute" }}
             />
 
             <View style={{ alignItems: "center", justifyContent: "center" }}>
-              <Image
-                source={require("./assets/gradient.png")}
+              <Text
                 style={{
-                  width: 250,
-                  height: 70,
-                  position: "absolute",
-                  borderRadius: 15,
-                  opacity: 0.2,
+                  color: "#ff5252",
+                  fontSize: 50,
+                  fontFamily: "Inter_600SemiBold",
                 }}
-              />
-
-              <Text style={{ fontSize: 50, fontFamily: "Inter_600SemiBold" }}>
+              >
                 Services
               </Text>
             </View>
@@ -424,7 +456,7 @@ export default function About() {
               the funding they need.
             </Text>
 
-            {/* Service Boxes Container */}
+            {/* Services Boxes Container */}
             <View
               style={{
                 flexDirection: "row",
@@ -671,6 +703,384 @@ export default function About() {
           </View>
         </View>
 
+        {/* (CASE STUDIES)  CS SECTION */}
+
+        <View
+          ref={caseStudiesRef}
+          style={{
+            minHeight: 750,
+            width: "100%",
+            backgroundColor: "white",
+            paddingVertical: 20,
+            paddingHorizontal: 20,
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <View
+            style={{
+              flex: 1,
+              width: "100%",
+              alignItems: "center",
+              justifyContent: "center",
+              backgroundColor: "#f5f5f5",
+              borderRadius: 40,
+              overflow: "hidden",
+              paddingVertical: 40,
+            }}
+          >
+            <Image
+              source={require("./assets/work5.png")}
+              style={{ width: "100%", height: "100%", position: "absolute" }}
+            />
+
+            <View style={{ alignItems: "center", justifyContent: "center" }}>
+              <Text
+                style={{
+                  color: "#ff5252",
+                  marginTop: -20,
+                  fontSize: 50,
+                  fontFamily: "Inter_600SemiBold",
+                }}
+              >
+                Case studies
+              </Text>
+            </View>
+
+            {/* Case studies boxes */}
+
+            <View
+              style={{
+                flexDirection: "row",
+                flexWrap: "wrap",
+                gap: 30,
+                justifyContent: "center",
+                alignItems: "center",
+                marginTop: 50,
+                width: "100%",
+              }}
+            >
+              {/* Case study 1 */}
+
+              <View
+                style={{
+                  borderRadius: 30,
+                  width: 400,
+                  height: 380,
+                  maxWidth: "90%",
+                  backgroundColor: "#ffffff",
+                  padding: 30,
+
+                  opacity: 0.8,
+
+                  justifyContent: "space-between",
+
+                  borderColor: "#e0e0e0",
+
+                  shadowColor: "#000",
+                  shadowOffset: { width: 0, height: 10 },
+                  shadowOpacity: 0.05,
+                  shadowRadius: 20,
+                  elevation: 5,
+                }}
+              >
+                <View
+                  style={{
+                    backgroundColor: "#ff525215",
+                    borderRadius: 10,
+                    height: 25,
+                    width: 120,
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                >
+                  <Text
+                    style={{
+                      color: "#ff5252",
+                      fontSize: 12,
+                      fontFamily: "Inter_600SemiBold",
+                      letterSpacing: 0,
+                      alignSelf: "center",
+                    }}
+                  >
+                    CASE STUDY 1
+                  </Text>
+                </View>
+
+                <Text
+                  style={{
+                    color: "#000000",
+                    fontFamily: "Inter_600SemiBold",
+                    marginTop: 20,
+                    fontSize: 20,
+                  }}
+                >
+                  Disability Charity
+                </Text>
+
+                <Text
+                  style={{
+                    color: "#6e6e6e",
+                    fontFamily: "Inter_400Regular",
+                    marginTop: 20,
+                    fontSize: 15,
+                  }}
+                >
+                  Turned a sensitive topic into highly fundable statutory
+                  proposal. I presented a clear, stratetgic, low-risk
+                  investment.
+                </Text>
+
+                <Text
+                  style={{
+                    fontSize: 15,
+                    fontFamily: "Inter_600SemiBold",
+                    marginTop: 30,
+                    color: "#929292",
+                  }}
+                >
+                  OUTCOME
+                </Text>
+
+                <Text
+                  style={{
+                    marginTop: 10,
+                    fontSize: 20,
+                    fontFamily: "Inter_600SemiBold",
+                    color: "#fd3c3c",
+                  }}
+                >
+                  £110K Grant Secured
+                </Text>
+
+                <Text
+                  style={{
+                    marginTop: 10,
+                    fontSize: 15,
+                    fontFamily: "Inter_400Regular",
+                    color: "#fd3c3cb0",
+                  }}
+                >
+                  Increased and improved employability support for disabled
+                  people.
+                </Text>
+              </View>
+
+              {/* Case study 2 */}
+
+              <View
+                style={{
+                  borderRadius: 30,
+                  width: 400,
+                  height: 380,
+                  maxWidth: "90%",
+                  backgroundColor: "#ffffff",
+                  padding: 30,
+
+                  opacity: 0.8,
+
+                  borderColor: "#e0e0e0",
+
+                  justifyContent: "space-between",
+
+                  shadowColor: "#000",
+                  shadowOffset: { width: 0, height: 10 },
+                  shadowOpacity: 0.05,
+                  shadowRadius: 20,
+                  elevation: 5,
+                }}
+              >
+                <View
+                  style={{
+                    backgroundColor: "#ff525215",
+                    borderRadius: 10,
+                    height: 25,
+                    width: 120,
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                >
+                  <Text
+                    style={{
+                      color: "#ff5252",
+                      fontSize: 12,
+                      fontFamily: "Inter_600SemiBold",
+                      letterSpacing: 0,
+                      alignSelf: "center",
+                    }}
+                  >
+                    CASE STUDY 2
+                  </Text>
+                </View>
+
+                <Text
+                  style={{
+                    color: "#000000",
+                    fontFamily: "Inter_600SemiBold",
+                    marginTop: 20,
+                    fontSize: 20,
+                  }}
+                >
+                  Womens and girls Charity
+                </Text>
+
+                <Text
+                  style={{
+                    color: "#6e6e6e",
+                    fontFamily: "Inter_400Regular",
+                    marginTop: 20,
+                    fontSize: 15,
+                  }}
+                >
+                  No investment in major gifts and grants income. Devised and
+                  implemented a replicable bid development framework.
+                </Text>
+
+                <Text
+                  style={{
+                    fontSize: 15,
+                    fontFamily: "Inter_600SemiBold",
+                    marginTop: 30,
+                    color: "#929292",
+                  }}
+                >
+                  OUTCOME
+                </Text>
+
+                <Text
+                  style={{
+                    marginTop: 10,
+                    fontSize: 20,
+                    fontFamily: "Inter_600SemiBold",
+                    color: "#fd3c3c",
+                  }}
+                >
+                  £1M Grant Secured
+                </Text>
+
+                <Text
+                  style={{
+                    marginTop: 10,
+                    fontSize: 15,
+                    fontFamily: "Inter_400Regular",
+                    color: "#fd3c3cb0",
+                  }}
+                >
+                  More young girls and women accessing early, preventative
+                  support
+                </Text>
+              </View>
+
+              {/* Case study 3 */}
+
+              <View
+                style={{
+                  borderRadius: 30,
+                  width: 400,
+                  height: 380,
+                  maxWidth: "90%",
+                  backgroundColor: "#ffffff",
+                  padding: 30,
+
+                  borderColor: "#e0e0e0",
+
+                  opacity: 0.8,
+
+                  justifyContent: "space-between",
+
+                  shadowColor: "#000",
+                  shadowOffset: { width: 0, height: 10 },
+                  shadowOpacity: 0.05,
+                  shadowRadius: 20,
+                  elevation: 5,
+                }}
+              >
+                <View
+                  style={{
+                    backgroundColor: "#ff525215",
+                    borderRadius: 10,
+                    height: 25,
+                    width: 120,
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                >
+                  <Text
+                    style={{
+                      color: "#ff5252",
+                      fontSize: 12,
+                      fontFamily: "Inter_600SemiBold",
+                      letterSpacing: 0,
+                      alignSelf: "center",
+                    }}
+                  >
+                    CASE STUDY 3
+                  </Text>
+                </View>
+
+                <Text
+                  style={{
+                    color: "#000000",
+                    fontFamily: "Inter_600SemiBold",
+                    marginTop: 20,
+                    fontSize: 20,
+                  }}
+                >
+                  Youth work Chairty
+                </Text>
+
+                <Text
+                  style={{
+                    color: "#6e6e6e",
+                    fontFamily: "Inter_400Regular",
+                    marginTop: 20,
+                    fontSize: 15,
+                  }}
+                >
+                  Strong impact data but unclear proposals. I did a case for
+                  support and central strategic input.{" "}
+                </Text>
+
+                <Text
+                  style={{
+                    fontSize: 15,
+                    fontFamily: "Inter_600SemiBold",
+                    marginTop: 30,
+                    color: "#929292",
+                  }}
+                >
+                  OUTCOME
+                </Text>
+
+                <Text
+                  style={{
+                    marginTop: 10,
+                    fontSize: 20,
+                    fontFamily: "Inter_600SemiBold",
+                    color: "#fd3c3c",
+                  }}
+                >
+                  £225K Partnership Secured
+                </Text>
+
+                <Text
+                  style={{
+                    marginTop: 10,
+                    fontSize: 15,
+                    fontFamily: "Inter_400Regular",
+                    color: "#fd3c3cb0",
+                  }}
+                >
+                  Consistent messaging across fundraising and marketing,
+                  strengthening the charity’s brand and impact.
+                </Text>
+              </View>
+            </View>
+          </View>
+        </View>
+
+        {/* CONTACT SECTION */}
+
         <View
           ref={contactRef}
           style={{
@@ -721,7 +1131,8 @@ export default function About() {
             <View
               style={{
                 width: "100%",
-                maxWidth: 500,
+                maxWidth: 600,
+                minHeight: 600,
                 aspectRatio: 1,
                 backgroundColor: "#494949",
                 borderRadius: 30,
@@ -865,6 +1276,9 @@ export default function About() {
               </View>
 
               <TouchableOpacity
+                onPress={() =>
+                  alert("This feature is currently under development.")
+                }
                 style={{
                   backgroundColor: "#ff5252",
                   paddingHorizontal: 30,
@@ -877,9 +1291,10 @@ export default function About() {
                   justifyContent: "center",
                   gap: 10,
                   shadowColor: "#ff5252",
-                  shadowOffset: { width: 0, height: 4 },
-                  shadowOpacity: 0.3,
-                  shadowRadius: 8,
+                  shadowOffset: { width: 0, height: 2 },
+                  shadowOpacity: 0.8,
+                  shadowRadius: 10,
+                  opacity: 0.9,
                 }}
               >
                 <Text
