@@ -404,7 +404,7 @@ export default function About() {
             }}
           >
             <Image
-              source={require("./assets/work3.png")}
+              source={require("./assets/work7.png")}
               style={{ width: "100%", height: "100%", position: "absolute" }}
             />
 
@@ -730,7 +730,7 @@ export default function About() {
             }}
           >
             <Image
-              source={require("./assets/work5.png")}
+              source={require("./assets/work8.png")}
               style={{ width: "100%", height: "100%", position: "absolute" }}
             />
 
