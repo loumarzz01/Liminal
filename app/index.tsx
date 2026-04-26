@@ -181,6 +181,7 @@ export default function About() {
               backgroundColor: "#ffffff",
               borderRadius: 40,
               overflow: "hidden",
+              padding: 40,
             }}
           >
             <Image
@@ -329,7 +330,7 @@ export default function About() {
                   gap: 60,
                   flexDirection: "row",
                   flexWrap: "wrap",
-                  maxWidth: 650,
+                  maxWidth: 600,
                   maxHeight: 300,
                   marginTop: 60,
                 }}
@@ -360,7 +361,7 @@ export default function About() {
                   <Text
                     style={{ fontSize: 40, fontFamily: "Inter_600Semibold" }}
                   >
-                    Multiple 6 & 7 figure
+                    Multiple 6 & 7{"\n"}figure
                   </Text>
 
                   <Text
@@ -412,7 +413,7 @@ export default function About() {
               <Text
                 style={{
                   color: "#ff5252",
-                  fontSize: 50,
+                  fontSize: 40,
                   fontFamily: "Inter_600SemiBold",
                 }}
               >
@@ -727,6 +728,7 @@ export default function About() {
               borderRadius: 40,
               overflow: "hidden",
               paddingVertical: 40,
+              paddingHorizontal: 0,
             }}
           >
             <Image
@@ -738,8 +740,8 @@ export default function About() {
               <Text
                 style={{
                   color: "#ff5252",
-                  marginTop: -20,
-                  fontSize: 50,
+                  marginTop: 40,
+                  fontSize: 40,
                   fontFamily: "Inter_600SemiBold",
                 }}
               >
@@ -1095,7 +1097,7 @@ export default function About() {
           <Text
             style={{
               fontFamily: "Inter_600SemiBold",
-              fontSize: 50,
+              fontSize: 40,
               textAlign: "center",
             }}
           >
