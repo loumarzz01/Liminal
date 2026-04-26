@@ -1005,6 +1005,7 @@ export default function About() {
                     width: 120,
                     justifyContent: "center",
                     alignItems: "center",
+                    marginBottom: 0,
                   }}
                 >
                   <Text
