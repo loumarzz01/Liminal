@@ -360,7 +360,7 @@ export default function About() {
                   <Text
                     style={{ fontSize: 40, fontFamily: "Inter_600Semibold" }}
                   >
-                    £7M+
+                    £700K+
                   </Text>
 
                   <Text
