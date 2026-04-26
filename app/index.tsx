@@ -730,7 +730,7 @@ export default function About() {
             }}
           >
             <Image
-              source={require("./assets/work8.png")}
+              source={require("./assets/work4.png")}
               style={{ width: "100%", height: "100%", position: "absolute" }}
             />
 
