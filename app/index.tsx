@@ -430,7 +430,7 @@ export default function About() {
             <View style={{ alignItems: "center", justifyContent: "center" }}>
               <Text
                 style={{
-                  color: "#ff5252",
+                  color: "#000000",
                   fontSize: 40,
                   fontFamily: "Inter_600SemiBold",
                 }}
@@ -757,7 +757,7 @@ export default function About() {
             <View style={{ alignItems: "center", justifyContent: "center" }}>
               <Text
                 style={{
-                  color: "#ff5252",
+                  color: "#000000",
                   marginTop: 40,
                   fontSize: 40,
                   fontFamily: "Inter_600SemiBold",
