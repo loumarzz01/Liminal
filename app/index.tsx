@@ -31,12 +31,19 @@ export default function About() {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
 
+  const [sent, setSent] = useState(false);
+
+  const [focusedField, setFocusedField] = useState(null);
+
   const handlePress = () => {
     fetch("https://formspree.io/f/mjgjdnrl", {
       method: "POST",
       body: JSON.stringify({ name, email, message }),
       headers: { "Content-Type": "application/json" },
-    }).then(() => alert("Sent!"));
+    }).then(() => {
+      alert("Sent!");
+      setSent(true);
+    });
   };
 
   const scrollToSection = (ref) => {
@@ -1119,15 +1126,19 @@ export default function About() {
 
           <Text
             style={{
-              fontSize: 20,
+              fontSize: 18,
               marginTop: 20,
-              fontFamily: "Inter_600SemiBold",
+              fontFamily: "Inter_400Regular",
               color: "#494949",
               textAlign: "center",
+              maxWidth: 600,
             }}
           >
-            If you'd like to talk about your fundraising needs, please get in
-            touch.
+            If you'd like to talk about your{" "}
+            <Text style={{ fontFamily: "Inter_600SemiBold", color: "#ff5252" }}>
+              fundraising needs
+            </Text>
+            , please get in touch. I am able to reply within two working days.
           </Text>
 
           {/* Image / contact UI */}
@@ -1164,13 +1175,15 @@ export default function About() {
             <View
               style={{
                 width: "100%",
+                borderWidth: 1,
+                borderColor: "#EEEEEE",
                 maxWidth: 600,
                 padding: 30,
                 minHeight: 600,
                 backgroundColor: "#f8f8f8",
                 borderRadius: 30,
                 overflow: "hidden",
-                justifyContent: "center",
+                justifyContent: "space-between",
                 alignItems: "center",
               }}
             >
@@ -1178,6 +1191,8 @@ export default function About() {
                 style={{
                   alignSelf: "flex-start",
                   fontFamily: "Inter_600SemiBold",
+                  marginTop: 30,
+                  color: focusedField === "name" ? "#ff5252" : "#303030",
                 }}
               >
                 Full Name
@@ -1190,27 +1205,38 @@ export default function About() {
                   borderRadius: 15,
                   height: 50,
                   width: "100%",
-                  marginTop: 10,
+
+                  transitionProperty:
+                    "border-color, background-color, shadow-color",
+                  transitionDuration: "0.2s",
+                  transitionTimingFunction: "ease-in-out",
+                  borderWidth: 2,
+                  borderColor:
+                    focusedField === "name" ? "#ff5252" : "transparent",
                   paddingHorizontal: 15,
                 }}
               >
                 <MaterialCommunityIcons
                   name="account-outline"
                   size={20}
-                  color="#303030"
+                  color={focusedField === "name" ? "#ff5252" : "#303030"}
                 />
                 <TextInput
+                  onFocus={() => setFocusedField("name")}
                   placeholder="Enter your name"
+                  placeholderTextColor="#888888"
                   value={name}
                   onChangeText={setName}
                   style={{
                     flex: 1,
+
                     height: "100%",
                     marginLeft: 10,
+
                     fontFamily: "Inter_400Regular",
                     fontSize: 14,
                     outlineStyle: "none",
-                    color: "#888888",
+                    color: "#1A1A1A",
                   }}
                 />
               </View>
@@ -1220,6 +1246,7 @@ export default function About() {
                   alignSelf: "flex-start",
                   fontFamily: "Inter_600SemiBold",
                   marginTop: 20,
+                  color: focusedField === "email" ? "#ff5252" : "#303030",
                 }}
               >
                 Email
@@ -1231,18 +1258,28 @@ export default function About() {
                   backgroundColor: "#ffffff",
                   borderRadius: 15,
                   height: 50,
+                  transitionProperty:
+                    "border-color, background-color, shadow-color",
+                  transitionDuration: "0.2s",
+                  transitionTimingFunction: "ease-in-out",
+
                   width: "100%",
                   marginTop: 10,
                   paddingHorizontal: 15,
+                  borderWidth: 2,
+                  borderColor:
+                    focusedField === "email" ? "#ff5252" : "transparent",
                 }}
               >
                 <MaterialCommunityIcons
                   name="email-outline"
                   size={20}
-                  color="#303030"
+                  color={focusedField === "email" ? "#ff5252" : "#303030"}
                 />
                 <TextInput
+                  onFocus={() => setFocusedField("email")}
                   placeholder="Enter your email"
+                  placeholderTextColor="#888888"
                   value={email}
                   onChangeText={setEmail}
                   style={{
@@ -1252,7 +1289,7 @@ export default function About() {
                     fontFamily: "Inter_400Regular",
                     fontSize: 14,
                     outlineStyle: "none",
-                    color: "#888888",
+                    color: "#1A1A1A",
                   }}
                 />
               </View>
@@ -1262,6 +1299,7 @@ export default function About() {
                   alignSelf: "flex-start",
                   fontFamily: "Inter_600SemiBold",
                   marginTop: 20,
+                  color: focusedField === "message" ? "#ff5252" : "#303030",
                 }}
               >
                 Message
@@ -1272,15 +1310,25 @@ export default function About() {
                   alignItems: "center",
                   backgroundColor: "#ffffff",
                   borderRadius: 15,
+
+                  transitionProperty:
+                    "border-color, background-color, shadow-color",
+                  transitionDuration: "0.2s",
+                  transitionTimingFunction: "ease-in-out",
                   height: 150,
                   width: "100%",
+                  borderWidth: 2,
+                  borderColor:
+                    focusedField === "message" ? "#ff5252" : "transparent",
                   marginTop: 10,
                   paddingHorizontal: 15,
                 }}
               >
                 <TextInput
+                  onFocus={() => setFocusedField("message")}
                   multiline={true}
                   placeholder="Enter your message"
+                  placeholderTextColor="#888888"
                   value={message}
                   onChangeText={setMessage}
                   style={{
@@ -1289,7 +1337,7 @@ export default function About() {
                     fontFamily: "Inter_400Regular",
                     fontSize: 14,
                     outlineStyle: "none",
-                    color: "#888888",
+                    color: "#1A1A1A",
                     textAlignVertical: "top",
                     paddingTop: 15,
                   }}
@@ -1299,19 +1347,21 @@ export default function About() {
               <TouchableOpacity
                 onPress={handlePress}
                 style={{
-                  backgroundColor: "#ff5252",
+                  backgroundColor: sent ? "#999999" : "#ff5252",
                   paddingHorizontal: 30,
                   paddingVertical: 20,
                   alignSelf: "flex-start",
+
                   marginTop: 40,
                   borderRadius: 99,
                   flexDirection: "row",
+                  width: "100%",
                   alignItems: "center",
                   justifyContent: "center",
                   gap: 10,
-                  shadowColor: "#ff5252",
+                  shadowColor: sent ? "#999999" : "#ff5252",
                   shadowOffset: { width: 0, height: 2 },
-                  shadowOpacity: 0.8,
+                  shadowOpacity: 0.2,
                   shadowRadius: 10,
                   opacity: 0.9,
                 }}
@@ -1323,13 +1373,16 @@ export default function About() {
                     fontSize: 16,
                   }}
                 >
-                  Send message
+                  {sent ? "Sent" : "Send message"}
                 </Text>
-                <MaterialCommunityIcons
-                  name="arrow-right"
-                  size={20}
-                  color="#ffffff"
-                />
+
+                {!sent && (
+                  <MaterialCommunityIcons
+                    name="arrow-right"
+                    size={20}
+                    color="#ffffff"
+                  />
+                )}
               </TouchableOpacity>
             </View>
           </View>
