@@ -401,7 +401,7 @@ export default function About() {
         <View
           ref={servicesRef}
           style={{
-            minHeight: 750,
+            minHeight: 700,
             width: "100%",
             backgroundColor: "white",
             paddingVertical: 20,
@@ -727,7 +727,7 @@ export default function About() {
         <View
           ref={caseStudiesRef}
           style={{
-            minHeight: 750,
+            minHeight: 650,
             width: "100%",
             backgroundColor: "white",
             paddingVertical: 20,
@@ -758,7 +758,6 @@ export default function About() {
               <Text
                 style={{
                   color: "#000000",
-                  marginTop: 40,
                   fontSize: 40,
                   fontFamily: "Inter_600SemiBold",
                 }}
