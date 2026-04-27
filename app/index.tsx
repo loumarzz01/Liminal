@@ -16,7 +16,7 @@ import {
   useWindowDimensions,
 } from "react-native";
 
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
 export default function About() {
   const { height, width } = useWindowDimensions();
@@ -26,6 +26,18 @@ export default function About() {
   const servicesRef = useRef(null);
   const caseStudiesRef = useRef(null);
   const contactRef = useRef(null);
+
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+
+  const handlePress = () => {
+    fetch("https://formspree.io/f/mjgjdnrl", {
+      method: "POST",
+      body: JSON.stringify({ name, email, message }),
+      headers: { "Content-Type": "application/json" },
+    }).then(() => alert("Sent!"));
+  };
 
   const scrollToSection = (ref) => {
     if (scrollRef.current && ref.current) {
@@ -1189,6 +1201,8 @@ export default function About() {
                 />
                 <TextInput
                   placeholder="Enter your name"
+                  value={name}
+                  onChangeText={setName}
                   style={{
                     flex: 1,
                     height: "100%",
@@ -1229,6 +1243,8 @@ export default function About() {
                 />
                 <TextInput
                   placeholder="Enter your email"
+                  value={email}
+                  onChangeText={setEmail}
                   style={{
                     flex: 1,
                     height: "100%",
@@ -1265,6 +1281,8 @@ export default function About() {
                 <TextInput
                   multiline={true}
                   placeholder="Enter your message"
+                  value={message}
+                  onChangeText={setMessage}
                   style={{
                     flex: 1,
                     height: "100%",
@@ -1279,9 +1297,7 @@ export default function About() {
               </View>
 
               <TouchableOpacity
-                onPress={() =>
-                  alert("This feature is currently under development.")
-                }
+                onPress={handlePress}
                 style={{
                   backgroundColor: "#ff5252",
                   paddingHorizontal: 30,
