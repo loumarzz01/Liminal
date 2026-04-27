@@ -41,7 +41,6 @@ export default function About() {
       body: JSON.stringify({ name, email, message }),
       headers: { "Content-Type": "application/json" },
     }).then(() => {
-      alert("Sent!");
       setSent(true);
     });
   };
