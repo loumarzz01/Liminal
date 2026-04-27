@@ -1221,6 +1221,7 @@ export default function About() {
                 />
                 <TextInput
                   onFocus={() => setFocusedField("name")}
+                  onBlur={() => setFocusedField(null)}
                   placeholder="Enter your name"
                   placeholderTextColor="#888888"
                   value={name}
@@ -1276,6 +1277,7 @@ export default function About() {
                 />
                 <TextInput
                   onFocus={() => setFocusedField("email")}
+                  onBlur={() => setFocusedField(null)}
                   placeholder="Enter your email"
                   placeholderTextColor="#888888"
                   value={email}
@@ -1324,6 +1326,7 @@ export default function About() {
               >
                 <TextInput
                   onFocus={() => setFocusedField("message")}
+                  onBlur={() => setFocusedField(null)}
                   multiline={true}
                   placeholder="Enter your message"
                   placeholderTextColor="#888888"
