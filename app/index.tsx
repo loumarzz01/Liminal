@@ -951,7 +951,7 @@ export default function About() {
                     fontSize: 15,
                   }}
                 >
-                  No investment in major gifts and grants income. Devised and
+                  No investment in major gifts and grants income. I devised and
                   implemented a replicable bid development framework.
                 </Text>
 
