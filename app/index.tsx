@@ -357,7 +357,7 @@ export default function About() {
 
                 <View style={{ flexDirection: "column" }}>
                   <Text
-                    style={{ fontSize: 40, fontFamily: "Inter_600Semibold" }}
+                    style={{ fontSize: 40, fontFamily: "Inter_600SemiBold" }}
                   >
                     15+
                   </Text>
@@ -377,7 +377,7 @@ export default function About() {
 
                 <View style={{ flexDirection: "column" }}>
                   <Text
-                    style={{ fontSize: 40, fontFamily: "Inter_600Semibold" }}
+                    style={{ fontSize: 40, fontFamily: "Inter_600SemiBold" }}
                   >
                     Multiple 6 & 7{"\n"}figure
                   </Text>
@@ -846,7 +846,7 @@ export default function About() {
                   }}
                 >
                   Turned a sensitive topic into a highly fundable statutory
-                  proposal. I presented a clear, stratetgic, low-risk
+                  proposal. I presented a clear, strategic, low-risk
                   investment.
                 </Text>
 
@@ -940,7 +940,7 @@ export default function About() {
                     fontSize: 20,
                   }}
                 >
-                  Womens and girls Charity
+                  Women's and Girls' Charity
                 </Text>
 
                 <Text
@@ -996,7 +996,8 @@ export default function About() {
                 style={{
                   borderRadius: 30,
                   width: 400,
-                  height: 380,
+                  minHeight: 380,
+                
                   maxWidth: "90%",
                   backgroundColor: "#ffffff",
                   padding: 30,
@@ -1089,7 +1090,7 @@ export default function About() {
                     fontSize: 15,
                     fontFamily: "Inter_400Regular",
                     color: "#fd3c3cb0",
-                    marginBottom: 40,
+                    
                   }}
                 >
                   Consistent messaging across fundraising and marketing,
