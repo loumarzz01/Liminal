@@ -1046,7 +1046,7 @@ export default function About() {
                     fontSize: 20,
                   }}
                 >
-                  Youth work Chairty
+                  Youth work Charity
                 </Text>
 
                 <Text
@@ -1057,7 +1057,7 @@ export default function About() {
                     fontSize: 15,
                   }}
                 >
-                  Strong impact data but unclear proposals. I did a case for
+                  Strong impact data but unclear proposals. I produced a case for
                   support and central strategic input.{" "}
                 </Text>
 
