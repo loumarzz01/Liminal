@@ -1058,7 +1058,7 @@ export default function About() {
                   }}
                 >
                   Strong impact data but unclear proposals. I produced a case for
-                  support and central strategic input.{" "}
+                  support and provided central strategic input.{" "}
                 </Text>
 
                 <Text
@@ -1089,6 +1089,7 @@ export default function About() {
                     fontSize: 15,
                     fontFamily: "Inter_400Regular",
                     color: "#fd3c3cb0",
+                    marginBottom: 40,
                   }}
                 >
                   Consistent messaging across fundraising and marketing,
