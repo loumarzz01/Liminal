@@ -80,7 +80,7 @@ export default function About() {
       {/* Navigation bar */}
       {visible && (
         <View
-          role="navigation"
+          accessibilityRole="header"
           style={{
             position: "absolute",
             maxWidth: 800,
@@ -188,11 +188,11 @@ export default function About() {
         </View>
       )}
 
-      <ScrollView role="main" ref={scrollRef} style={{ flex: 1 }}>
+      <ScrollView accessibilityRole="main" ref={scrollRef} style={{ flex: 1 }}>
         {/* INTRO SECTION */}
         <View
           ref={introRef}
-          role="region"
+          accessibilityRole="region"
           style={{
             width: "100%",
             minHeight: 920,
@@ -297,6 +297,8 @@ export default function About() {
                 }}
               >
                 <TouchableOpacity
+                  accessibilityLabel="Book a discovery call"
+                  accessibilityRole = "button"
                   onPress={() => scrollToSection(contactRef)}
                   style={{
                     paddingHorizontal: 35,
@@ -322,6 +324,8 @@ export default function About() {
                 </TouchableOpacity>
 
                 <TouchableOpacity
+                  accessibilityLabel="View services"
+                  accessibilityRole = "button"
                   onPress={() => scrollToSection(servicesRef)}
                   style={{
                     paddingHorizontal: 30,
@@ -375,7 +379,7 @@ export default function About() {
 
                   <Text
                     style={{
-                      color: "#595959",
+                      color: "#6d6d6d",
                       fontSize: 20,
                       fontFamily: "Inter_400Regular",
                     }}
@@ -411,7 +415,7 @@ export default function About() {
         {/* SERVICES SECTION */}
         <View
           ref={servicesRef}
-          role="region"
+          accessibilityRole="region"
           style={{
             minHeight: 700,
             width: "100%",
@@ -738,7 +742,7 @@ export default function About() {
 
         <View
           ref={caseStudiesRef}
-          role="region"
+          accessibilityRole="region"
           style={{
             minHeight: 650,
             width: "100%",
@@ -1118,7 +1122,7 @@ export default function About() {
 
         <View
           ref={contactRef}
-          role="region"
+          accessibilityRole="region"
           style={{
             minHeight: 800,
             backgroundColor: "white",
@@ -1237,6 +1241,7 @@ export default function About() {
                 />
                 <TextInput
                   onFocus={() => setFocusedField("name")}
+                  accessibilityLabel="Full Name"
                   onBlur={() => setFocusedField(null)}
                   placeholder="Enter your name"
                   placeholderTextColor="#656565"
@@ -1293,6 +1298,7 @@ export default function About() {
                 />
                 <TextInput
                   onFocus={() => setFocusedField("email")}
+                  accessibilityLabel="Email"
                   onBlur={() => setFocusedField(null)}
                   placeholder="Enter your email"
                   placeholderTextColor="#656565"
@@ -1342,6 +1348,7 @@ export default function About() {
               >
                 <TextInput
                   onFocus={() => setFocusedField("message")}
+                  accessibilityLabel="Message"
                   onBlur={() => setFocusedField(null)}
                   multiline={true}
                   placeholder="Enter your message"
