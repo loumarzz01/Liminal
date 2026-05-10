@@ -18,6 +18,8 @@ import {
 
 import { useRef, useState } from "react";
 
+import Head from 'expo-router/head';
+
 export default function About() {
   const { height, width } = useWindowDimensions();
 
@@ -67,10 +69,18 @@ export default function About() {
   if (!fontsLoaded) return null;
 
   return (
+
+    <>
+    <Head>
+      <title>Liminal | Strategic Fundraising Support</title>
+    </Head>
+
+
     <View style={{ flex: 1 }}>
       {/* Navigation bar */}
       {visible && (
         <View
+          role="navigation"
           style={{
             position: "absolute",
             maxWidth: 800,
@@ -178,10 +188,11 @@ export default function About() {
         </View>
       )}
 
-      <ScrollView ref={scrollRef} style={{ flex: 1 }}>
+      <ScrollView role="main" ref={scrollRef} style={{ flex: 1 }}>
         {/* INTRO SECTION */}
         <View
           ref={introRef}
+          role="region"
           style={{
             width: "100%",
             minHeight: 920,
@@ -364,7 +375,7 @@ export default function About() {
 
                   <Text
                     style={{
-                      color: "#9b9b9b",
+                      color: "#595959",
                       fontSize: 20,
                       fontFamily: "Inter_400Regular",
                     }}
@@ -384,7 +395,7 @@ export default function About() {
 
                   <Text
                     style={{
-                      color: "#9b9b9b",
+                      color: "#595959",
                       fontSize: 20,
                       fontFamily: "Inter_400Regular",
                     }}
@@ -400,6 +411,7 @@ export default function About() {
         {/* SERVICES SECTION */}
         <View
           ref={servicesRef}
+          role="region"
           style={{
             minHeight: 700,
             width: "100%",
@@ -534,10 +546,10 @@ export default function About() {
                 </Text>
                 <Text
                   style={{
-                    color: "#7a7a7a",
+                    color: "#595959",
                     marginTop: 10,
                     fontFamily: "Inter_400Regular",
-                    fontWeight: "bold",
+                    
                     fontSize: 15,
                   }}
                 >
@@ -592,10 +604,10 @@ export default function About() {
                 </Text>
                 <Text
                   style={{
-                    color: "#7a7a7a",
+                    color: "#595959",
                     marginTop: 10,
                     fontFamily: "Inter_400Regular",
-                    fontWeight: "bold",
+                  
                     fontSize: 15,
                   }}
                 >
@@ -650,10 +662,10 @@ export default function About() {
                 </Text>
                 <Text
                   style={{
-                    color: "#7a7a7a",
+                    color: "#595959",
                     marginTop: 10,
                     fontFamily: "Inter_400Regular",
-                    fontWeight: "bold",
+                    
                     fontSize: 15,
                   }}
                 >
@@ -708,10 +720,10 @@ export default function About() {
                 </Text>
                 <Text
                   style={{
-                    color: "#7a7a7a",
+                    color: "#595959",
                     marginTop: 10,
                     fontFamily: "Inter_400Regular",
-                    fontWeight: "bold",
+                    
                     fontSize: 15,
                   }}
                 >
@@ -726,6 +738,7 @@ export default function About() {
 
         <View
           ref={caseStudiesRef}
+          role="region"
           style={{
             minHeight: 650,
             width: "100%",
@@ -815,7 +828,7 @@ export default function About() {
                 >
                   <Text
                     style={{
-                      color: "#ff5252",
+                      color: "#fd3c3c",
                       fontSize: 12,
                       fontFamily: "Inter_600SemiBold",
                       letterSpacing: 0,
@@ -839,7 +852,7 @@ export default function About() {
 
                 <Text
                   style={{
-                    color: "#6e6e6e",
+                    color: "#595959",
                     fontFamily: "Inter_400Regular",
                     marginTop: 20,
                     fontSize: 15,
@@ -855,7 +868,7 @@ export default function About() {
                     fontSize: 15,
                     fontFamily: "Inter_600SemiBold",
                     marginTop: 30,
-                    color: "#929292",
+                    color: "#595959",
                   }}
                 >
                   OUTCOME
@@ -877,7 +890,7 @@ export default function About() {
                     marginTop: 10,
                     fontSize: 15,
                     fontFamily: "Inter_400Regular",
-                    color: "#fd3c3cb0",
+                    color: "#fd3c3c",
                   }}
                 >
                   Increased and improved employability support for disabled
@@ -921,7 +934,7 @@ export default function About() {
                 >
                   <Text
                     style={{
-                      color: "#ff5252",
+                      color: "#fd3c3c",
                       fontSize: 12,
                       fontFamily: "Inter_600SemiBold",
                       letterSpacing: 0,
@@ -945,7 +958,7 @@ export default function About() {
 
                 <Text
                   style={{
-                    color: "#6e6e6e",
+                    color: "#595959",
                     fontFamily: "Inter_400Regular",
                     marginTop: 20,
                     fontSize: 15,
@@ -960,7 +973,7 @@ export default function About() {
                     fontSize: 15,
                     fontFamily: "Inter_600SemiBold",
                     marginTop: 30,
-                    color: "#929292",
+                    color: "#595959",
                   }}
                 >
                   OUTCOME
@@ -982,7 +995,7 @@ export default function About() {
                     marginTop: 10,
                     fontSize: 15,
                     fontFamily: "Inter_400Regular",
-                    color: "#fd3c3cb0",
+                    color: "#fd3c3c",
                   }}
                 >
                   More young girls and women accessing early, preventative
@@ -1028,7 +1041,7 @@ export default function About() {
                 >
                   <Text
                     style={{
-                      color: "#ff5252",
+                      color: "#fd3c3c",
                       fontSize: 12,
                       fontFamily: "Inter_600SemiBold",
                       letterSpacing: 0,
@@ -1052,7 +1065,7 @@ export default function About() {
 
                 <Text
                   style={{
-                    color: "#6e6e6e",
+                    color: "#595959",
                     fontFamily: "Inter_400Regular",
                     marginTop: 20,
                     fontSize: 15,
@@ -1067,7 +1080,7 @@ export default function About() {
                     fontSize: 15,
                     fontFamily: "Inter_600SemiBold",
                     marginTop: 30,
-                    color: "#929292",
+                    color: "#595959",
                   }}
                 >
                   OUTCOME
@@ -1089,7 +1102,7 @@ export default function About() {
                     marginTop: 10,
                     fontSize: 15,
                     fontFamily: "Inter_400Regular",
-                    color: "#fd3c3cb0",
+                    color: "#fd3c3c",
                     
                   }}
                 >
@@ -1105,6 +1118,7 @@ export default function About() {
 
         <View
           ref={contactRef}
+          role="region"
           style={{
             minHeight: 800,
             backgroundColor: "white",
@@ -1225,7 +1239,7 @@ export default function About() {
                   onFocus={() => setFocusedField("name")}
                   onBlur={() => setFocusedField(null)}
                   placeholder="Enter your name"
-                  placeholderTextColor="#888888"
+                  placeholderTextColor="#656565"
                   value={name}
                   onChangeText={setName}
                   style={{
@@ -1281,7 +1295,7 @@ export default function About() {
                   onFocus={() => setFocusedField("email")}
                   onBlur={() => setFocusedField(null)}
                   placeholder="Enter your email"
-                  placeholderTextColor="#888888"
+                  placeholderTextColor="#656565"
                   value={email}
                   onChangeText={setEmail}
                   style={{
@@ -1331,7 +1345,7 @@ export default function About() {
                   onBlur={() => setFocusedField(null)}
                   multiline={true}
                   placeholder="Enter your message"
-                  placeholderTextColor="#888888"
+                  placeholderTextColor="#656565"
                   value={message}
                   onChangeText={setMessage}
                   style={{
@@ -1392,5 +1406,6 @@ export default function About() {
         </View>
       </ScrollView>
     </View>
+    </>
   );
 }
