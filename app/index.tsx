@@ -80,7 +80,7 @@ export default function About() {
       {/* Navigation bar */}
       {visible && (
         <View
-          accessibilityRole="header"
+          accessibilityRole="navigation"
           style={{
             position: "absolute",
             maxWidth: 800,
@@ -105,7 +105,7 @@ export default function About() {
           }}
         >
           <TouchableOpacity>
-            <Image
+            <Image accessibilityRole="none"
               source={require("./assets/Liminal logo2.png")}
               style={{ width: 75, height: 20, resizeMode: "contain" }}
             />
@@ -119,7 +119,7 @@ export default function About() {
               justifyContent: "center",
             }}
           >
-            <TouchableOpacity onPress={() => scrollToSection(introRef)}>
+            <TouchableOpacity accessibilityRole="link" onPress={() => scrollToSection(introRef)}>
               <Text
                 style={{
                   fontFamily: "Inter_600SemiBold",
@@ -131,7 +131,7 @@ export default function About() {
               </Text>
             </TouchableOpacity>
 
-            <TouchableOpacity onPress={() => scrollToSection(servicesRef)}>
+            <TouchableOpacity accessibilityRole="link" onPress={() => scrollToSection(servicesRef)}>
               <Text
                 style={{
                   fontFamily: "Inter_600SemiBold",
@@ -143,7 +143,7 @@ export default function About() {
               </Text>
             </TouchableOpacity>
 
-            <TouchableOpacity onPress={() => scrollToSection(caseStudiesRef)}>
+            <TouchableOpacity accessibilityRole="link" onPress={() => scrollToSection(caseStudiesRef)}>
               <Text
                 style={{
                   fontFamily: "Inter_600SemiBold",
@@ -166,9 +166,9 @@ export default function About() {
               paddingVertical: 10,
               borderRadius: 99,
               marginRight: -10,
-              backgroundColor: "#ff5252",
+              backgroundColor: "#f53b3b",
               gap: 5,
-              shadowColor: "#ff5252",
+              shadowColor: "#f53b3b",
               shadowOffset: { width: 0, height: 2 },
               shadowOpacity: 0.5,
               shadowRadius: 5,
@@ -188,11 +188,11 @@ export default function About() {
         </View>
       )}
 
-      <ScrollView accessibilityRole="main" ref={scrollRef} style={{ flex: 1 }}>
+      <ScrollView role="main" ref={scrollRef} style={{ flex: 1 }}>
         {/* INTRO SECTION */}
         <View
           ref={introRef}
-          accessibilityRole="region"
+          role="region"
           style={{
             width: "100%",
             minHeight: 920,
@@ -213,7 +213,7 @@ export default function About() {
               padding: 40,
             }}
           >
-            <Image
+            <Image accessibilityRole="none"
               style={{
                 width: "100%",
                 height: "100%",
@@ -231,12 +231,12 @@ export default function About() {
                 paddingHorizontal: 20,
               }}
             >
-              <Text
+              <Text aria-level="1" accessibilityRole="header"
                 style={{
                   fontFamily: "Inter_600SemiBold",
                   fontSize: 40,
                   letterSpacing: 0.3,
-                  color: "#ff5252",
+                  color: "#f53b3b",
                   textAlign: "center",
                   alignSelf: "center",
                 }}
@@ -269,7 +269,7 @@ export default function About() {
               >
                 I help local charities {""}
                 <Text
-                  style={{ fontFamily: "Inter_600SemiBold", color: "#ff5252" }}
+                  style={{ fontFamily: "Inter_600SemiBold", color: "#f53b3b" }}
                 >
                   strengthen their fundraising
                 </Text>
@@ -297,19 +297,18 @@ export default function About() {
                 }}
               >
                 <TouchableOpacity
-                  accessibilityLabel="Book a discovery call"
-                  accessibilityRole = "button"
+                  
                   onPress={() => scrollToSection(contactRef)}
                   style={{
                     paddingHorizontal: 35,
                     paddingVertical: 20,
-                    backgroundColor: "#ff5252",
+                    backgroundColor: "#f53b3b",
                     borderRadius: 99,
-                    shadowColor: "#ff5252",
+                    shadowColor: "#f53b3b",
                     shadowOffset: { width: 0, height: 2 },
-                    shadowOpacity: 0.8,
+                    shadowOpacity: 0.5,
                     shadowRadius: 10,
-                    opacity: 0.9,
+                    
                   }}
                 >
                   <Text
@@ -379,7 +378,7 @@ export default function About() {
 
                   <Text
                     style={{
-                      color: "#6d6d6d",
+                      color: "#595959",
                       fontSize: 20,
                       fontFamily: "Inter_400Regular",
                     }}
@@ -438,7 +437,7 @@ export default function About() {
               paddingVertical: 40,
             }}
           >
-            <Image
+            <Image accessibilityRole="none"
               source={require("./assets/work7.png")}
               style={{ width: "100%", height: "100%", position: "absolute" }}
             />
@@ -468,14 +467,14 @@ export default function About() {
               {" "}
               I provide clear,{" "}
               <Text
-                style={{ color: "#ff5252", fontFamily: "Inter_600SemiBold" }}
+                style={{ color: "#f53b3b", fontFamily: "Inter_600SemiBold" }}
               >
                 practical fundraising support
               </Text>{" "}
               for charities and community organisations. {"\n"}My work helps
               teams focus their{" "}
               <Text
-                style={{ color: "#ff5252", fontFamily: "Inter_600SemiBold" }}
+                style={{ color: "#f53b3b", fontFamily: "Inter_600SemiBold" }}
               >
                 time,
               </Text>
@@ -483,7 +482,7 @@ export default function About() {
               <Text> confidence </Text>
               and
               <Text
-                style={{ color: "#ff5252", fontFamily: "Inter_600SemiBold" }}
+                style={{ color: "#f53b3b", fontFamily: "Inter_600SemiBold" }}
               >
                 {" "}
                 secure{" "}
@@ -517,7 +516,7 @@ export default function About() {
                   shadowOpacity: 0.05,
                   shadowRadius: 10,
                   justifyContent: "center",
-                  opacity: 0.8,
+                  
                 }}
               >
                 <View
@@ -536,7 +535,7 @@ export default function About() {
                   <MaterialCommunityIcons
                     name="magnify-scan"
                     size={40}
-                    color="#ff5252"
+                    color="#f53b3b"
                   />
                 </View>
                 <Text
@@ -575,7 +574,7 @@ export default function About() {
                   shadowOpacity: 0.05,
                   shadowRadius: 10,
                   justifyContent: "center",
-                  opacity: 0.8,
+                  
                 }}
               >
                 <View
@@ -594,7 +593,7 @@ export default function About() {
                   <FontAwesome5
                     name="hand-holding-usd"
                     size={40}
-                    color="#ff5252"
+                    color="#f53b3b"
                   />
                 </View>
                 <Text
@@ -633,7 +632,7 @@ export default function About() {
                   shadowOpacity: 0.05,
                   shadowRadius: 10,
                   justifyContent: "center",
-                  opacity: 0.8,
+                  
                 }}
               >
                 <View
@@ -652,7 +651,7 @@ export default function About() {
                   <MaterialCommunityIcons
                     name="update"
                     size={40}
-                    color="#ff5252"
+                    color="#f53b3b"
                   />
                 </View>
                 <Text
@@ -690,7 +689,7 @@ export default function About() {
                   shadowOffset: { width: 2, height: 3 },
                   shadowOpacity: 0.05,
                   shadowRadius: 10,
-                  opacity: 0.8,
+                  
                   justifyContent: "center",
                 }}
               >
@@ -710,7 +709,7 @@ export default function About() {
                   <MaterialCommunityIcons
                     name="shield-star"
                     size={40}
-                    color="#ff5252"
+                    color="#f53b3b"
                   />
                 </View>
                 <Text
@@ -766,7 +765,7 @@ export default function About() {
               paddingHorizontal: 0,
             }}
           >
-            <Image
+            <Image accessibilityRole="none"
               source={require("./assets/work4.png")}
               style={{ width: "100%", height: "100%", position: "absolute" }}
             />
@@ -807,7 +806,7 @@ export default function About() {
                   backgroundColor: "#ffffff",
                   padding: 30,
 
-                  opacity: 0.8,
+                  
 
                   justifyContent: "space-between",
 
@@ -913,7 +912,7 @@ export default function About() {
                   backgroundColor: "#ffffff",
                   padding: 30,
 
-                  opacity: 0.8,
+                  
 
                   borderColor: "#e0e0e0",
 
@@ -1021,7 +1020,7 @@ export default function About() {
 
                   borderColor: "#e0e0e0",
 
-                  opacity: 0.8,
+                  
 
                   justifyContent: "space-between",
 
@@ -1153,7 +1152,7 @@ export default function About() {
             }}
           >
             If you'd like to talk about your{" "}
-            <Text style={{ fontFamily: "Inter_600SemiBold", color: "#ff5252" }}>
+            <Text style={{ fontFamily: "Inter_600SemiBold", color: "#f53b3b" }}>
               fundraising needs
             </Text>
             , please get in touch. I am able to reply within two working days.
@@ -1183,7 +1182,7 @@ export default function About() {
                 overflow: "hidden",
               }}
             >
-              <Image
+              <Image accessibilityRole="none"
                 source={require("./assets/smiling2.png")}
                 style={{ resizeMode: "cover", width: "100%", height: "100%" }}
               />
@@ -1210,7 +1209,7 @@ export default function About() {
                   alignSelf: "flex-start",
                   fontFamily: "Inter_600SemiBold",
                   marginTop: 30,
-                  color: focusedField === "name" ? "#ff5252" : "#303030",
+                  color: focusedField === "name" ? "#f53b3b" : "#303030",
                 }}
               >
                 Full Name
@@ -1230,18 +1229,19 @@ export default function About() {
                   transitionTimingFunction: "ease-in-out",
                   borderWidth: 2,
                   borderColor:
-                    focusedField === "name" ? "#ff5252" : "transparent",
+                    focusedField === "name" ? "#f53b3b" : "transparent",
                   paddingHorizontal: 15,
                 }}
               >
                 <MaterialCommunityIcons
                   name="account-outline"
                   size={20}
-                  color={focusedField === "name" ? "#ff5252" : "#303030"}
+                  color={focusedField === "name" ? "#f53b3b" : "#303030"}
                 />
                 <TextInput
                   onFocus={() => setFocusedField("name")}
                   accessibilityLabel="Full Name"
+                  accessibilityState={{ required: true }}
                   onBlur={() => setFocusedField(null)}
                   placeholder="Enter your name"
                   placeholderTextColor="#656565"
@@ -1266,7 +1266,7 @@ export default function About() {
                   alignSelf: "flex-start",
                   fontFamily: "Inter_600SemiBold",
                   marginTop: 20,
-                  color: focusedField === "email" ? "#ff5252" : "#303030",
+                  color: focusedField === "email" ? "#f53b3b" : "#303030",
                 }}
               >
                 Email
@@ -1288,16 +1288,17 @@ export default function About() {
                   paddingHorizontal: 15,
                   borderWidth: 2,
                   borderColor:
-                    focusedField === "email" ? "#ff5252" : "transparent",
+                    focusedField === "email" ? "#f53b3b" : "transparent",
                 }}
               >
                 <MaterialCommunityIcons
                   name="email-outline"
                   size={20}
-                  color={focusedField === "email" ? "#ff5252" : "#303030"}
+                  color={focusedField === "email" ? "#f53b3b" : "#303030"}
                 />
                 <TextInput
                   onFocus={() => setFocusedField("email")}
+                  accessibilityState={{ required: true }}
                   accessibilityLabel="Email"
                   onBlur={() => setFocusedField(null)}
                   placeholder="Enter your email"
@@ -1321,7 +1322,7 @@ export default function About() {
                   alignSelf: "flex-start",
                   fontFamily: "Inter_600SemiBold",
                   marginTop: 20,
-                  color: focusedField === "message" ? "#ff5252" : "#303030",
+                  color: focusedField === "message" ? "#f53b3b" : "#303030",
                 }}
               >
                 Message
@@ -1341,13 +1342,14 @@ export default function About() {
                   width: "100%",
                   borderWidth: 2,
                   borderColor:
-                    focusedField === "message" ? "#ff5252" : "transparent",
+                    focusedField === "message" ? "#f53b3b" : "transparent",
                   marginTop: 10,
                   paddingHorizontal: 15,
                 }}
               >
                 <TextInput
                   onFocus={() => setFocusedField("message")}
+                  accessibilityState={{ required: true }}
                   accessibilityLabel="Message"
                   onBlur={() => setFocusedField(null)}
                   multiline={true}
@@ -1370,11 +1372,17 @@ export default function About() {
 
               <TouchableOpacity
                 onPress={handlePress}
+                accessibilityRole="button"
+                accessibilityState={{
+                  disabled: sent,
+                  busy:false
+                }}
                 style={{
-                  backgroundColor: sent ? "#999999" : "#ff5252",
+                  backgroundColor: sent ? "#999999" : "#f53b3b",
                   paddingHorizontal: 30,
                   paddingVertical: 20,
                   alignSelf: "flex-start",
+                  
 
                   marginTop: 40,
                   borderRadius: 99,
@@ -1383,11 +1391,11 @@ export default function About() {
                   alignItems: "center",
                   justifyContent: "center",
                   gap: 10,
-                  shadowColor: sent ? "#999999" : "#ff5252",
+                  shadowColor: sent ? "#999999" : "#f53b3b",
                   shadowOffset: { width: 0, height: 2 },
                   shadowOpacity: 0.2,
                   shadowRadius: 10,
-                  opacity: 0.9,
+                  
                 }}
               >
                 <Text
