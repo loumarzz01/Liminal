@@ -266,17 +266,17 @@ export default function About() {
                 }}
               >
                 I help local charities {""}
-                <span style={{ fontFamily: '"Inter", sans-serif', fontWeight: 600, color: "#f53b3b" }}>
+                <span style={{ fontFamily: '"Inter", sans-serif', fontWeight: 500, color: "#f53b3b" }}>
                   strengthen their fundraising
                 </span>
                 ,<br />
                 build
-                <span style={{ fontWeight: 600, color: "#000000" }}>
+                <span style={{ fontWeight: 500, color: "#000000" }}>
                   {" "}
                   sustainable income{" "}
                 </span>
                 and create <br />
-                <span style={{ fontWeight: 600, fontStyle: "italic", color: "#d32f2f" }}>
+                <span style={{ fontWeight: 500, fontStyle: "italic", color: "#d32f2f" }}>
                   long-term impact{" "}
                 </span>
                 for the people they support.
@@ -437,7 +437,7 @@ export default function About() {
               <span style={{ color: "#f53b3b", fontFamily: '"Inter", sans-serif', fontWeight: 400 }}>
                 practical fundraising support
               </span>{" "}
-              for charities and community organisations.{"\n"}My work helps
+              for charities and community organisations.<br />My work helps
               teams focus their{" "}
               <span style={{ color: "#f53b3b", fontFamily: '"Inter", sans-serif', fontWeight: 400 }}>
                 time,
