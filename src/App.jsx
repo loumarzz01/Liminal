@@ -32,6 +32,15 @@ export default function About() {
 
   const { width, height } = windowDimensions;
 
+  const [isHoveredBook, setIsHoveredBook] = useState(false);
+  const [isHoveredServices, setIsHoveredServices] = useState(false);
+  const [isHoveredContact, setIsHoveredContact] = useState(false);
+
+  const [isAboutHovered, setIsAboutHovered] = useState(false);
+  const [isCaseStudiesHovered, setIsCaseStudiesHovered] = useState(false);
+  const [isServicesHovered, setIsServicesHovered] = useState(false);
+
+  const [isSentHovered, setIsSentHovered] = useState(false);
 
   const scrollRef = useRef(null);
   const introRef = useRef(null);
@@ -73,12 +82,12 @@ export default function About() {
       {visible && (
         <nav
           style={{
-            position: "absolute",
+            position: "fixed",
             maxWidth: 800,
             flexWrap: "wrap",
-            zIndex: 10,
+            zIndex: 100,
             alignItems: "center",
-            marginTop: 40,
+            top: 20,
             flexDirection: "row",
             justifyContent: "space-between",
             paddingTop: 10, paddingBottom: 10, paddingVertical: 10,
@@ -116,20 +125,35 @@ export default function About() {
               justifyContent: "center",
             }}
           >
-            <div onClick={() => scrollToSection(introRef)} style={{ cursor: "pointer", display: "flex" }}>
-              <span style={{ fontFamily: '"Inter", sans-serif', fontWeight: "500", fontSize: 14, color: "#000000" }}>
+            <div 
+              onClick={() => scrollToSection(introRef)} 
+              onMouseEnter={() => setIsAboutHovered(true)}
+              onMouseLeave={() => setIsAboutHovered(false)}
+              style={{ cursor: "pointer", display: "flex" }}
+            >
+              <span style={{ transition: 'transform 0.2s ease', transform: isAboutHovered ? "scale(1.1)" : "scale(1)", fontFamily: '"Inter", sans-serif', fontWeight: "500", fontSize: 14, color: "#000000" }}>
                 About
               </span>
             </div>
 
-            <div onClick={() => scrollToSection(servicesRef)} style={{ cursor: "pointer", display: "flex" }}>
-              <span style={{ fontFamily: '"Inter", sans-serif', fontWeight: "500", fontSize: 14, color: "#000000" }}>
+            <div 
+              onClick={() => scrollToSection(servicesRef)} 
+              onMouseEnter={() => setIsServicesHovered(true)}
+              onMouseLeave={() => setIsServicesHovered(false)}
+              style={{ cursor: "pointer", display: "flex" }}
+            >
+              <span style={{ transition: 'transform 0.2s ease', transform: isServicesHovered ? "scale(1.1)" : "scale(1)",fontFamily: '"Inter", sans-serif', fontWeight: "500", fontSize: 14, color: "#000000" }}>
                 Services
               </span>
             </div>
 
-            <div onClick={() => scrollToSection(caseStudiesRef)} style={{ cursor: "pointer", display: "flex" }}>
-              <span style={{ fontFamily: '"Inter", sans-serif', fontWeight: "500", fontSize: 14, color: "#000000" }}>
+            <div 
+              onClick={() => scrollToSection(caseStudiesRef)} 
+              onMouseEnter={() => setIsCaseStudiesHovered(true)}
+              onMouseLeave={() => setIsCaseStudiesHovered(false)}
+              style={{ cursor: "pointer", display: "flex" }}
+            >
+              <span style={{ transition: 'transform 0.2s ease', transform: isCaseStudiesHovered ? "scale(1.1)" : "scale(1)", fontFamily: '"Inter", sans-serif', fontWeight: "500", fontSize: 14, color: "#000000" }}>
                 Case Studies
               </span>
             </div>
@@ -137,6 +161,9 @@ export default function About() {
 
           <div
             onClick={() => scrollToSection(contactRef)}
+
+            onMouseEnter={() => setIsHoveredContact(true)}
+            onMouseLeave={() => setIsHoveredContact(false)}
             style={{
               cursor: "pointer",
               display: "flex",
@@ -147,13 +174,14 @@ export default function About() {
               paddingTop: 10, paddingBottom: 10, paddingVertical: 10,
               borderRadius: 99,
               marginRight: -10,
-              backgroundColor: "#f53b3b",
+              backgroundColor: isHoveredContact ? "#000000" : "#f53b3b",
               gap: 5,
-              shadowColor: "#f53b3b",
-              boxShadow: "0px 2px 5px rgba(245, 59, 59, 0.5)",
+              shadowColor: isHoveredContact ? "#000000" : "#f53b3b",
+              boxShadow: isHoveredContact ? "0px 2px 5px rgba(0, 0, 0, 0.5)" : "0px 2px 5px rgba(245, 59, 59, 0.5)",
               shadowOffset: { width: 0, height: 2 },
               shadowOpacity: 0.5,
               shadowRadius: 5,
+              transition: 'background-color 0.2s ease, box-shadow 0.2s ease',
             }}
           >
             <span
@@ -294,21 +322,28 @@ export default function About() {
                 }}
               >
                 <div
+
+                  onMouseEnter={() => setIsHoveredBook(true)}
+                  onMouseLeave={() => setIsHoveredBook(false)}
+
                   onClick={() => scrollToSection(contactRef)}
                   style={{
                     cursor: "pointer",
                     display: "flex",
                     padding: '20px 20px',
                     
-                    backgroundColor: "#f53b3b",
+                    backgroundColor: isHoveredBook ? "#f53b3b" : "#f53b3b",
                     borderRadius: 99,
                     justifyContent: 'center',
                     textAlign: "center",
-                    shadowColor: "#f53b3b",
-                    boxShadow: "0px 2px 10px rgba(245, 59, 59, 0.5)",
+                    
+                    shadowColor: isHoveredBook ? "#f53b3b" : "#f53b3b",
+                    boxShadow: isHoveredBook ? "0px 2px 10px rgba(245, 59, 59, 0.5)" : "0px 2px 10px rgba(245, 59, 59, 0.5)",
                     shadowOffset: { width: 0, height: 2 },
                     shadowOpacity: 0.5,
                     shadowRadius: 10,
+                    transform: isHoveredBook ? 'scale(1.05)' : 'scale(1)',
+                    transition: 'transform 0.2s ease, background-color 0.2s ease',
                   }}
                 >
                   <span style={{ fontSize: 18, fontWeight: "500", color: "#ffffff" }}>
@@ -318,25 +353,31 @@ export default function About() {
 
                 <div
                   onClick={() => scrollToSection(servicesRef)}
+
+                  onMouseEnter={() => setIsHoveredServices(true)}
+                  onMouseLeave={() => setIsHoveredServices(false)}
                   style={{
                     cursor: "pointer",
                     display: "flex",
-                    padding: '20px 20px',
+                    padding: '17px 20px',
                     justifyContent: "center",
                     alignItems: "center",
-                    backgroundColor: "rgba(0, 0, 0, 0)",
+                    backgroundColor: isHoveredServices ? "rgb(0, 0, 0)" : "rgba(0, 0, 0, 0)",
                     borderRadius: 99,
+                    
                     borderWidth: 3,
                     borderStyle: "solid",
                     borderColor: "rgb(0, 0, 0)",
                     flexDirection: "row",
                     gap: 5,
+                    transform: isHoveredServices ? 'scale(1.05)' : 'scale(1)',
+                    transition: 'transform 0.2s ease, background-color 0.2s ease',
                   }}
                 >
-                  <span style={{ fontSize: 18, fontWeight: "400", color: "#000000" }}>
+                  <span style={{ fontSize: 18, fontWeight: "400", color: isHoveredServices ? "#ffffff" : "#000000" }}>
                     View services
                   </span>
-                  <FaArrowRight size={20} color="#000000" />
+                  <FaArrowRight size={20} color={isHoveredServices ? "#ffffff" : "#000000"} />
                 </div>
               </div>
 
@@ -1153,6 +1194,8 @@ export default function About() {
               </div>
 
               <button
+                onMouseEnter={() => setIsSentHovered(true)}
+                onMouseLeave={() => setIsSentHovered(false)}
                 onClick={handlePress}
                 disabled={sent}
                 style={{
@@ -1175,6 +1218,8 @@ export default function About() {
                   shadowOpacity: 0.2,
                   shadowRadius: 10,
                   display: "flex",
+                  transform: isSentHovered ? "scale(1.05)" : "scale(1)",
+                  transition: "transform 0.2s ease-in-out, background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out",
                 }}
               >
                 <span
