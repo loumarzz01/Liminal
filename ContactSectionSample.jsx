@@ -1,7 +1,7 @@
 // Connected Discord-GitHub, Discord Username: l.mrz, Roblox Username: loumarzzz00
 /* 
    NOTE TO REVIEWERS: This file is a modular component extracted from my 'Liminal' 
-   consultancy project (1,400+ lines). I have submitted this specific section to 
+   consultancy project (1,200+ lines). I have submitted this specific section to 
    comply with the 1,000-line limit while showcasing my ability to handle 
    custom hooks, asynchronous form validation, and responsive design.
 */
