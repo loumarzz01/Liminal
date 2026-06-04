@@ -1,7 +1,7 @@
-
+import './index.css'
 
 import React, { useRef, useState, useEffect } from "react";
-import { 
+import {
   FaArrowRight, 
   FaSearch, 
   FaHandHoldingUsd, 
@@ -11,8 +11,10 @@ import {
   FaRegEnvelope 
 } from "react-icons/fa";
 
+import { FaCircleCheck } from "react-icons/fa6";
+
 import logoImg from "./assets/Liminal logo2.png";
-import meeting9Img from "./assets/meeting9.png";
+import stationaryBackground from "./assets/stationaryBackground.png";
 import work7Img from "./assets/work7.png";
 import work4Img from "./assets/work4.png";
 import smiling2Img from "./assets/smiling2.png";
@@ -79,7 +81,7 @@ export default function About() {
   const visible = width > 800;
 
   return (
-    <div style={{ fontFamily: '"Inter", sans-serif', display: "flex", flexDirection: "column", flex: 1, minHeight: "100vh", position: "relative" }}>
+    <div style={{ fontFamily: "PoppinsMedium", display: "flex", flexDirection: "column", flex: 1, minHeight: "100vh", position: "relative" }}>
       {/* Navigation bar */}
       {visible && (
         <nav
@@ -133,7 +135,7 @@ export default function About() {
               onMouseLeave={() => setIsAboutHovered(false)}
               style={{ cursor: "pointer", display: "flex" }}
             >
-              <span style={{ transition: 'transform 0.2s ease', transform: isAboutHovered ? "scale(1.1)" : "scale(1)", fontFamily: '"Inter", sans-serif', fontWeight: "500", fontSize: 14, color: "#000000" }}>
+              <span style={{ transition: 'transform 0.2s ease', transform: isAboutHovered ? "scale(1.1)" : "scale(1)", fontFamily: "PoppinsMedium", fontWeight: "500", fontSize: 14, color: "#160101" }}>
                 About
               </span>
             </div>
@@ -144,7 +146,7 @@ export default function About() {
               onMouseLeave={() => setIsServicesHovered(false)}
               style={{ cursor: "pointer", display: "flex" }}
             >
-              <span style={{ transition: 'transform 0.2s ease', transform: isServicesHovered ? "scale(1.1)" : "scale(1)",fontFamily: '"Inter", sans-serif', fontWeight: "500", fontSize: 14, color: "#000000" }}>
+              <span style={{ transition: 'transform 0.2s ease', transform: isServicesHovered ? "scale(1.1)" : "scale(1)",fontFamily: "PoppinsMedium", fontWeight: "500", fontSize: 14, color: "#160101" }}>
                 Services
               </span>
             </div>
@@ -155,7 +157,7 @@ export default function About() {
               onMouseLeave={() => setIsCaseStudiesHovered(false)}
               style={{ cursor: "pointer", display: "flex" }}
             >
-              <span style={{ transition: 'transform 0.2s ease', transform: isCaseStudiesHovered ? "scale(1.1)" : "scale(1)", fontFamily: '"Inter", sans-serif', fontWeight: "500", fontSize: 14, color: "#000000" }}>
+              <span style={{ transition: 'transform 0.2s ease', transform: isCaseStudiesHovered ? "scale(1.1)" : "scale(1)", fontFamily: "PoppinsMedium", fontWeight: "500", fontSize: 14, color: "#160101" }}>
                 Case Studies
               </span>
             </div>
@@ -176,10 +178,9 @@ export default function About() {
               paddingTop: 10, paddingBottom: 10, paddingVertical: 10,
               borderRadius: 99,
               marginRight: -10,
-              backgroundColor: isHoveredContact ? "#000000" : "#f53b3b",
+              backgroundColor: isHoveredContact ? "#160101d5" : "#160101",
               gap: 5,
-              shadowColor: isHoveredContact ? "#000000" : "#f53b3b",
-              boxShadow: isHoveredContact ? "0px 2px 5px rgba(0, 0, 0, 0.5)" : "0px 2px 5px rgba(245, 59, 59, 0.5)",
+              
               shadowOffset: { width: 0, height: 2 },
               shadowOpacity: 0.5,
               shadowRadius: 5,
@@ -200,7 +201,7 @@ export default function About() {
         </nav>
       )}
 
-      <div ref={scrollRef} style={{ display: "flex", flexDirection: "column", flex: 1, overflowY: "auto" }}>
+      <div ref={scrollRef} style={{ display: "flex", flexDirection: "column", flex: 1,  }}>
         
         {/* INTRO SECTION */}
         <section
@@ -211,9 +212,9 @@ export default function About() {
             width: "100%",
             minHeight: 920,
             justifyContent: "center",
-            padding: 20,
+            
             backgroundColor: "#ffffff",
-            boxSizing: "border-box",
+            
           }}
         >
           <div
@@ -225,9 +226,8 @@ export default function About() {
               alignItems: "center",
               justifyContent: "center",
               backgroundColor: "#ffffff",
-              borderRadius: 40,
               overflow: "hidden",
-              padding: 40,
+              
               position: "relative",
               boxSizing: "border-box",
             }}
@@ -240,10 +240,11 @@ export default function About() {
                 objectFit: "cover",
                 top: 0, left: 0,
               }}
-              src={meeting9Img}
-              alt="Meeting"
+              src={stationaryBackground}
+              alt="Stationary Background"
             />
 
+            
             {/* Intro text */}
             <div
               style={{
@@ -251,66 +252,64 @@ export default function About() {
                 flexDirection: "column",
                 justifyContent: "center",
                 alignItems: "center",
+                gap: '20px',
                 paddingLeft: 20, paddingRight: 20, paddingHorizontal: 20,
                 zIndex: 1,
               }}
             >
-              <h1
-                style={{
-                  fontFamily: '"Inter", sans-serif',
-                  fontWeight: 600,
-                  fontSize: 40,
-                  letterSpacing: 0.3,
-                  color: "#f53b3b",
-                  textAlign: "center",
-                  alignSelf: "center",
-                  margin: 0,
-                }}
-              >
-                Strategic Fundraising Support
-              </h1>
 
-              <div
-                style={{
-                  fontFamily: '"Playfair Display", serif',
-                  fontStyle: "italic",
-                  fontWeight: "500",
-                  fontSize: 40,
-                  textAlign: "center",
-                  color: "#000000",
-                  marginTop: 10,
-                }}
-              >
-                for local charities
+              <div style={{ display: "flex", alignItems: "center", justifyContent: "center", padding: '5px 15px', backgroundColor: '#f53b3b2c', borderRadius: 99 }}>
+                <span style={{ fontSize: 15, fontWeight: "500", color: "#f53b3b" }}> Get the top support now</span>
               </div>
 
-              <div
+
+
+
+              <span
                 style={{
-                  fontFamily: '"Inter", sans-serif',
-                  fontWeight: "300",
-                  marginTop: 40,
-                  color: "#444444",
-                  fontSize: 20,
+                  fontFamily: "PoppinsSemiBold",
+                  fontSize: 50,
+                  fontWeight: "500",
+                  color: "#160101",
                   textAlign: "center",
-                  lineHeight: "30px",
+                  alignSelf: "center",
+                  marginBottom: '0px',
+                }}
+              >
+                Strategic Fundraising Support <br /> for local charities
+              </span>
+
+              
+
+            
+
+              <span
+                style={{
+                  fontFamily: "PoppinsMedium",
+                  fontWeight: "500",
+                  color: "#9D999D",
+                  fontSize: 17,
+                  textAlign: "center",
+                  marginBottom: '20px'
+                  
                 }}
               >
                 I help local charities {""}
-                <span style={{ fontFamily: '"Inter", sans-serif', fontWeight: 500, color: "#f53b3b" }}>
+                
                   strengthen their fundraising
-                </span>
+                
                 ,<br />
                 build
-                <span style={{ fontWeight: 500, color: "#000000" }}>
+                
                   {" "}
                   sustainable income{" "}
-                </span>
+               
                 and create <br />
-                <span style={{ fontWeight: 500, fontStyle: "italic", color: "#d32f2f" }}>
+                
                   long-term impact{" "}
-                </span>
+                
                 for the people they support.
-              </div>
+              </span>
 
               <div
                 style={{
@@ -320,7 +319,6 @@ export default function About() {
                   gap: 20,
                   flexDirection: "row",
                   alignItems: "center",
-                  marginTop: 40,
                 }}
               >
                 <div
@@ -332,15 +330,18 @@ export default function About() {
                   style={{
                     cursor: "pointer",
                     display: "flex",
-                    padding: '20px 20px',
+                    padding: '10px 20px',
                     
-                    backgroundColor: isHoveredBook ? "#f53b3b" : "#f53b3b",
+                    backgroundColor: isHoveredBook ? "#160101d5" : "#160101",
+                    borderColor: "#130000", 
+                    borderWidth: '2px',
+                    borderStyle: "solid",
                     borderRadius: 99,
                     justifyContent: 'center',
                     textAlign: "center",
                     
-                    shadowColor: isHoveredBook ? "#f53b3b" : "#f53b3b",
-                    boxShadow: isHoveredBook ? "0px 2px 10px rgba(245, 59, 59, 0.5)" : "0px 2px 10px rgba(245, 59, 59, 0.5)",
+                    shadowColor: isHoveredBook ? "#160101" : "#130000",
+                    boxShadow: isHoveredBook ? "0px 2px 10px rgba(245, 59, 59, 0.08)" : "0px 2px 10px rgba(0, 0, 0, 0.12)",
                     shadowOffset: { width: 0, height: 2 },
                     shadowOpacity: 0.5,
                     shadowRadius: 10,
@@ -348,7 +349,7 @@ export default function About() {
                     transition: 'transform 0.2s ease, background-color 0.2s ease',
                   }}
                 >
-                  <span style={{ fontSize: 18, fontWeight: "500", color: "#ffffff" }}>
+                  <span style={{ fontSize: 17, fontWeight: "500", color: "#ffffff" }}>
                     Book a free discovery call
                   </span>
                 </div>
@@ -361,25 +362,25 @@ export default function About() {
                   style={{
                     cursor: "pointer",
                     display: "flex",
-                    padding: '17px 20px',
+                    padding: '10px 20px',
                     justifyContent: "center",
                     alignItems: "center",
-                    backgroundColor: isHoveredServices ? "rgb(0, 0, 0)" : "rgba(0, 0, 0, 0)",
+                    backgroundColor: isHoveredServices ? "rgba(0, 0, 0, 0.1)" : "rgba(0, 0, 0, 0)",
                     borderRadius: 99,
                     
                     borderWidth: 3,
                     borderStyle: "solid",
-                    borderColor: "rgb(0, 0, 0)",
+                    borderColor: "#160101",
                     flexDirection: "row",
                     gap: 5,
                     transform: isHoveredServices ? 'scale(1.05)' : 'scale(1)',
                     transition: 'transform 0.2s ease, background-color 0.2s ease',
                   }}
                 >
-                  <span style={{ fontSize: 18, fontWeight: "400", color: isHoveredServices ? "#ffffff" : "#000000" }}>
+                  <span style={{ fontSize: 17, fontWeight: "400", color: "#160101" }}>
                     View services
                   </span>
-                  <FaArrowRight size={20} color={isHoveredServices ? "#ffffff" : "#000000"} />
+                  <FaArrowRight size={20} color="#160101" />
                 </div>
               </div>
 
@@ -390,28 +391,25 @@ export default function About() {
                   gap: 60,
                   flexDirection: "row",
                   flexWrap: "wrap",
-                  maxWidth: 500,
+                  maxWidth: 800,
                   maxHeight: 400,
-                  marginTop: 60,
+                  marginTop: 50,
                 }}
               >
                 {/* Years experience */}
-                <div style={{ display: "flex", flexDirection: "column" }}>
-                  <div style={{ fontSize: 40, fontFamily: '"Inter", sans-serif', fontWeight: 400 }}>
-                    15+
-                  </div>
-                  <div style={{ color: "#595959", fontSize: 20, fontFamily: '"Inter", sans-serif', fontWeight: 400 }}>
-                    years experience
+                <div style={{ display: "flex", flexDirection: "row", justifyContent: "center", alignItems: "center", gap: 10 }}>
+                  <FaCircleCheck size={20} color="#f53b3b" />
+                  <div style={{ fontSize: 20, fontFamily: "PoppinsMedium", fontWeight: 400, color:"#f53b3b"}}>
+                    15+ years experience
                   </div>
                 </div>
 
                 {/* 7 figure partnerships */}
-                <div style={{ display: "flex", flexDirection: "column" }}>
-                  <div style={{ fontSize: 40, fontFamily: '"Inter", sans-serif', fontWeight: 400, whiteSpace: "pre-line" }}>
-                    Multiple 6 & 7{"\n"}figure
-                  </div>
-                  <div style={{ color: "#595959", fontSize: 20, fontFamily: '"Inter", sans-serif', fontWeight: 400 }}>
-                    partnerships
+                <div style={{ display: "flex", flexDirection: "row", justifyContent: "center", alignItems: "center", gap: 10 }}>
+
+                  <FaCircleCheck size={20} color="#f53b3b" />
+                  <div style={{ fontSize: 20, fontFamily: "PoppinsMedium", fontWeight: 400, whiteSpace: "pre-line", color:"#f53b3b" }}>
+                    Multiple 6 & 7 figure partnerships
                   </div>
                 </div>
               </div>
@@ -427,9 +425,10 @@ export default function About() {
             display: "flex",
             flexDirection: "column",
             minHeight: 700,
+            margin: "0 auto",
             width: "100%",
             backgroundColor: "white",
-            paddingTop: 20, paddingBottom: 20, paddingVertical: 20,
+            paddingTop: 60, paddingBottom: 20, paddingVertical: 20,
             paddingLeft: 20, paddingRight: 20, paddingHorizontal: 20,
             alignItems: "center",
             justifyContent: "center",
@@ -444,7 +443,6 @@ export default function About() {
               width: "100%",
               alignItems: "center",
               justifyContent: "center",
-              backgroundColor: "#f5f5f5",
               borderRadius: 40,
               overflow: "hidden",
               paddingTop: 40, paddingBottom: 40, paddingVertical: 40,
@@ -452,23 +450,18 @@ export default function About() {
               boxSizing: "border-box",
             }}
           >
-            <img 
-              src={work7Img}
-              alt="Services Background"
-              style={{ width: "100%", height: "100%", position: "absolute", objectFit: "cover", top: 0, left: 0 }}
-            />
 
             <div style={{ display: "flex", alignItems: "center", justifyContent: "center", zIndex: 1 }}>
-              <div style={{ color: "#000000", fontSize: 40, fontFamily: '"Inter", sans-serif', fontWeight: 400 }}>
+              <span style={{ color: "#160101", fontSize: 40, fontFamily: "PoppinsSemiBold", fontWeight: 500 }}>
                 Services
-              </div>
+              </span>
             </div>
 
             <div
               style={{
                 fontSize: 20,
                 marginTop: 40,
-                fontFamily: '"Inter", sans-serif',
+                fontFamily: "PoppinsMedium",
                 fontWeight: "400",
                 color: "#494949",
                 textAlign: "center",
@@ -476,22 +469,8 @@ export default function About() {
                 zIndex: 1,
               }}
             >
-              I provide clear,{" "}
-              <span style={{ color: "#f53b3b", fontFamily: '"Inter", sans-serif', fontWeight: 400 }}>
-                practical fundraising support
-              </span>{" "}
-              for charities and community organisations.<br />My work helps
-              teams focus their{" "}
-              <span style={{ color: "#f53b3b", fontFamily: '"Inter", sans-serif', fontWeight: 400 }}>
-                time,
-              </span>
-              <span> build</span>
-              <span> confidence </span>
-              and{" "}
-              <span style={{ color: "#f53b3b", fontFamily: '"Inter", sans-serif', fontWeight: 400 }}>
-                secure
-              </span>{" "}
-              the funding they need.
+              I provide clear, practical fundraising support for charities and community organisations.<br />My work helps
+              teams focus their time, build confidence and secure funding they need.
             </div>
 
             {/* Services Boxes Container */}
@@ -504,6 +483,7 @@ export default function About() {
                 justifyContent: "center",
                 alignItems: "center",
                 marginTop: 50,
+                maxWidth: '1000px',
                 width: "100%",
                 zIndex: 1,
               }}
@@ -515,12 +495,12 @@ export default function About() {
                   flexDirection: "column",
                   width: "90%",
                   maxWidth: 340,
-                  height: 350,
-                  backgroundColor: "#ffffff",
+                  height: 250,
+                  backgroundColor: "#fcfcfc",
                   borderRadius: 30,
                   padding: 30,
-                  boxShadow: "2px 3px 10px rgba(0, 0, 0, 0.05)",
-                  shadowColor: "#000000",
+
+                  shadowColor: "#160101",
                   shadowOffset: { width: 2, height: 3 },
                   shadowOpacity: 0.05,
                   shadowRadius: 10,
@@ -540,16 +520,15 @@ export default function About() {
                     height: 75,
                     justifyContent: "center",
                     alignItems: "center",
-                    backgroundColor: "#ffffff",
-                    boxShadow: "0px 4px 10px rgba(0,0,0,0.05)",
+                    backgroundColor: "#fcfcfc",
                   }}
                 >
-                  <FaSearch size={40} color="#f53b3b" />
+                  <FaSearch size={40} color="#3babf5" />
                 </div>
-                <div style={{ fontFamily: '"Inter", sans-serif', fontWeight: 400, color: "#000000", fontSize: 25 }}>
+                <div style={{ fontFamily: "PoppinsSemiBold", fontWeight: 600, color: "#160101", fontSize: 20}}>
                   Pipeline Audit
                 </div>
-                <div style={{ color: "#595959", marginTop: 10, fontFamily: '"Inter", sans-serif', fontWeight: 400, fontSize: 15 }}>
+                <div style={{ color: "#595959", marginTop: 10, fontFamily: "PoppinsMedium", fontWeight: 400, fontSize: 17 }}>
                   Focus on opportunities that are most likely to succeed.
                 </div>
               </div>
@@ -561,12 +540,11 @@ export default function About() {
                   flexDirection: "column",
                   width: "90%",
                   maxWidth: 340,
-                  height: 350,
-                  backgroundColor: "#ffffff",
+                  height: 250,
+                  backgroundColor: "#fcfcfc",
                   borderRadius: 30,
                   padding: 30,
-                  boxShadow: "2px 3px 10px rgba(0, 0, 0, 0.05)",
-                  shadowColor: "#000000",
+                  shadowColor: "#160101",
                   shadowOffset: { width: 2, height: 3 },
                   shadowOpacity: 0.05,
                   shadowRadius: 10,
@@ -586,16 +564,15 @@ export default function About() {
                     height: 75,
                     justifyContent: "center",
                     alignItems: "center",
-                    backgroundColor: "#ffffff",
-                    boxShadow: "0px 4px 10px rgba(0,0,0,0.05)",
+                    backgroundColor: "#fcfcfc",
                   }}
                 >
-                  <FaHandHoldingUsd size={40} color="#f53b3b" />
+                  <FaHandHoldingUsd size={40} color="#733bf5" />
                 </div>
-                <div style={{ fontFamily: '"Inter", sans-serif', fontWeight: 400, color: "#000000", fontSize: 25 }}>
+                <span style={{ fontFamily: "PoppinsSemiBold", fontWeight: 600, color: "#160101", fontSize: 20 }}>
                   High-Value Bidding
-                </div>
-                <div style={{ color: "#595959", marginTop: 10, fontFamily: '"Inter", sans-serif', fontWeight: 400, fontSize: 15 }}>
+                </span>
+                <div style={{ color: "#595959", marginTop: 10, fontFamily: "PoppinsMedium", fontWeight: 400, fontSize: 15 }}>
                   Turn your strategy into strong, fundable proposals.
                 </div>
               </div>
@@ -607,12 +584,11 @@ export default function About() {
                   flexDirection: "column",
                   width: "90%",
                   maxWidth: 340,
-                  height: 350,
-                  backgroundColor: "#ffffff",
+                  height: 250,
+                  backgroundColor: "#fcfcfc",
                   borderRadius: 30,
                   padding: 30,
-                  boxShadow: "2px 3px 10px rgba(0, 0, 0, 0.05)",
-                  shadowColor: "#000000",
+                  shadowColor: "#160101",
                   shadowOffset: { width: 2, height: 3 },
                   shadowOpacity: 0.05,
                   shadowRadius: 10,
@@ -632,16 +608,15 @@ export default function About() {
                     height: 75,
                     justifyContent: "center",
                     alignItems: "center",
-                    backgroundColor: "#ffffff",
-                    boxShadow: "0px 4px 10px rgba(0,0,0,0.05)",
+                    backgroundColor: "#fcfcfc",
                   }}
                 >
-                  <FaSyncAlt size={40} color="#f53b3b" />
+                  <FaSyncAlt size={40} color="#279235" />
                 </div>
-                <div style={{ fontFamily: '"Inter", sans-serif', fontWeight: 400, color: "#000000", fontSize: 25 }}>
+                <span style={{ fontFamily: "PoppinsSemiBold", fontWeight: 600, color: "#160101", fontSize: 20 }}>
                   Change and Project Management
-                </div>
-                <div style={{ color: "#595959", marginTop: 10, fontFamily: '"Inter", sans-serif', fontWeight: 400, fontSize: 15 }}>
+                </span>
+                <div style={{ color: "#595959", marginTop: 10, fontFamily: "PoppinsMedium", fontWeight: 400, fontSize: 15 }}>
                   Plan and deliver work with clarity.
                 </div>
               </div>
@@ -653,12 +628,12 @@ export default function About() {
                   flexDirection: "column",
                   width: "90%",
                   maxWidth: 340,
-                  height: 350,
-                  backgroundColor: "#ffffff",
+                  height: 250,
+                  backgroundColor: "#fcfcfc",
                   borderRadius: 30,
                   padding: 30,
-                  boxShadow: "2px 3px 10px rgba(0, 0, 0, 0.05)",
-                  shadowColor: "#000000",
+
+                  shadowColor: "#160101",
                   shadowOffset: { width: 2, height: 3 },
                   shadowOpacity: 0.05,
                   shadowRadius: 10,
@@ -674,20 +649,20 @@ export default function About() {
                     left: -10,
                     top: -10,
                     borderRadius: 20,
-                    backgroundColor: "#ffffff",
+                    backgroundColor: "#fcfcfc",
                     width: 75,
                     height: 75,
                     justifyContent: "center",
                     alignItems: "center",
-                    boxShadow: "0px 4px 10px rgba(0,0,0,0.05)",
+        
                   }}
                 >
-                  <FaShieldAlt size={40} color="#f53b3b" />
+                  <FaShieldAlt size={40} color="#db2c20" />
                 </div>
-                <div style={{ fontFamily: '"Inter", sans-serif', fontWeight: 400, color: "#000000", fontSize: 25 }}>
+                <span style={{ fontFamily: "PoppinsSemiBold", fontWeight: 600, color: "#160101", fontSize: 20 }}>
                   Bespoke Stewardship
-                </div>
-                <div style={{ color: "#595959", marginTop: 10, fontFamily: '"Inter", sans-serif', fontWeight: 400, fontSize: 15 }}>
+                </span>
+                <div style={{ color: "#595959", marginTop: 10, fontFamily: "PoppinsMedium", fontWeight: 400, fontSize: 15 }}>
                   Build long-term donor relationships.
                 </div>
               </div>
@@ -719,7 +694,6 @@ export default function About() {
               width: "100%",
               alignItems: "center",
               justifyContent: "center",
-              backgroundColor: "#f5f5f5",
               borderRadius: 40,
               overflow: "hidden",
               paddingTop: 40, paddingBottom: 40, paddingVertical: 40,
@@ -728,16 +702,11 @@ export default function About() {
               boxSizing: "border-box",
             }}
           >
-            <img 
-              src={work4Img}
-              alt="Case Studies Background"
-              style={{ width: "100%", height: "100%", position: "absolute", objectFit: "cover", top: 0, left: 0 }}
-            />
 
             <div style={{ display: "flex", alignItems: "center", justifyContent: "center", zIndex: 1 }}>
-              <div style={{ color: "#000000", fontSize: 40, fontFamily: '"Inter", sans-serif', fontWeight: 400 }}>
+              <h2 style={{ color: '#160101', fontFamily: "PoppinsSemiBold", fontWeight: 400, fontSize: 40, textAlign: "center", margin: 0 }}>
                 Case studies
-              </div>
+              </h2>
             </div>
 
             {/* Case studies boxes */}
@@ -780,7 +749,7 @@ export default function About() {
                 <div
                   style={{
                     display: "flex",
-                    backgroundColor: "rgba(255, 82, 82, 0.08)",
+                    backgroundColor: "rgba(112, 179, 255, 0.17)",
                     borderRadius: 10,
                     height: 25,
                     width: 120,
@@ -788,29 +757,29 @@ export default function About() {
                     alignItems: "center",
                   }}
                 >
-                  <span style={{ color: "#fd3c3c", fontSize: 12, fontFamily: '"Inter", sans-serif', fontWeight: 400, letterSpacing: 0, alignSelf: "center" }}>
+                  <span style={{ color: "#0077ff", fontSize: 12, fontFamily: "PoppinsMedium", fontWeight: 400, letterSpacing: 0, alignSelf: "center" }}>
                     CASE STUDY 1
                   </span>
                 </div>
 
-                <div style={{ color: "#000000", fontFamily: '"Inter", sans-serif', fontWeight: 400, marginTop: 20, fontSize: 20 }}>
+                <div style={{ color: "#160101", fontFamily: "PoppinsMedium", fontWeight: 400, marginTop: 20, fontSize: 20 }}>
                   Disability Charity
                 </div>
 
-                <div style={{ color: "#595959", fontFamily: '"Inter", sans-serif', fontWeight: "400", marginTop: 20, fontSize: 15 }}>
+                <div style={{ color: "#595959", fontFamily: "PoppinsMedium", fontWeight: "400", marginTop: 20, fontSize: 15 }}>
                   Turned a sensitive topic into a highly fundable statutory proposal.
                   I presented a clear, strategic, low-risk investment.
                 </div>
 
-                <div style={{ fontSize: 15, fontFamily: '"Inter", sans-serif', fontWeight: 400, marginTop: 30, color: "#595959" }}>
+                <div style={{ fontSize: 15, fontFamily: "PoppinsMedium", fontWeight: 400, marginTop: 30, color: "#595959" }}>
                   OUTCOME
                 </div>
 
-                <div style={{ marginTop: 10, fontSize: 20, fontFamily: '"Inter", sans-serif', fontWeight: 400, color: "#fd3c3c" }}>
+                <div style={{ marginTop: 10, fontSize: 20, fontFamily: "PoppinsMedium", fontWeight: 400, color: "#0077ff" }}>
                   £110K Grant Secured
                 </div>
 
-                <div style={{ marginTop: 10, fontSize: 15, fontFamily: '"Inter", sans-serif', fontWeight: "400", color: "#fd3c3c" }}>
+                <div style={{ marginTop: 10, fontSize: 15, fontFamily: "PoppinsMedium", fontWeight: "400", color: "#0077ff" }}>
                   Increased and improved employability support for disabled people.
                 </div>
               </div>
@@ -841,7 +810,7 @@ export default function About() {
                 <div
                   style={{
                     display: "flex",
-                    backgroundColor: "rgba(255, 82, 82, 0.08)",
+                    backgroundColor: "#e63cfd2c",
                     borderRadius: 10,
                     height: 25,
                     width: 120,
@@ -849,29 +818,29 @@ export default function About() {
                     alignItems: "center",
                   }}
                 >
-                  <span style={{ color: "#fd3c3c", fontSize: 12, fontFamily: '"Inter", sans-serif', fontWeight: 400, letterSpacing: 0, alignSelf: "center" }}>
+                  <span style={{ color: "#e63cfd", fontSize: 12, fontFamily: "PoppinsMedium", fontWeight: 400, letterSpacing: 0, alignSelf: "center" }}>
                     CASE STUDY 2
                   </span>
                 </div>
 
-                <div style={{ color: "#000000", fontFamily: '"Inter", sans-serif', fontWeight: 400, marginTop: 20, fontSize: 20 }}>
+                <div style={{ color: "#160101", fontFamily: "PoppinsMedium", fontWeight: 400, marginTop: 20, fontSize: 20 }}>
                   Women's and Girls' Charity
                 </div>
 
-                <div style={{ color: "#595959", fontFamily: '"Inter", sans-serif', fontWeight: "400", marginTop: 20, fontSize: 15 }}>
+                <div style={{ color: "#595959", fontFamily: "PoppinsMedium", fontWeight: "400", marginTop: 20, fontSize: 15 }}>
                   No investment in major gifts and grants income.
                   I devised and implemented a replicable bid development framework.
                 </div>
 
-                <div style={{ fontSize: 15, fontFamily: '"Inter", sans-serif', fontWeight: 400, marginTop: 30, color: "#595959" }}>
+                <div style={{ fontSize: 15, fontFamily: "PoppinsMedium", fontWeight: 400, marginTop: 30, color: "#595959" }}>
                   OUTCOME
                 </div>
 
-                <div style={{ marginTop: 10, fontSize: 20, fontFamily: '"Inter", sans-serif', fontWeight: 400, color: "#fd3c3c" }}>
+                <div style={{ marginTop: 10, fontSize: 20, fontFamily: "PoppinsMedium", fontWeight: 400, color: "#e63cfd" }}>
                   £1M Grant Secured
                 </div>
 
-                <div style={{ marginTop: 10, fontSize: 15, fontFamily: '"Inter", sans-serif', fontWeight: "400", color: "#fd3c3c" }}>
+                <div style={{ marginTop: 10, fontSize: 15, fontFamily: "PoppinsMedium", fontWeight: "400", color: "#e63cfd" }}>
                   More young girls and women accessing early, preventative support
                 </div>
               </div>
@@ -902,7 +871,7 @@ export default function About() {
                 <div
                   style={{
                     display: "flex",
-                    backgroundColor: "rgba(255, 82, 82, 0.08)",
+                    backgroundColor: "#6715ff25",
                     borderRadius: 10,
                     height: 25,
                     width: 120,
@@ -911,29 +880,29 @@ export default function About() {
                     marginBottom: 0,
                   }}
                 >
-                  <span style={{ color: "#fd3c3c", fontSize: 12, fontFamily: '"Inter", sans-serif', fontWeight: 400, letterSpacing: 0, alignSelf: "center" }}>
+                  <span style={{ color: "#6715ff", fontSize: 12, fontFamily: "PoppinsMedium", fontWeight: 400, letterSpacing: 0, alignSelf: "center" }}>
                     CASE STUDY 3
                   </span>
                 </div>
 
-                <div style={{ color: "#000000", fontFamily: '"Inter", sans-serif', fontWeight: 400, marginTop: 20, fontSize: 20 }}>
+                <div style={{ color: "#160101", fontFamily: "PoppinsMedium", fontWeight: 400, marginTop: 20, fontSize: 20 }}>
                   Youth work Charity
                 </div>
 
-                <div style={{ color: "#595959", fontFamily: '"Inter", sans-serif', fontWeight: "400", marginTop: 20, fontSize: 15 }}>
+                <div style={{ color: "#595959", fontFamily: "PoppinsMedium", fontWeight: "400", marginTop: 20, fontSize: 15 }}>
                   Strong impact data but unclear proposals.
                   I produced a case for support and provided central strategic input.
                 </div>
 
-                <div style={{ fontSize: 15, fontFamily: '"Inter", sans-serif', fontWeight: 400, marginTop: 30, color: "#595959" }}>
+                <div style={{ fontSize: 15, fontFamily: "PoppinsMedium", fontWeight: 400, marginTop: 30, color: "#595959" }}>
                   OUTCOME
                 </div>
 
-                <div style={{ marginTop: 10, fontSize: 20, fontFamily: '"Inter", sans-serif', fontWeight: 400, color: "#fd3c3c" }}>
+                <div style={{ marginTop: 10, fontSize: 20, fontFamily: "PoppinsMedium", fontWeight: 400, color: "#6715ff" }}>
                   £225K Partnership Secured
                 </div>
 
-                <div style={{ marginTop: 10, fontSize: 15, fontFamily: '"Inter", sans-serif', fontWeight: "400", color: "#fd3c3c" }}>
+                <div style={{ marginTop: 10, fontSize: 15, fontFamily: "PoppinsMedium", fontWeight: "400", color: "#6715ff" }}>
                   Consistent messaging across fundraising and marketing, strengthening the charity's brand and impact.
                 </div>
               </div>
@@ -956,7 +925,7 @@ export default function About() {
             boxSizing: "border-box",
           }}
         >
-          <h2 style={{ fontFamily: '"Inter", sans-serif', fontWeight: 400, fontSize: 40, textAlign: "center", margin: 0 }}>
+          <h2 style={{ color: '#160101', fontFamily: "PoppinsSemiBold", fontWeight: 400, fontSize: 40, textAlign: "center", margin: 0 }}>
             Contact me
           </h2>
 
@@ -964,7 +933,7 @@ export default function About() {
             style={{
               fontSize: 18,
               marginTop: 20,
-              fontFamily: '"Inter", sans-serif',
+              fontFamily: "PoppinsMedium",
               fontWeight: "400",
               color: "#494949",
               textAlign: "center",
@@ -972,9 +941,7 @@ export default function About() {
             }}
           >
             If you'd like to talk about your{" "}
-            <span style={{ fontFamily: '"Inter", sans-serif', fontWeight: 400, color: "#f53b3b" }}>
               fundraising needs
-            </span>
             , please get in touch.
             I am able to reply within two working days.
           </div>
@@ -1034,7 +1001,7 @@ export default function About() {
               <label
                 style={{
                   alignSelf: "flex-start",
-                  fontFamily: '"Inter", sans-serif',
+                  fontFamily: "PoppinsMedium",
                   fontWeight: 400,
                   marginBottom: 10,
                   color: focusedField === "name" ? "#f53b3b" : "#303030",
@@ -1075,7 +1042,7 @@ export default function About() {
                     flex: 1,
                     height: "100%",
                     marginLeft: 10,
-                    fontFamily: '"Inter", sans-serif',
+                    fontFamily: "PoppinsMedium",
                     fontWeight: "400",
                     fontSize: 14,
                     outline: "none",
@@ -1089,7 +1056,7 @@ export default function About() {
               <label
                 style={{
                   alignSelf: "flex-start",
-                  fontFamily: '"Inter", sans-serif',
+                  fontFamily: "PoppinsMedium",
                   fontWeight: 400,
                   marginTop: 20,
                   color: focusedField === "email" ? "#f53b3b" : "#303030",
@@ -1131,7 +1098,7 @@ export default function About() {
                     flex: 1,
                     height: "100%",
                     marginLeft: 10,
-                    fontFamily: '"Inter", sans-serif',
+                    fontFamily: "PoppinsMedium",
                     fontWeight: "400",
                     fontSize: 14,
                     outline: "none",
@@ -1145,7 +1112,7 @@ export default function About() {
               <label
                 style={{
                   alignSelf: "flex-start",
-                  fontFamily: '"Inter", sans-serif',
+                  fontFamily: "PoppinsMedium",
                   fontWeight: 400,
                   marginTop: 20,
                   color: focusedField === "message" ? "#f53b3b" : "#303030",
@@ -1181,13 +1148,14 @@ export default function About() {
                   style={{
                     flex: 1,
                     height: "100%",
-                    fontFamily: '"Inter", sans-serif',
+                    fontFamily: "PoppinsMedium",
                     fontWeight: "400",
                     fontSize: 14,
+                    padding: '0px 0px',
                     outline: "none",
                     color: "#1A1A1A",
-                    verticalAlign: "top",
-                    paddingTop: 15,
+                    marginTop: '30px',
+                    marginRight: '10px',
                     border: "none",
                     background: "transparent",
                     resize: "none",
@@ -1226,7 +1194,7 @@ export default function About() {
               >
                 <span
                   style={{
-                    fontFamily: '"Inter", sans-serif',
+                    fontFamily: "PoppinsMedium",
                     fontWeight: 400,
                     color: "#ffffff",
                     fontSize: 16,
