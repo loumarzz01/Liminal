@@ -1,3 +1,6 @@
+//Connected Discord-Github. Discord: l.mrz Roblox: loumarzzz00
+
+
 import './index.css'; //Imports the css file from index.css
 import './App.css'; //Imports the app css file
 import { useRef, useState, useEffect } from "react"; //Imports the react hooks, useRef, useState and useEffect
