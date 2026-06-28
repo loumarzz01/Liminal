@@ -1,86 +1,78 @@
-import './index.css'
+import './index.css'; //Imports the css file from index.css
+import './App.css'; //Imports the app css file
+import { useRef, useState, useEffect } from "react"; //Imports the react hooks
+import { FaArrowRight, FaSearch, FaHandHoldingUsd, FaSyncAlt, FaShieldAlt, FaRegUser, FaRegEnvelope } from "react-icons/fa"; //Imports icons from the fa react icons library
+import { FaCircleCheck } from "react-icons/fa6";  //Imports the circle check icon from the react icons fa6 library
+import logoImg from "./assets/Liminal logo2.png"; //Imports the liminal logo2 image from the assets folder
+import stationaryBackground from "./assets/stationaryBackground.png"; //Imports the stationaryBackground image from the assets folder
 
-import './App.css'
+import smiling2Img from "./assets/smiling2.png"; //Imports the smiling2 image from the assets folder
 
-import React, { useRef, useState, useEffect } from "react";
-import {
-  FaArrowRight, 
-  FaSearch, 
-  FaHandHoldingUsd, 
-  FaSyncAlt, 
-  FaShieldAlt, 
-  FaRegUser, 
-  FaRegEnvelope 
-} from "react-icons/fa";
+export default function About() { //This function is exported so that it can be used again
 
-import { FaCircleCheck } from "react-icons/fa6";
-
-import logoImg from "./assets/Liminal logo2.png";
-import stationaryBackground from "./assets/stationaryBackground.png";
-import work7Img from "./assets/work7.png";
-import work4Img from "./assets/work4.png";
-import smiling2Img from "./assets/smiling2.png";
-
-export default function About() {
-  // Simulating React Native's useWindowDimensions
-  const [windowDimensions, setWindowDimensions] = useState({
-    width: typeof window !== 'undefined' ? window.innerWidth : 1024,
-    height: typeof window !== 'undefined' ? window.innerHeight : 768,
-  });
+  const [width, setWidth] = useState(0); //This will be used to store the width of the screen
+  const [height, setHeight] = useState(0); //This will be used to store the height of the screen
 
   useEffect(() => {
-    const handleResize = () => {
-      setWindowDimensions({ width: window.innerWidth, height: window.innerHeight });
-    };
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
+    const updateSize = () => {
+        setWidth(window.innerWidth); //The width variable is set to the current width of the screen
+        setHeight(window.innerHeight); //The height variable is set to the current height of the screen
+    }
 
-  const { width, height } = windowDimensions;
+    updateSize(); //The updateSize function is called so that the correct size of the screen is passed to the width and height variables
 
-  const [isHoveredBook, setIsHoveredBook] = useState(false);
-  const [isHoveredServices, setIsHoveredServices] = useState(false);
-  const [isHoveredContact, setIsHoveredContact] = useState(false);
+    window.addEventListener("resize", updateSize); //An event listener is created so that when the browser window is resized, the updateSize function is ran
 
-  const [isAboutHovered, setIsAboutHovered] = useState(false);
-  const [isCaseStudiesHovered, setIsCaseStudiesHovered] = useState(false);
-  const [isServicesHovered, setIsServicesHovered] = useState(false);
+    return () => window.removeEventListener("resize", updateSize) //Stops the event listener from running in the background
 
-  const [isSentHovered, setIsSentHovered] = useState(false);
+  } ,[])
 
-  const scrollRef = useRef(null);
-  const introRef = useRef(null);
-  const servicesRef = useRef(null);
-  const caseStudiesRef = useRef(null);
-  const contactRef = useRef(null);
+  const [isHoveredBook, setIsHoveredBook] = useState(false); //used to check whether the book button is being hovered on
+  const [isHoveredServices, setIsHoveredServices] = useState(false); //used to check whether the services button is being hovered on
+  const [isHoveredContact, setIsHoveredContact] = useState(false); //used to check whether the contact button is being hovered on
 
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
+  const [isAboutHovered, setIsAboutHovered] = useState(false); //used to check whether the about text is being hovered on
+  const [isCaseStudiesHovered, setIsCaseStudiesHovered] = useState(false); //used to check whether the case studies button is being hovered on
+  const [isServicesHovered, setIsServicesHovered] = useState(false); //used to check whether the services button is being hovered on
 
-  const [sent, setSent] = useState(false);
-  const [focusedField, setFocusedField] = useState(null);
+  const scrollRef = useRef(null); //scrollref is a variable that holds a reference to a DOM
+  const introRef = useRef(null); //creates a reference to the intro section
+  const servicesRef = useRef(null); //creates a reference to the services section
+  const caseStudiesRef = useRef(null); //creates a reference to the case studies section
+  const contactRef = useRef(null); //creates a reference to the contact section
 
-  const handlePress = () => {
-    fetch("https://formspree.io/f/mjgjdnrl", {
-      method: "POST",
-      body: JSON.stringify({ name, email, message }),
-      headers: { "Content-Type": "application/json" },
-    }).then(() => {
-      setSent(true);
-    });
-  };
+  
+  
 
-  const scrollToSection = (ref) => {
-    if (ref.current) {
-      ref.current.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
+  const scrollToSection = (ref) => { //creates a function that uses 'ref' as the parameter to reference where the location of the DOM is
+    if (ref.current) { //the function will only continue if the reference is pointing to an elemenmt
+      ref.current.scrollIntoView({ //scrollIntoView allows the page to scroll to the position of the current reference
+        behavior: "smooth", //scrolls smoothly
+        block: "start", //The scroll will arrive to a point where the element is at the top of the screen
       });
     }
   };
 
-  const visible = width > 800;
+  const [name, setName] = useState(""); //variable used for the name in the contact form
+  const [email, setEmail] = useState(""); //variable used for the email in the contact form
+  const [message, setMessage] = useState(""); //variable used for the message in the contact form
+
+  const [sent, setSent] = useState(false); //used to change the styles of the 'Send message' button when it is clicked
+
+  const visible = width > 800; //If the screen width is create than 800, the navigation bar will be visiblej
+
+
+  const [focusedField, setFocusedField] = useState(null); //used to give whatever input that is clicked an outline
+
+  const handlePress = async () => {
+    await fetch("https://formspree.io/f/mjgjdnrl", {
+      method: "POST",
+      body: JSON.stringify({ name, email, message }),
+      headers: { "Content-Type": "application/json" },
+    })
+
+    setSent(true)
+  };
 
   
 
@@ -89,272 +81,68 @@ export default function About() {
       {/* Navigation bar */}
       {visible && (
         <nav className="navbar-container">
-          <div style={{ cursor: "pointer", display: "flex" }}>
-            <img 
-              src={logoImg}
-              alt="Liminal Logo"
-              style={{ width: 75, height: 20, objectFit: "contain" }}
-            />
+          <div className="logo-container" onClick={() => scrollToSection(introRef)}>
+            <img src={logoImg} alt="Liminal Logo" className="logo-img" />
           </div>
 
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "row",
-              gap: 20,
-              flexWrap: "wrap",
-              justifyContent: "center",
-            }}
-          >
-            <div 
-              onClick={() => scrollToSection(introRef)} 
-              onMouseEnter={() => setIsAboutHovered(true)}
-              onMouseLeave={() => setIsAboutHovered(false)}
-              style={{ cursor: "pointer", display: "flex" }}
-            >
-              <span style={{ transition: 'transform 0.2s ease', transform: isAboutHovered ? "scale(1.1)" : "scale(1)", fontFamily: "PoppinsMedium", fontWeight: "500", fontSize: 14, color: "#160101" }}>
+          <div className="nav-links-wrapper">
+            <div onClick={() => scrollToSection(introRef)} onMouseEnter={() => setIsAboutHovered(true)} onMouseLeave={() => setIsAboutHovered(false)} className="nav-item">
+              <span className="nav-text" style={{ transform: isAboutHovered ? "scale(1.1)" : "scale(1)" }}>
                 About
               </span>
             </div>
 
-            <div 
-              onClick={() => scrollToSection(servicesRef)} 
-              onMouseEnter={() => setIsServicesHovered(true)}
-              onMouseLeave={() => setIsServicesHovered(false)}
-              style={{ cursor: "pointer", display: "flex" }}
-            >
-              <span style={{ transition: 'transform 0.2s ease', transform: isServicesHovered ? "scale(1.1)" : "scale(1)",fontFamily: "PoppinsMedium", fontWeight: "500", fontSize: 14, color: "#160101" }}>
+            <div onClick={() => scrollToSection(servicesRef)} onMouseEnter={() => setIsServicesHovered(true)} onMouseLeave={() => setIsServicesHovered(false)} className="nav-item">
+              <span className="nav-text" style={{ transform: isServicesHovered ? "scale(1.1)" : "scale(1)" }}>
                 Services
               </span>
             </div>
 
-            <div 
-              onClick={() => scrollToSection(caseStudiesRef)} 
-              onMouseEnter={() => setIsCaseStudiesHovered(true)}
-              onMouseLeave={() => setIsCaseStudiesHovered(false)}
-              style={{ cursor: "pointer", display: "flex" }}
-            >
-              <span style={{ transition: 'transform 0.2s ease', transform: isCaseStudiesHovered ? "scale(1.1)" : "scale(1)", fontFamily: "PoppinsMedium", fontWeight: "500", fontSize: 14, color: "#160101" }}>
+            <div onClick={() => scrollToSection(caseStudiesRef)} onMouseEnter={() => setIsCaseStudiesHovered(true)} onMouseLeave={() => setIsCaseStudiesHovered(false)} className="nav-item">
+              <span className="nav-text" style={{ transform: isCaseStudiesHovered ? "scale(1.1)" : "scale(1)" }}>
                 Case Studies
               </span>
             </div>
           </div>
 
-          <div
-            onClick={() => scrollToSection(contactRef)}
-
-            onMouseEnter={() => setIsHoveredContact(true)}
-            onMouseLeave={() => setIsHoveredContact(false)}
-            style={{
-              cursor: "pointer",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              flexDirection: "row",
-              paddingLeft: 15, paddingRight: 15, paddingHorizontal: 15,
-              paddingTop: 10, paddingBottom: 10, paddingVertical: 10,
-              borderRadius: 99,
-              marginRight: -10,
-              backgroundColor: isHoveredContact ? "#160101d5" : "#160101",
-              gap: 5,
-              
-              shadowOffset: { width: 0, height: 2 },
-              shadowOpacity: 0.5,
-              shadowRadius: 5,
-              transition: 'background-color 0.2s ease, box-shadow 0.2s ease',
-            }}
-          >
-            <span
-              style={{
-                color: "#ffffff",
-                fontWeight: "400",
-                letterSpacing: 0.3,
-                lineHeight: "16px",
-              }}
-            >
+          <div onClick={() => scrollToSection(contactRef)} onMouseEnter={() => setIsHoveredContact(true)} onMouseLeave={() => setIsHoveredContact(false)} className="contact-nav-btn" style={{ backgroundColor: isHoveredContact ? "#160101d5" : "#160101" }}>
+            <span className="contact-nav-text">
               Contact
             </span>
           </div>
         </nav>
       )}
 
-      <div ref={scrollRef} style={{ display: "flex", flexDirection: "column", flex: 1,  }}>
+      <div ref={scrollRef} className="scroll-wrapper">
         
         {/* INTRO SECTION */}
-        <section
-          ref={introRef}
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            width: "100%",
-            minHeight: 920,
-            justifyContent: "center",
-            
-            backgroundColor: "#ffffff",
-            
-          }}
-        >
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              flex: 1,
-              width: "100%",
-              alignItems: "center",
-              justifyContent: "center",
-              backgroundColor: "#ffffff",
-              overflow: "hidden",
-              
-              position: "relative",
-              boxSizing: "border-box",
-            }}
-          >
-            <img 
-              style={{
-                width: "100%",
-                height: "100%",
-                position: "absolute",
-                objectFit: "cover",
-                top: 0, left: 0,
-              }}
-              src={stationaryBackground}
-              alt="Stationary Background"
-            />
+        <section ref={introRef} className="intro-section">
+          <div className="intro-content-wrapper">
+            <img className="intro-bg-img" src={stationaryBackground} alt="Stationary Background" />
 
-            
             {/* Intro text */}
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "center",
-                alignItems: "center",
-                gap: '20px',
-                paddingLeft: 20, paddingRight: 20, paddingHorizontal: 20,
-                zIndex: 1,
-              }}
-            >
-
-              <div style={{ display: "flex", alignItems: "center", justifyContent: "center", padding: '5px 15px', backgroundColor: '#f53b3b2c', borderRadius: 99 }}>
-                <span style={{ fontSize: 15, fontWeight: "500", color: "#f53b3b" }}> Get the top support now</span>
+            <div className="intro-text-container">
+              <div className="top-support-badge">
+                <span className="top-support-text">Get the top support now</span>
               </div>
 
-
-
-
-              <span
-                style={{
-                  fontFamily: "PoppinsSemiBold",
-                  fontSize: 50,
-                  fontWeight: "500",
-                  color: "#160101",
-                  textAlign: "center",
-                  alignSelf: "center",
-                  marginBottom: '0px',
-                }}
-              >
+              <span className="intro-heading">
                 Strategic Fundraising Support <br /> for local charities
               </span>
 
-              
-
-            
-
-              <span
-                style={{
-                  fontFamily: "PoppinsMedium",
-                  fontWeight: "500",
-                  color: "#9D999D",
-                  fontSize: 17,
-                  textAlign: "center",
-                  marginBottom: '20px'
-                  
-                }}
-              >
-                I help local charities {""}
-                
-                  strengthen their fundraising
-                
-                ,<br />
-                build
-                
-                  {" "}
-                  sustainable income{" "}
-               
-                and create <br />
-                
-                  long-term impact{" "}
-                
-                for the people they support.
+              <span className="intro-subheading">
+                I help local charities strengthen their fundraising,<br /> build sustainable income and create <br /> long-term impact for the people they support.
               </span>
 
-              <div
-                style={{
-                  display: "flex",
-                  flexWrap: "wrap",
-                  justifyContent: "center",
-                  gap: 20,
-                  flexDirection: "row",
-                  alignItems: "center",
-                }}
-              >
-                <div
-
-                  onMouseEnter={() => setIsHoveredBook(true)}
-                  onMouseLeave={() => setIsHoveredBook(false)}
-
-                  onClick={() => scrollToSection(contactRef)}
-                  style={{
-                    cursor: "pointer",
-                    display: "flex",
-                    padding: '10px 20px',
-                    
-                    backgroundColor: isHoveredBook ? "#160101d5" : "#160101",
-                    borderColor: "#130000", 
-                    borderWidth: '2px',
-                    borderStyle: "solid",
-                    borderRadius: 99,
-                    justifyContent: 'center',
-                    textAlign: "center",
-                    
-                    shadowColor: isHoveredBook ? "#160101" : "#130000",
-                    boxShadow: isHoveredBook ? "0px 2px 10px rgba(245, 59, 59, 0.08)" : "0px 2px 10px rgba(0, 0, 0, 0.12)",
-                    shadowOffset: { width: 0, height: 2 },
-                    shadowOpacity: 0.5,
-                    shadowRadius: 10,
-                    transform: isHoveredBook ? 'scale(1.05)' : 'scale(1)',
-                    transition: 'transform 0.2s ease, background-color 0.2s ease',
-                  }}
-                >
-                  <span style={{ fontSize: 17, fontWeight: "500", color: "#ffffff" }}>
+              <div className="action-buttons-container">
+                <div onMouseEnter={() => setIsHoveredBook(true)} onMouseLeave={() => setIsHoveredBook(false)} onClick={() => scrollToSection(contactRef)} className="book-call-btn" style={{ backgroundColor: isHoveredBook ? "#160101d5" : "#160101", boxShadow: isHoveredBook ? "0px 2px 10px rgba(245, 59, 59, 0.08)" : "0px 2px 10px rgba(0, 0, 0, 0.12)", transform: isHoveredBook ? 'scale(1.05)' : 'scale(1)' }}>
+                  <span className="book-call-text">
                     Book a free discovery call
                   </span>
                 </div>
 
-                <div
-                  onClick={() => scrollToSection(servicesRef)}
-
-                  onMouseEnter={() => setIsHoveredServices(true)}
-                  onMouseLeave={() => setIsHoveredServices(false)}
-                  style={{
-                    cursor: "pointer",
-                    display: "flex",
-                    padding: '10px 20px',
-                    justifyContent: "center",
-                    alignItems: "center",
-                    backgroundColor: isHoveredServices ? "rgba(0, 0, 0, 0.1)" : "rgba(0, 0, 0, 0)",
-                    borderRadius: 99,
-                    
-                    borderWidth: 3,
-                    borderStyle: "solid",
-                    borderColor: "#160101",
-                    flexDirection: "row",
-                    gap: 5,
-                    transform: isHoveredServices ? 'scale(1.05)' : 'scale(1)',
-                    transition: 'transform 0.2s ease, background-color 0.2s ease',
-                  }}
-                >
-                  <span style={{ fontSize: 17, fontWeight: "400", color: "#160101" }}>
+                <div onClick={() => scrollToSection(servicesRef)} onMouseEnter={() => setIsHoveredServices(true)} onMouseLeave={() => setIsHoveredServices(false)} className="view-services-btn" style={{ backgroundColor: isHoveredServices ? "rgba(0, 0, 0, 0.1)" : "rgba(0, 0, 0, 0)", transform: isHoveredServices ? 'scale(1.05)' : 'scale(1)' }}>
+                  <span className="view-services-text">
                     View services
                   </span>
                   <FaArrowRight size={20} color="#160101" />
@@ -362,30 +150,19 @@ export default function About() {
               </div>
 
               {/* Qualities */}
-              <div
-                style={{
-                  display: "flex",
-                  gap: 60,
-                  flexDirection: "row",
-                  flexWrap: "wrap",
-                  maxWidth: 800,
-                  maxHeight: 400,
-                  marginTop: 50,
-                }}
-              >
+              <div className="qualities-container">
                 {/* Years experience */}
-                <div style={{ display: "flex", flexDirection: "row", justifyContent: "center", alignItems: "center", gap: 10 }}>
+                <div className="quality-item">
                   <FaCircleCheck size={20} color="#f53b3b" />
-                  <div style={{ fontSize: 20, fontFamily: "PoppinsMedium", fontWeight: 400, color:"#f53b3b"}}>
+                  <div className="quality-text">
                     15+ years experience
                   </div>
                 </div>
 
                 {/* 7 figure partnerships */}
-                <div style={{ display: "flex", flexDirection: "row", justifyContent: "center", alignItems: "center", gap: 10 }}>
-
+                <div className="quality-item">
                   <FaCircleCheck size={20} color="#f53b3b" />
-                  <div style={{ fontSize: 20, fontFamily: "PoppinsMedium", fontWeight: 400, whiteSpace: "pre-line", color:"#f53b3b" }}>
+                  <div className="quality-text-pre">
                     Multiple 6 & 7 figure partnerships
                   </div>
                 </div>
@@ -396,250 +173,69 @@ export default function About() {
         </section>
 
         {/* SERVICES SECTION */}
-        <section
-          ref={servicesRef}
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            minHeight: 700,
-            margin: "0 auto",
-            width: "100%",
-            backgroundColor: "white",
-            paddingTop: 60, paddingBottom: 20, paddingVertical: 20,
-            paddingLeft: 20, paddingRight: 20, paddingHorizontal: 20,
-            alignItems: "center",
-            justifyContent: "center",
-            boxSizing: "border-box",
-          }}
-        >
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              flex: 1,
-              width: "100%",
-              alignItems: "center",
-              justifyContent: "center",
-              borderRadius: 40,
-              overflow: "hidden",
-              paddingTop: 40, paddingBottom: 40, paddingVertical: 40,
-              position: "relative",
-              boxSizing: "border-box",
-            }}
-          >
+        <section ref={servicesRef} className="services-section">
+          <div className="services-content-wrapper">
 
-            <div style={{ display: "flex", alignItems: "center", justifyContent: "center", zIndex: 1 }}>
-              <span style={{ color: "#160101", fontSize: 40, fontFamily: "PoppinsSemiBold", fontWeight: 500 }}>
+            <div className="section-title-container">
+              <span className="section-title-text">
                 Services
               </span>
             </div>
 
-            <div
-              style={{
-                fontSize: 20,
-                marginTop: 40,
-                fontFamily: "PoppinsMedium",
-                fontWeight: "400",
-                color: "#494949",
-                textAlign: "center",
-                paddingLeft: 20, paddingRight: 20, paddingHorizontal: 20,
-                zIndex: 1,
-              }}
-            >
-              I provide clear, practical fundraising support for charities and community organisations.<br />My work helps
-              teams focus their time, build confidence and secure funding they need.
+            <div className="services-desc">
+              I provide clear, practical fundraising support for charities and community organisations.<br />My work helps teams focus their time, build confidence and secure funding they need.
             </div>
 
             {/* Services Boxes Container */}
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "row",
-                flexWrap: "wrap",
-                gap: 30,
-                justifyContent: "center",
-                alignItems: "center",
-                marginTop: 50,
-                maxWidth: '1000px',
-                width: "100%",
-                zIndex: 1,
-              }}
-            >
+            <div className="services-grid">
               {/* Pipeline Audit */}
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  width: "90%",
-                  maxWidth: 340,
-                  height: 250,
-                  backgroundColor: "#fcfcfc",
-                  borderRadius: 30,
-                  padding: 30,
-
-                  shadowColor: "#160101",
-                  shadowOffset: { width: 2, height: 3 },
-                  shadowOpacity: 0.05,
-                  shadowRadius: 10,
-                  justifyContent: "center",
-                  position: "relative",
-                  boxSizing: "border-box",
-                }}
-              >
-                <div
-                  style={{
-                    display: "flex",
-                    position: "absolute",
-                    left: -10,
-                    top: -10,
-                    borderRadius: 20,
-                    width: 75,
-                    height: 75,
-                    justifyContent: "center",
-                    alignItems: "center",
-                    backgroundColor: "#fcfcfc",
-                  }}
-                >
+              <div className="service-card">
+                <div className="service-icon-container">
                   <FaSearch size={40} color="#3babf5" />
                 </div>
-                <div style={{ fontFamily: "PoppinsSemiBold", fontWeight: 600, color: "#160101", fontSize: 20}}>
+                <div className="service-title">
                   Pipeline Audit
                 </div>
-                <div style={{ color: "#595959", marginTop: 10, fontFamily: "PoppinsMedium", fontWeight: 400, fontSize: 17 }}>
+                <div className="service-text">
                   Focus on opportunities that are most likely to succeed.
                 </div>
               </div>
 
               {/* High-Value Bidding */}
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  width: "90%",
-                  maxWidth: 340,
-                  height: 250,
-                  backgroundColor: "#fcfcfc",
-                  borderRadius: 30,
-                  padding: 30,
-                  shadowColor: "#160101",
-                  shadowOffset: { width: 2, height: 3 },
-                  shadowOpacity: 0.05,
-                  shadowRadius: 10,
-                  justifyContent: "center",
-                  position: "relative",
-                  boxSizing: "border-box",
-                }}
-              >
-                <div
-                  style={{
-                    display: "flex",
-                    position: "absolute",
-                    left: -10,
-                    top: -10,
-                    borderRadius: 20,
-                    width: 75,
-                    height: 75,
-                    justifyContent: "center",
-                    alignItems: "center",
-                    backgroundColor: "#fcfcfc",
-                  }}
-                >
+              <div className="service-card">
+                <div className="service-icon-container">
                   <FaHandHoldingUsd size={40} color="#733bf5" />
                 </div>
-                <span style={{ fontFamily: "PoppinsSemiBold", fontWeight: 600, color: "#160101", fontSize: 20 }}>
+                <span className="service-title">
                   High-Value Bidding
                 </span>
-                <div style={{ color: "#595959", marginTop: 10, fontFamily: "PoppinsMedium", fontWeight: 400, fontSize: 15 }}>
+                <div className="service-text-sm">
                   Turn your strategy into strong, fundable proposals.
                 </div>
               </div>
 
               {/* Change and Project Management */}
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  width: "90%",
-                  maxWidth: 340,
-                  height: 250,
-                  backgroundColor: "#fcfcfc",
-                  borderRadius: 30,
-                  padding: 30,
-                  shadowColor: "#160101",
-                  shadowOffset: { width: 2, height: 3 },
-                  shadowOpacity: 0.05,
-                  shadowRadius: 10,
-                  justifyContent: "center",
-                  position: "relative",
-                  boxSizing: "border-box",
-                }}
-              >
-                <div
-                  style={{
-                    display: "flex",
-                    position: "absolute",
-                    left: -10,
-                    top: -10,
-                    borderRadius: 20,
-                    width: 75,
-                    height: 75,
-                    justifyContent: "center",
-                    alignItems: "center",
-                    backgroundColor: "#fcfcfc",
-                  }}
-                >
+              <div className="service-card">
+                <div className="service-icon-container">
                   <FaSyncAlt size={40} color="#279235" />
                 </div>
-                <span style={{ fontFamily: "PoppinsSemiBold", fontWeight: 600, color: "#160101", fontSize: 20 }}>
+                <span className="service-title">
                   Change and Project Management
                 </span>
-                <div style={{ color: "#595959", marginTop: 10, fontFamily: "PoppinsMedium", fontWeight: 400, fontSize: 15 }}>
+                <div className="service-text-sm">
                   Plan and deliver work with clarity.
                 </div>
               </div>
 
               {/* Bespoke Stewardship */}
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  width: "90%",
-                  maxWidth: 340,
-                  height: 250,
-                  backgroundColor: "#fcfcfc",
-                  borderRadius: 30,
-                  padding: 30,
-
-                  shadowColor: "#160101",
-                  shadowOffset: { width: 2, height: 3 },
-                  shadowOpacity: 0.05,
-                  shadowRadius: 10,
-                  justifyContent: "center",
-                  position: "relative",
-                  boxSizing: "border-box",
-                }}
-              >
-                <div
-                  style={{
-                    display: "flex",
-                    position: "absolute",
-                    left: -10,
-                    top: -10,
-                    borderRadius: 20,
-                    backgroundColor: "#fcfcfc",
-                    width: 75,
-                    height: 75,
-                    justifyContent: "center",
-                    alignItems: "center",
-        
-                  }}
-                >
+              <div className="service-card">
+                <div className="service-icon-container">
                   <FaShieldAlt size={40} color="#db2c20" />
                 </div>
-                <span style={{ fontFamily: "PoppinsSemiBold", fontWeight: 600, color: "#160101", fontSize: 20 }}>
+                <span className="service-title">
                   Bespoke Stewardship
                 </span>
-                <div style={{ color: "#595959", marginTop: 10, fontFamily: "PoppinsMedium", fontWeight: 400, fontSize: 15 }}>
+                <div className="service-text-sm">
                   Build long-term donor relationships.
                 </div>
               </div>
@@ -648,238 +244,104 @@ export default function About() {
         </section>
 
         {/* CASE STUDIES SECTION */}
-        <section
-          ref={caseStudiesRef}
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            minHeight: 650,
-            width: "100%",
-            backgroundColor: "white",
-            paddingTop: 20, paddingBottom: 20, paddingVertical: 20,
-            paddingLeft: 20, paddingRight: 20, paddingHorizontal: 20,
-            alignItems: "center",
-            justifyContent: "center",
-            boxSizing: "border-box",
-          }}
-        >
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              flex: 1,
-              width: "100%",
-              alignItems: "center",
-              justifyContent: "center",
-              borderRadius: 40,
-              overflow: "hidden",
-              paddingTop: 40, paddingBottom: 40, paddingVertical: 40,
-              paddingLeft: 0, paddingRight: 0, paddingHorizontal: 0,
-              position: "relative",
-              boxSizing: "border-box",
-            }}
-          >
+        <section ref={caseStudiesRef} className="case-studies-section">
+          <div className="case-studies-wrapper">
 
-            <div style={{ display: "flex", alignItems: "center", justifyContent: "center", zIndex: 1 }}>
-              <h2 style={{ color: '#160101', fontFamily: "PoppinsSemiBold", fontWeight: 400, fontSize: 40, textAlign: "center", margin: 0 }}>
+            <div className="section-title-container">
+              <h2 className="section-title-text">
                 Case studies
               </h2>
             </div>
 
             {/* Case studies boxes */}
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "row",
-                flexWrap: "wrap",
-                gap: 30,
-                justifyContent: "center",
-                alignItems: "center",
-                marginTop: 50,
-                width: "100%",
-                zIndex: 1,
-              }}
-            >
+            <div className="case-studies-grid">
+              
               {/* Case study 1 */}
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  borderRadius: 30,
-                  width: 400,
-                  height: 380,
-                  maxWidth: "90%",
-                  backgroundColor: "#ffffff",
-                  padding: 30,
-                  justifyContent: "space-between",
-                  borderColor: "#e0e0e0",
-                  borderWidth: 1,
-                  borderStyle: "solid",
-                  boxShadow: "0px 10px 20px rgba(0, 0, 0, 0.05)",
-                  shadowColor: "#000",
-                  shadowOffset: { width: 0, height: 10 },
-                  shadowOpacity: 0.05,
-                  shadowRadius: 20,
-                  boxSizing: "border-box",
-                }}
-              >
-                <div
-                  style={{
-                    display: "flex",
-                    backgroundColor: "rgba(112, 179, 255, 0.17)",
-                    borderRadius: 10,
-                    height: 25,
-                    width: 120,
-                    justifyContent: "center",
-                    alignItems: "center",
-                  }}
-                >
-                  <span style={{ color: "#0077ff", fontSize: 12, fontFamily: "PoppinsMedium", fontWeight: 400, letterSpacing: 0, alignSelf: "center" }}>
+              <div className="case-study-card card-h380">
+                <div className="cs-badge bg-blue-light">
+                  <span className="cs-badge-text text-blue">
                     CASE STUDY 1
                   </span>
                 </div>
 
-                <div style={{ color: "#160101", fontFamily: "PoppinsMedium", fontWeight: 400, marginTop: 20, fontSize: 20 }}>
+                <div className="cs-title">
                   Disability Charity
                 </div>
 
-                <div style={{ color: "#595959", fontFamily: "PoppinsMedium", fontWeight: "400", marginTop: 20, fontSize: 15 }}>
+                <div className="cs-desc">
                   Turned a sensitive topic into a highly fundable statutory proposal.
                   I presented a clear, strategic, low-risk investment.
                 </div>
 
-                <div style={{ fontSize: 15, fontFamily: "PoppinsMedium", fontWeight: 400, marginTop: 30, color: "#595959" }}>
+                <div className="cs-outcome-label">
                   OUTCOME
                 </div>
 
-                <div style={{ marginTop: 10, fontSize: 20, fontFamily: "PoppinsMedium", fontWeight: 400, color: "#0077ff" }}>
+                <div className="cs-outcome-val text-blue">
                   £110K Grant Secured
                 </div>
 
-                <div style={{ marginTop: 10, fontSize: 15, fontFamily: "PoppinsMedium", fontWeight: "400", color: "#0077ff" }}>
+                <div className="cs-outcome-desc text-blue">
                   Increased and improved employability support for disabled people.
                 </div>
               </div>
 
               {/* Case study 2 */}
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  borderRadius: 30,
-                  width: 400,
-                  height: 380,
-                  maxWidth: "90%",
-                  backgroundColor: "#ffffff",
-                  padding: 30,
-                  borderColor: "#e0e0e0",
-                  borderWidth: 1,
-                  borderStyle: "solid",
-                  justifyContent: "space-between",
-                  boxShadow: "0px 10px 20px rgba(0, 0, 0, 0.05)",
-                  shadowColor: "#000",
-                  shadowOffset: { width: 0, height: 10 },
-                  shadowOpacity: 0.05,
-                  shadowRadius: 20,
-                  boxSizing: "border-box",
-                }}
-              >
-                <div
-                  style={{
-                    display: "flex",
-                    backgroundColor: "#e63cfd2c",
-                    borderRadius: 10,
-                    height: 25,
-                    width: 120,
-                    justifyContent: "center",
-                    alignItems: "center",
-                  }}
-                >
-                  <span style={{ color: "#e63cfd", fontSize: 12, fontFamily: "PoppinsMedium", fontWeight: 400, letterSpacing: 0, alignSelf: "center" }}>
+              <div className="case-study-card card-h380">
+                <div className="cs-badge bg-pink-light">
+                  <span className="cs-badge-text text-pink">
                     CASE STUDY 2
                   </span>
                 </div>
 
-                <div style={{ color: "#160101", fontFamily: "PoppinsMedium", fontWeight: 400, marginTop: 20, fontSize: 20 }}>
+                <div className="cs-title">
                   Women's and Girls' Charity
                 </div>
 
-                <div style={{ color: "#595959", fontFamily: "PoppinsMedium", fontWeight: "400", marginTop: 20, fontSize: 15 }}>
+                <div className="cs-desc">
                   No investment in major gifts and grants income.
                   I devised and implemented a replicable bid development framework.
                 </div>
 
-                <div style={{ fontSize: 15, fontFamily: "PoppinsMedium", fontWeight: 400, marginTop: 30, color: "#595959" }}>
+                <div className="cs-outcome-label">
                   OUTCOME
                 </div>
 
-                <div style={{ marginTop: 10, fontSize: 20, fontFamily: "PoppinsMedium", fontWeight: 400, color: "#e63cfd" }}>
+                <div className="cs-outcome-val text-pink">
                   £1M Grant Secured
                 </div>
 
-                <div style={{ marginTop: 10, fontSize: 15, fontFamily: "PoppinsMedium", fontWeight: "400", color: "#e63cfd" }}>
+                <div className="cs-outcome-desc text-pink">
                   More young girls and women accessing early, preventative support
                 </div>
               </div>
 
               {/* Case study 3 */}
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  borderRadius: 30,
-                  width: 400,
-                  minHeight: 380,
-                  maxWidth: "90%",
-                  backgroundColor: "#ffffff",
-                  padding: 30,
-                  borderColor: "#e0e0e0",
-                  borderWidth: 1,
-                  borderStyle: "solid",
-                  justifyContent: "space-between",
-                  boxShadow: "0px 10px 20px rgba(0, 0, 0, 0.05)",
-                  shadowColor: "#000",
-                  shadowOffset: { width: 0, height: 10 },
-                  shadowOpacity: 0.05,
-                  shadowRadius: 20,
-                  boxSizing: "border-box",
-                }}
-              >
-                <div
-                  style={{
-                    display: "flex",
-                    backgroundColor: "#6715ff25",
-                    borderRadius: 10,
-                    height: 25,
-                    width: 120,
-                    justifyContent: "center",
-                    alignItems: "center",
-                    marginBottom: 0,
-                  }}
-                >
-                  <span style={{ color: "#6715ff", fontSize: 12, fontFamily: "PoppinsMedium", fontWeight: 400, letterSpacing: 0, alignSelf: "center" }}>
+              <div className="case-study-card card-minh380">
+                <div className="cs-badge bg-purple-light">
+                  <span className="cs-badge-text text-purple">
                     CASE STUDY 3
                   </span>
                 </div>
 
-                <div style={{ color: "#160101", fontFamily: "PoppinsMedium", fontWeight: 400, marginTop: 20, fontSize: 20 }}>
+                <div className="cs-title">
                   Youth work Charity
                 </div>
 
-                <div style={{ color: "#595959", fontFamily: "PoppinsMedium", fontWeight: "400", marginTop: 20, fontSize: 15 }}>
+                <div className="cs-desc">
                   Strong impact data but unclear proposals.
                   I produced a case for support and provided central strategic input.
                 </div>
 
-                <div style={{ fontSize: 15, fontFamily: "PoppinsMedium", fontWeight: 400, marginTop: 30, color: "#595959" }}>
+                <div className="cs-outcome-label">
                   OUTCOME
                 </div>
 
-                <div style={{ marginTop: 10, fontSize: 20, fontFamily: "PoppinsMedium", fontWeight: 400, color: "#6715ff" }}>
+                <div className="cs-outcome-val text-purple">
                   £225K Partnership Secured
                 </div>
 
-                <div style={{ marginTop: 10, fontSize: 15, fontFamily: "PoppinsMedium", fontWeight: "400", color: "#6715ff" }}>
+                <div className="cs-outcome-desc text-purple">
                   Consistent messaging across fundraising and marketing, strengthening the charity's brand and impact.
                 </div>
               </div>
@@ -888,303 +350,55 @@ export default function About() {
         </section>
 
         {/* CONTACT SECTION */}
-        <section
-          ref={contactRef}
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            minHeight: 800,
-            backgroundColor: "white",
-            paddingTop: 40, paddingBottom: 40, paddingVertical: 40,
-            paddingLeft: 20, paddingRight: 20, paddingHorizontal: 20,
-            alignItems: "center",
-            justifyContent: "center",
-            boxSizing: "border-box",
-          }}
-        >
-          <h2 style={{ color: '#160101', fontFamily: "PoppinsSemiBold", fontWeight: 400, fontSize: 40, textAlign: "center", margin: 0 }}>
+        <section ref={contactRef} className="contact-section">
+          <h2 className="section-title-text">
             Contact me
           </h2>
 
-          <div
-            style={{
-              fontSize: 18,
-              marginTop: 20,
-              fontFamily: "PoppinsMedium",
-              fontWeight: "400",
-              color: "#494949",
-              textAlign: "center",
-              maxWidth: 500,
-            }}
-          >
-            If you'd like to talk about your{" "}
-              fundraising needs
-            , please get in touch.
+          <div className="contact-subtitle">
+            If you'd like to talk about your fundraising needs, please get in touch.
             I am able to reply within two working days.
           </div>
 
           {/* Image / contact UI Container */}
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "row",
-              flexWrap: "wrap",
-              justifyContent: "center",
-              alignItems: "center",
-              gap: 40,
-              marginTop: 40,
-              width: "100%",
-            }}
-          >
+          <div className="contact-content-grid">
+            
             {/* Image Container */}
-            <div
-              style={{
-                width: "100%",
-                maxWidth: 500,
-                minHeight: 500,
-                aspectRatio: 1,
-                backgroundColor: "#494949",
-                borderRadius: 30,
-                overflow: "hidden",
-              }}
-            >
-              <img 
-                src={smiling2Img}
-                alt="Profile Portrait"
-                style={{ objectFit: "cover", width: "100%", height: "100%" }}
-              />
+            <div className="contact-img-container">
+              <img src={smiling2Img} alt="Profile Portrait" className="contact-img" />
             </div>
 
             {/* Contact Form Container */}
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                width: "100%",
-                borderWidth: 1,
-                borderStyle: "solid",
-                borderColor: "#EEEEEE",
-                maxWidth: 500,
-                padding: 30,
-                minHeight: 500,
-                backgroundColor: "#f8f8f8",
-                borderRadius: 30,
-                overflow: "hidden",
-                justifyContent: "space-between",
-                alignItems: "center",
-                boxSizing: "border-box",
-              }}
-            >
-              <label
-                style={{
-                  alignSelf: "flex-start",
-                  fontFamily: "PoppinsMedium",
-                  fontWeight: 400,
-                  marginBottom: 10,
-                  color: focusedField === "name" ? "#f53b3b" : "#303030",
-                }}
-              >
+            <div className="contact-form-container">
+              <label className="form-label mb-10" style={{ color: focusedField === "name" ? "#f53b3b" : "#303030" }}>
                 Full Name
               </label>
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "row",
-                  alignItems: "center",
-                  backgroundColor: "#ffffff",
-                  borderRadius: 15,
-                  height: 50,
-                  width: "100%",
-                  transition: "border-color 0.2s ease-in-out, background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out",
-                  borderWidth: 2,
-                  borderStyle: "solid",
-                  borderColor: focusedField === "name" ? "#f53b3b" : "transparent",
-                  paddingLeft: 15, paddingRight: 15, paddingHorizontal: 15,
-                  boxSizing: "border-box",
-                }}
-              >
-                <FaRegUser
-                  size={20}
-                  color={focusedField === "name" ? "#f53b3b" : "#303030"}
-                />
-                <input
-                  type="text"
-                  onFocus={() => setFocusedField("name")}
-                  required
-                  onBlur={() => setFocusedField(null)}
-                  placeholder="Enter your name"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  style={{
-                    flex: 1,
-                    height: "100%",
-                    marginLeft: 10,
-                    fontFamily: "PoppinsMedium",
-                    fontWeight: "400",
-                    fontSize: 14,
-                    outline: "none",
-                    color: "#1A1A1A",
-                    border: "none",
-                    background: "transparent",
-                  }}
-                />
+              <div className="input-wrapper h-50" style={{ borderColor: focusedField === "name" ? "#f53b3b" : "transparent" }}>
+                <FaRegUser size={20} color={focusedField === "name" ? "#f53b3b" : "#303030"} />
+                <input type="text" onFocus={() => setFocusedField("name")} required onBlur={() => setFocusedField(null)} placeholder="Enter your name" value={name} onChange={(e) => setName(e.target.value)} className="text-input" />
               </div>
 
-              <label
-                style={{
-                  alignSelf: "flex-start",
-                  fontFamily: "PoppinsMedium",
-                  fontWeight: 400,
-                  marginTop: 20,
-                  color: focusedField === "email" ? "#f53b3b" : "#303030",
-                }}
-              >
+              <label className="form-label mt-20" style={{ color: focusedField === "email" ? "#f53b3b" : "#303030" }}>
                 Email
               </label>
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "row",
-                  alignItems: "center",
-                  backgroundColor: "#ffffff",
-                  borderRadius: 15,
-                  height: 50,
-                  transition: "border-color 0.2s ease-in-out, background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out",
-                  width: "100%",
-                  marginTop: 10,
-                  paddingLeft: 15, paddingRight: 15, paddingHorizontal: 15,
-                  borderWidth: 2,
-                  borderStyle: "solid",
-                  borderColor: focusedField === "email" ? "#f53b3b" : "transparent",
-                  boxSizing: "border-box",
-                }}
-              >
-                <FaRegEnvelope
-                  size={20}
-                  color={focusedField === "email" ? "#f53b3b" : "#303030"}
-                />
-                <input
-                  type="email"
-                  onFocus={() => setFocusedField("email")}
-                  required
-                  onBlur={() => setFocusedField(null)}
-                  placeholder="Enter your email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  style={{
-                    flex: 1,
-                    height: "100%",
-                    marginLeft: 10,
-                    fontFamily: "PoppinsMedium",
-                    fontWeight: "400",
-                    fontSize: 14,
-                    outline: "none",
-                    color: "#1A1A1A",
-                    border: "none",
-                    background: "transparent",
-                  }}
-                />
+              <div className="input-wrapper h-50 mt-10" style={{ borderColor: focusedField === "email" ? "#f53b3b" : "transparent" }}>
+                <FaRegEnvelope size={20} color={focusedField === "email" ? "#f53b3b" : "#303030"} />
+                <input type="email" onFocus={() => setFocusedField("email")} required onBlur={() => setFocusedField(null)} placeholder="Enter your email" value={email} onChange={(e) => setEmail(e.target.value)} className="text-input" />
               </div>
 
-              <label
-                style={{
-                  alignSelf: "flex-start",
-                  fontFamily: "PoppinsMedium",
-                  fontWeight: 400,
-                  marginTop: 20,
-                  color: focusedField === "message" ? "#f53b3b" : "#303030",
-                }}
-              >
+              <label className="form-label mt-20" style={{ color: focusedField === "message" ? "#f53b3b" : "#303030" }}>
                 Message
               </label>
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "row",
-                  alignItems: "center",
-                  backgroundColor: "#ffffff",
-                  borderRadius: 15,
-                  transition: "border-color 0.2s ease-in-out, background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out",
-                  height: 150,
-                  width: "100%",
-                  borderWidth: 2,
-                  borderStyle: "solid",
-                  borderColor: focusedField === "message" ? "#f53b3b" : "transparent",
-                  marginTop: 10,
-                  paddingLeft: 15, paddingRight: 15, paddingHorizontal: 15,
-                  boxSizing: "border-box",
-                }}
-              >
-                <textarea
-                  onFocus={() => setFocusedField("message")}
-                  required
-                  onBlur={() => setFocusedField(null)}
-                  placeholder="Enter your message"
-                  value={message}
-                  onChange={(e) => setMessage(e.target.value)}
-                  style={{
-                    flex: 1,
-                    height: "100%",
-                    fontFamily: "PoppinsMedium",
-                    fontWeight: "400",
-                    fontSize: 14,
-                    padding: '0px 0px',
-                    outline: "none",
-                    color: "#1A1A1A",
-                    marginTop: '30px',
-                    marginRight: '10px',
-                    border: "none",
-                    background: "transparent",
-                    resize: "none",
-                  }}
-                />
+              <div className="input-wrapper h-150 mt-10" style={{ borderColor: focusedField === "message" ? "#f53b3b" : "transparent" }}>
+                <textarea onFocus={() => setFocusedField("message")} required onBlur={() => setFocusedField(null)} placeholder="Enter your message" value={message} onChange={(e) => setMessage(e.target.value)} className="textarea-input" />
               </div>
 
-              <button
-                onMouseEnter={() => setIsSentHovered(true)}
-                onMouseLeave={() => setIsSentHovered(false)}
-                onClick={handlePress}
-                disabled={sent}
-                style={{
-                  cursor: sent ? "default" : "pointer",
-                  border: "none",
-                  backgroundColor: sent ? "#999999" : "#f53b3b",
-                  paddingLeft: 30, paddingRight: 30, paddingHorizontal: 30,
-                  paddingTop: 20, paddingBottom: 20, paddingVertical: 20,
-                  alignSelf: "flex-start",
-                  marginTop: 40,
-                  borderRadius: 99,
-                  flexDirection: "row",
-                  width: "100%",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  gap: 10,
-                  boxShadow: sent ? "none" : "0px 2px 10px rgba(245, 59, 59, 0.2)",
-                  shadowColor: sent ? "#999999" : "#f53b3b",
-                  shadowOffset: { width: 0, height: 2 },
-                  shadowOpacity: 0.2,
-                  shadowRadius: 10,
-                  display: "flex",
-                  transform: isSentHovered ? "scale(1.05)" : "scale(1)",
-                  transition: "transform 0.2s ease-in-out, background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out",
-                }}
-              >
-                <span
-                  style={{
-                    fontFamily: "PoppinsMedium",
-                    fontWeight: 400,
-                    color: "#ffffff",
-                    fontSize: 16,
-                  }}
-                >
+              <button onClick={handlePress} className={`send-btn ${sent ? "sent" : "not-sent"}`}>
+                <span className="btn-text">
                   {sent ? "Sent" : "Send message"}
                 </span>
-
                 {!sent && (
-                  <FaArrowRight
-                    size={20}
-                    color="#ffffff"
-                  />
+                  <FaArrowRight size={20} color="#ffffff" />
                 )}
               </button>
             </div>
