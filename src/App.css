@@ -1,0 +1,36 @@
+.container {
+    position: relative;
+    font-family: PoppinsMedium;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-height: 100vh;
+}
+
+.navbar-container {
+    position: fixed;
+    max-width: 800px;
+    flex-wrap: wrap;
+    z-index: 100;
+    align-items: center;
+    top: 20px;
+    flex-direction: row;
+    justify-content: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    gap: 200px;
+    width: 95%;
+    border-radius: 30px;
+    border-color: #ececece0;
+    border-width: 2px;
+    border-style: solid;
+    background-color: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(2px);
+    opacity: 0.95;
+    border-bottom-width: 1px;
+    display: flex;
+    left: 50%;
+    transform: translateX(-50%);
+}

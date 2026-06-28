@@ -1,5 +1,7 @@
 import './index.css'
 
+import './App.css'
+
 import React, { useRef, useState, useEffect } from "react";
 import {
   FaArrowRight, 
@@ -80,38 +82,13 @@ export default function About() {
 
   const visible = width > 800;
 
+  
+
   return (
-    <div style={{ fontFamily: "PoppinsMedium", display: "flex", flexDirection: "column", flex: 1, minHeight: "100vh", position: "relative" }}>
+    <div className='container'>
       {/* Navigation bar */}
       {visible && (
-        <nav
-          style={{
-            position: "fixed",
-            maxWidth: 800,
-            flexWrap: "wrap",
-            zIndex: 100,
-            alignItems: "center",
-            top: 20,
-            flexDirection: "row",
-            justifyContent: "space-between",
-            paddingTop: 10, paddingBottom: 10, paddingVertical: 10,
-            paddingLeft: 20, paddingRight: 20, paddingHorizontal: 20,
-            gap: 20,
-            width: "95%",
-            borderRadius: 99,
-            borderColor: "#ececece0",
-            borderWidth: 2,
-            borderStyle: "solid",
-            backgroundColor: "rgba(255, 255, 255, 0.7)",
-            backdropFilter: "blur(2px)",
-            WebkitBackdropFilter: "blur(2px)",
-            opacity: 0.95,
-            borderBottomWidth: 1,
-            display: "flex",
-            left: "50%",
-            transform: "translateX(-50%)",
-          }}
-        >
+        <nav className="navbar-container">
           <div style={{ cursor: "pointer", display: "flex" }}>
             <img 
               src={logoImg}
