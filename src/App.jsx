@@ -1,8 +1,8 @@
 import './index.css'; //Imports the css file from index.css
 import './App.css'; //Imports the app css file
-import { useRef, useState, useEffect } from "react"; //Imports the react hooks
-import { FaArrowRight, FaSearch, FaHandHoldingUsd, FaSyncAlt, FaShieldAlt, FaRegUser, FaRegEnvelope } from "react-icons/fa"; //Imports icons from the fa react icons library
-import { FaCircleCheck } from "react-icons/fa6";  //Imports the circle check icon from the react icons fa6 library
+import { useRef, useState, useEffect } from "react"; //Imports the react hooks, useRef, useState and useEffect
+import { FaArrowRight, FaSearch, FaHandHoldingUsd, FaSyncAlt, FaShieldAlt, FaRegUser, FaRegEnvelope } from "react-icons/fa"; //Imports font awesome from react-icons
+import { FaCircleCheck } from "react-icons/fa6";  //Imports Font Awesome 6 from react-icons
 import logoImg from "./assets/Liminal logo2.png"; //Imports the liminal logo2 image from the assets folder
 import stationaryBackground from "./assets/stationaryBackground.png"; //Imports the stationaryBackground image from the assets folder
 
@@ -10,8 +10,8 @@ import smiling2Img from "./assets/smiling2.png"; //Imports the smiling2 image fr
 
 export default function About() { //This function is exported so that it can be used again
 
-  const [width, setWidth] = useState(0); //This will be used to store the width of the screen
-  const [height, setHeight] = useState(0); //This will be used to store the height of the screen
+  const [width, setWidth] = useState(0); //stores the current screen width
+  const [height, setHeight] = useState(0); //stores the current screen height
 
   useEffect(() => {
     const updateSize = () => {
@@ -59,19 +59,19 @@ export default function About() { //This function is exported so that it can be 
 
   const [sent, setSent] = useState(false); //used to change the styles of the 'Send message' button when it is clicked
 
-  const visible = width > 800; //If the screen width is create than 800, the navigation bar will be visiblej
+  const visible = width > 800; //If the screen width is greater than 800, the navigation bar will be visible
 
 
   const [focusedField, setFocusedField] = useState(null); //used to give whatever input that is clicked an outline
 
   const handlePress = async () => {
-    await fetch("https://formspree.io/f/mjgjdnrl", {
-      method: "POST",
-      body: JSON.stringify({ name, email, message }),
-      headers: { "Content-Type": "application/json" },
+    await fetch("https://formspree.io/f/mjgjdnrl", { //sends a request to the form spree API
+      method: "POST", //POST is used because data is being sent
+      body: JSON.stringify({ name, email, message }), //The name, email and message are converted into a string format to be sent
+      headers: { "Content-Type": "application/json" }, //lets the server know that JSON data is being sent
     })
-
-    setSent(true)
+ 
+    setSent(true) //the sent variable is set to true
   };
 
   
