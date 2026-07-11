@@ -267,7 +267,7 @@ export default function About() { //This function is exported so that it can be 
             <div className="case-studies-grid">
               
               {/* Case study 1 */}
-              <div className="case-study-card card-h380">
+              <div className="case-study-card">
                 <div className="cs-badge bg-blue-light">
                   <span className="cs-badge-text text-blue">
                     CASE STUDY 1
@@ -297,7 +297,7 @@ export default function About() { //This function is exported so that it can be 
               </div>
 
               {/* Case study 2 */}
-              <div className="case-study-card card-h380">
+              <div className="case-study-card">
                 <div className="cs-badge bg-pink-light">
                   <span className="cs-badge-text text-pink">
                     CASE STUDY 2
@@ -327,7 +327,7 @@ export default function About() { //This function is exported so that it can be 
               </div>
 
               {/* Case study 3 */}
-              <div className="case-study-card card-h380">
+              <div className="case-study-card">
                 <div className="cs-badge bg-purple-light">
                   <span className="cs-badge-text text-purple">
                     CASE STUDY 3
