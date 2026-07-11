@@ -14,7 +14,7 @@ import { Preview } from 'shaders/react'
 
 import { Search, HandCoins, Send, HeartHandshake } from "lucide-react";
 
-import smiling2Img from "./assets/smiling4.png"; //Imports the smiling2 image from the assets folder
+import smiling2Img from "./assets/smiling2.png"; //Imports the smiling2 image from the assets folder
 
 export default function About() { //This function is exported so that it can be used again
 
