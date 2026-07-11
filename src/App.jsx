@@ -3,12 +3,16 @@
 
 import './index.css'; //Imports the css file from index.css
 import './App.css'; //Imports the app css file
+
 import { useRef, useState, useEffect } from "react"; //Imports the react hooks, useRef, useState and useEffect
 import { FaArrowRight, FaSearch, FaHandHoldingUsd, FaSyncAlt, FaShieldAlt, FaRegUser, FaRegEnvelope } from "react-icons/fa"; //Imports font awesome from react-icons
 import { FaCircleCheck } from "react-icons/fa6";  //Imports Font Awesome 6 from react-icons
 import logoImg from "./assets/Liminal logo2.png"; //Imports the liminal logo2 image from the assets folder
 import stationaryBackground from "./assets/backgroundImage7.png"; //Imports the stationaryBackground image from the assets folder
 import { Preview } from 'shaders/react'
+
+
+import { Search, HandCoins, Send, HeartHandshake } from "lucide-react";
 
 import smiling2Img from "./assets/smiling4.png"; //Imports the smiling2 image from the assets folder
 
@@ -197,7 +201,7 @@ export default function About() { //This function is exported so that it can be 
               {/* Pipeline Audit */}
               <div className="service-card">
                 <div className="service-icon-container">
-                  <FaSearch size={40} color="#3babf5" />
+                  <Search size={40} color="#db2c20" />
                 </div>
                 <div className="service-title">
                   Pipeline Audit
@@ -210,7 +214,7 @@ export default function About() { //This function is exported so that it can be 
               {/* High-Value Bidding */}
               <div className="service-card">
                 <div className="service-icon-container">
-                  <FaHandHoldingUsd size={40} color="#733bf5" />
+                  <HandCoins size={40} color="#db2c20" />
                 </div>
                 <span className="service-title">
                   High-Value Bidding
@@ -223,7 +227,7 @@ export default function About() { //This function is exported so that it can be 
               {/* Change and Project Management */}
               <div className="service-card">
                 <div className="service-icon-container">
-                  <FaSyncAlt size={40} color="#279235" />
+                  <Send size={40} color="#db2c20" />
                 </div>
                 <span className="service-title">
                   Change and Project Management
@@ -236,7 +240,7 @@ export default function About() { //This function is exported so that it can be 
               {/* Bespoke Stewardship */}
               <div className="service-card">
                 <div className="service-icon-container">
-                  <FaShieldAlt size={40} color="#db2c20" />
+                  <HeartHandshake size={40} color="#db2c20" />
                 </div>
                 <span className="service-title">
                   Bespoke Stewardship

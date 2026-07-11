@@ -196,7 +196,7 @@
 .intro-subheading {
     font-family: PoppinsMedium;
     font-weight: 500;
-    color: #9D999D;
+    color: #494949;
     font-size: 17px;
     text-align: center;
     margin-bottom: 20px;
@@ -346,6 +346,7 @@
     max-width: 1000px;
     width: 100%;
     z-index: 1;
+    ;
 }
 
 .service-card {
@@ -465,9 +466,9 @@
     margin-bottom: 0;
 }
 
-.bg-blue-light { background-color: rgba(112, 179, 255, 0.17); }
-.bg-pink-light { background-color: #e63cfd2c; }
-.bg-purple-light { background-color: #6715ff25; }
+.bg-blue-light { background-color: rgba(255, 112, 112, 0.17); }
+.bg-pink-light { background-color: rgba(255, 112, 112, 0.17); }
+.bg-purple-light { background-color: rgba(255, 112, 112, 0.17); }
 
 .cs-badge-text {
     font-size: 12px;
@@ -477,9 +478,9 @@
     align-self: center;
 }
 
-.text-blue { color: #0077ff; }
-.text-pink { color: #e63cfd; }
-.text-purple { color: #6715ff; }
+.text-blue { color: #db2c20; }
+.text-pink { color: #db2c20; }
+.text-purple { color: #db2c20; }
 
 .cs-title {
     color: #160101;
