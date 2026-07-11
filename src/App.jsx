@@ -7,7 +7,7 @@ import { useRef, useState, useEffect } from "react"; //Imports the react hooks, 
 import { FaArrowRight, FaSearch, FaHandHoldingUsd, FaSyncAlt, FaShieldAlt, FaRegUser, FaRegEnvelope } from "react-icons/fa"; //Imports font awesome from react-icons
 import { FaCircleCheck } from "react-icons/fa6";  //Imports Font Awesome 6 from react-icons
 import logoImg from "./assets/Liminal logo2.png"; //Imports the liminal logo2 image from the assets folder
-import stationaryBackground from "./assets/stationaryBackground.png"; //Imports the stationaryBackground image from the assets folder
+import stationaryBackground from "./assets/backgroundImage7.png"; //Imports the stationaryBackground image from the assets folder
 import { Preview } from 'shaders/react'
 
 import smiling2Img from "./assets/smiling2.png"; //Imports the smiling2 image from the assets folder
