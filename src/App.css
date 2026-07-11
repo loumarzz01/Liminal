@@ -376,11 +376,13 @@
 }
 
 .service-title {
-    font-family: PoppinsSemiBold;
-    font-weight: 600;
+    font-family: PoppinsMedium;
+    font-weight: 400;
     color: #160101;
     font-size: 20px;
 }
+
+
 
 .service-text {
     color: #595959;
