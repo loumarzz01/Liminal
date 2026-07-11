@@ -8,6 +8,7 @@ import { FaArrowRight, FaSearch, FaHandHoldingUsd, FaSyncAlt, FaShieldAlt, FaReg
 import { FaCircleCheck } from "react-icons/fa6";  //Imports Font Awesome 6 from react-icons
 import logoImg from "./assets/Liminal logo2.png"; //Imports the liminal logo2 image from the assets folder
 import stationaryBackground from "./assets/stationaryBackground.png"; //Imports the stationaryBackground image from the assets folder
+import { Preview } from 'shaders/react'
 
 import smiling2Img from "./assets/smiling2.png"; //Imports the smiling2 image from the assets folder
 
@@ -108,6 +109,7 @@ export default function About() { //This function is exported so that it can be 
             </div>
           </div>
 
+          {/* Contact Button*/}
           <div onClick={() => scrollToSection(contactRef)} onMouseEnter={() => setIsHoveredContact(true)} onMouseLeave={() => setIsHoveredContact(false)} className="contact-nav-btn" style={{ backgroundColor: isHoveredContact ? "#160101d5" : "#160101" }}>
             <span className="contact-nav-text">
               Contact
@@ -122,6 +124,7 @@ export default function About() { //This function is exported so that it can be 
         <section ref={introRef} className="intro-section">
           <div className="intro-content-wrapper">
             <img className="intro-bg-img" src={stationaryBackground} alt="Stationary Background" />
+            
 
             {/* Intro text */}
             <div className="intro-text-container">
@@ -396,6 +399,7 @@ export default function About() { //This function is exported so that it can be 
                 <textarea onFocus={() => setFocusedField("message")} required onBlur={() => setFocusedField(null)} placeholder="Enter your message" value={message} onChange={(e) => setMessage(e.target.value)} className="textarea-input" />
               </div>
 
+              
               <button onClick={handlePress} className={`send-btn ${sent ? "sent" : "not-sent"}`}>
                 <span className="btn-text">
                   {sent ? "Sent" : "Send message"}
