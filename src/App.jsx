@@ -10,7 +10,7 @@ import logoImg from "./assets/Liminal logo2.png"; //Imports the liminal logo2 im
 import stationaryBackground from "./assets/backgroundImage7.png"; //Imports the stationaryBackground image from the assets folder
 import { Preview } from 'shaders/react'
 
-import smiling2Img from "./assets/smiling2.png"; //Imports the smiling2 image from the assets folder
+import smiling2Img from "./assets/smiling4.png"; //Imports the smiling2 image from the assets folder
 
 export default function About() { //This function is exported so that it can be used again
 
