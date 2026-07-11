@@ -8,7 +8,7 @@ import { useRef, useState, useEffect } from "react"; //Imports the react hooks, 
 import { FaArrowRight, FaSearch, FaHandHoldingUsd, FaSyncAlt, FaShieldAlt, FaRegUser, FaRegEnvelope } from "react-icons/fa"; //Imports font awesome from react-icons
 import { FaCircleCheck } from "react-icons/fa6";  //Imports Font Awesome 6 from react-icons
 import logoImg from "./assets/Liminal logo2.png"; //Imports the liminal logo2 image from the assets folder
-import stationaryBackground from "./assets/abstract9.png"; //Imports the stationaryBackground image from the assets folder
+import stationaryBackground from "./assets/abstract16.png"; //Imports the stationaryBackground image from the assets folder
 import { Preview } from 'shaders/react'
 
 
@@ -60,6 +60,8 @@ export default function About() { //This function is exported so that it can be 
       });
     }
   };
+
+  useEffect
 
   const [name, setName] = useState(""); //variable used for the name in the contact form
   const [email, setEmail] = useState(""); //variable used for the email in the contact form
