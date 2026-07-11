@@ -255,6 +255,8 @@
     flex-wrap: wrap;
     max-width: 800px;
     max-height: 400px;
+    align-items: center;
+    justify-content: center;
     margin-top: 50px;
 }
 
