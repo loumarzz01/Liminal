@@ -327,7 +327,7 @@ export default function About() { //This function is exported so that it can be 
               </div>
 
               {/* Case study 3 */}
-              <div className="case-study-card card-minh380">
+              <div className="case-study-card card-h380">
                 <div className="cs-badge bg-purple-light">
                   <span className="cs-badge-text text-purple">
                     CASE STUDY 3
