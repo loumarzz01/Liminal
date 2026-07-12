@@ -13,6 +13,8 @@ import { Preview } from 'shaders/react'
 
 import {motion} from 'framer-motion'
 
+import { TiStarFullOutline } from "react-icons/ti";
+
 
 import { Search, HandCoins, Send, HeartHandshake } from "lucide-react";
 
