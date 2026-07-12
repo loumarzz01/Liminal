@@ -15,6 +15,8 @@ import {motion} from 'framer-motion'
 
 import { TiStarFullOutline } from "react-icons/ti";
 
+import { TypeAnimation } from "react-type-animation";
+
 
 import { Search, HandCoins, Send, HeartHandshake } from "lucide-react";
 
@@ -171,7 +173,13 @@ export default function About() { //This function is exported so that it can be 
               </div>
 
               <span className="intro-heading">
-                Strategic Fundraising Support <br /> for local charities
+                
+                <TypeAnimation
+                  sequence={["Strategic Fundraising Support\nfor local charities"]}
+                  speed={60}
+                  repeat={0}
+                  style={{ whiteSpace: "pre-line"}}
+                />
               </span>
 
               <span className="intro-subheading">
