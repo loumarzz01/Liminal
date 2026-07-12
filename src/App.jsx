@@ -11,6 +11,8 @@ import logoImg from "./assets/Liminal logo2.png"; //Imports the liminal logo2 im
 import stationaryBackground from "./assets/abstract16.png"; //Imports the stationaryBackground image from the assets folder
 import { Preview } from 'shaders/react'
 
+import {motion} from 'framer-motion'
+
 
 import { Search, HandCoins, Send, HeartHandshake } from "lucide-react";
 
@@ -61,7 +63,7 @@ export default function About() { //This function is exported so that it can be 
     }
   };
 
-  useEffect
+
 
   const [name, setName] = useState(""); //variable used for the name in the contact form
   const [email, setEmail] = useState(""); //variable used for the email in the contact form
@@ -85,6 +87,28 @@ export default function About() { //This function is exported so that it can be 
   };
 
   
+  const [count, setCount] = useState(0)
+
+
+  useEffect(() => {
+
+    const target = 15
+    let current = 0
+
+
+    const timer = setInterval(() => {
+      current += 1;
+
+      setCount(current)
+
+      if (current >= target) {
+        clearInterval(timer)
+      }
+    }, 50)
+
+    return () => clearInterval(timer)
+  }, [])
+
 
   return (
     <div className='container'>
@@ -127,7 +151,13 @@ export default function About() { //This function is exported so that it can be 
       <div ref={scrollRef} className="scroll-wrapper">
         
         {/* INTRO SECTION */}
-        <section ref={introRef} className="intro-section">
+        <motion.section 
+        initial={{opacity: 0, y:50}}
+        whileInView={{opacity: 1, y: 0}}
+        transition={{ duration: 0.8}}
+        viewport={{ once: true, amount: 0.1 }}
+        
+        ref={introRef} className="intro-section">
           <div className="intro-content-wrapper">
             <img className="intro-bg-img" src={stationaryBackground} alt="Stationary Background" />
             
@@ -167,7 +197,7 @@ export default function About() { //This function is exported so that it can be 
                 <div className="quality-item">
                   <FaCircleCheck size={20} color="#f53b3b" />
                   <div className="quality-text">
-                    15+ years experience
+                    {count}+ years experience
                   </div>
                 </div>
 
@@ -182,10 +212,15 @@ export default function About() { //This function is exported so that it can be 
 
             </div>
           </div>
-        </section>
+        </motion.section>
 
         {/* SERVICES SECTION */}
-        <section ref={servicesRef} className="services-section">
+        <motion.section 
+        initial={{opacity: 0, y:50}}
+        whileInView={{opacity: 1, y: 0}}
+        transition={{ duration: 0.8}}
+        viewport={{ once: true, amount: 0.1 }}
+        ref={servicesRef} className="services-section">
           <div className="services-content-wrapper">
 
             <div className="section-title-container">
@@ -253,10 +288,15 @@ export default function About() { //This function is exported so that it can be 
               </div>
             </div>
           </div>
-        </section>
+        </motion.section>
 
         {/* CASE STUDIES SECTION */}
-        <section ref={caseStudiesRef} className="case-studies-section">
+        <motion.section 
+        initial={{opacity: 0, y:50}}
+        whileInView={{opacity: 1, y: 0}}
+        transition={{ duration: 0.8}}
+        viewport={{ once: true, amount: 0.1 }}
+        ref={caseStudiesRef} className="case-studies-section">
           <div className="case-studies-wrapper">
 
             <div className="section-title-container">
@@ -359,10 +399,15 @@ export default function About() { //This function is exported so that it can be 
               </div>
             </div>
           </div>
-        </section>
+        </motion.section>
 
         {/* CONTACT SECTION */}
-        <section ref={contactRef} className="contact-section">
+        <motion.section
+        initial={{opacity: 0, y:50}}
+        whileInView={{opacity: 1, y: 0}}
+        transition={{ duration: 0.8}}
+        viewport={{ once: true, amount: 0.1 }}
+        ref={contactRef} className="contact-section">
           <h2 className="section-title-text">
             Contact me
           </h2>
@@ -416,7 +461,7 @@ export default function About() { //This function is exported so that it can be 
               </button>
             </div>
           </div>
-        </section>
+        </motion.section>
       </div>
     </div>
   );
