@@ -9,13 +9,11 @@ import { FaArrowRight, FaSearch, FaHandHoldingUsd, FaSyncAlt, FaShieldAlt, FaReg
 import { FaCircleCheck } from "react-icons/fa6";  //Imports Font Awesome 6 from react-icons
 import logoImg from "./assets/Liminal logo2.png"; //Imports the liminal logo2 image from the assets folder
 import stationaryBackground from "./assets/abstract16.png"; //Imports the stationaryBackground image from the assets folder
-import { Preview } from 'shaders/react'
 
-import {motion} from 'framer-motion'
+import {motion} from 'framer-motion' //import is used so that the page fade in animations work
 
-import { TiStarFullOutline } from "react-icons/ti";
 
-import { TypeAnimation } from "react-type-animation";
+import { TypeAnimation } from "react-type-animation"; //this is used as a component in the jsx so that the title in the hero section has a type-in animation
 
 
 import { Search, HandCoins, Send, HeartHandshake } from "lucide-react";
@@ -91,26 +89,26 @@ export default function About() { //This function is exported so that it can be 
   };
 
   
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0) //the count variable is set to 0 so that 
 
 
-  useEffect(() => {
+  useEffect(() => { //this function is used to animate a number scaling from 0 to 15
 
-    const target = 15
-    let current = 0
+    const target = 15 //this is the target length of the animation (not in seconds)
+    let current = 0 //this tracks the current number of the following timer until it reaches 15
 
 
-    const timer = setInterval(() => {
-      current += 1;
+    const timer = setInterval(() => { //creates a timer that updates the current variable (every 50 milliseconds) until it reaches 15
+      current += 1; //every 50 milliseconds the current variable is updated by 1
 
-      setCount(current)
+      setCount(current) //the count variable is set to current
 
-      if (current >= target) {
+      if (current >= target) { //if current's value is greater than or equal to the target value the timer is cleared
         clearInterval(timer)
       }
     }, 50)
 
-    return () => clearInterval(timer)
+    return () => clearInterval(timer) //this clears the interval of the timer so that it doesnt run in the background
   }, [])
 
 
@@ -155,11 +153,11 @@ export default function About() { //This function is exported so that it can be 
       <div ref={scrollRef} className="scroll-wrapper">
         
         {/* INTRO SECTION */}
-        <motion.section 
-        initial={{opacity: 0, y:50}}
-        whileInView={{opacity: 1, y: 0}}
-        transition={{ duration: 0.8}}
-        viewport={{ once: true, amount: 0.1 }}
+        <motion.section //these motion sections (there are multiple) are used to create a fade in animation when the section is in view
+        initial={{opacity: 0, y:50}} //this is the starting appearance of the section. So it starts invisible and slightly upwards
+        whileInView={{opacity: 1, y: 0}} //while it is in view, the section is animated to become visible and move vertically slightly
+        transition={{ duration: 0.8}} //it lasts 0.8 seconds
+        viewport={{ once: true, amount: 0.1 }} //it only runs once and only starts when 10% of the section is in view
         
         ref={introRef} className="intro-section">
           <div className="intro-content-wrapper">
