@@ -79,7 +79,7 @@ export default function About() { //This function is exported so that it can be 
   const [focusedField, setFocusedField] = useState(null); //used to give whatever input that is clicked an outline
 
   const handlePress = async () => {
-    await fetch("https://formspree.io/f/mjgjdnrl", { //sends a request to the form spree API
+    await fetch("https://formspree.io/f/mdaqgkwa", { //sends a request to the form spree API
       method: "POST", //POST is used because data is being sent
       body: JSON.stringify({ name, email, message }), //The name, email and message are converted into a string format to be sent
       headers: { "Content-Type": "application/json" }, //lets the server know that JSON data is being sent
