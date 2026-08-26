@@ -18,7 +18,7 @@ import { TypeAnimation } from "react-type-animation"; //this is used as a compon
 
 import { Search, HandCoins, Send, HeartHandshake } from "lucide-react";
 
-import smiling2Img from "./assets/type1.jpeg"; //Imports the smiling2 image from the assets folder
+import smiling2Img from "./assets/owner2.jpg"; //Imports the smiling2 image from the assets folder
 
 export default function About() { //This function is exported so that it can be used again
 
