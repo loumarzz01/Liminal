@@ -176,6 +176,7 @@ export default function About() { //This function is exported so that it can be 
                   sequence={["Strategic Fundraising Support\nfor local charities"]}
                   speed={60}
                   repeat={0}
+                  cursor={false}
                   style={{ whiteSpace: "pre-line"}}
                 />
               </span>
