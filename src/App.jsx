@@ -18,7 +18,7 @@ import { TypeAnimation } from "react-type-animation"; //this is used as a compon
 
 import { Search, HandCoins, Send, HeartHandshake } from "lucide-react";
 
-import smiling2Img from "./assets/owner2.jpg"; //Imports the smiling2 image from the assets folder
+import smiling2Img from "./assets/owner7.png"; //Imports the smiling2 image from the assets folder
 
 export default function About() { //This function is exported so that it can be used again
 
@@ -429,10 +429,7 @@ export default function About() { //This function is exported so that it can be 
           {/* Image / contact UI Container */}
           <div className="contact-content-grid">
             
-            {/* Image Container */}
-            <div className="contact-img-container">
-              <img src={smiling2Img} alt="Profile Portrait" className="contact-img" />
-            </div>
+            
 
             {/* Contact Form Container */}
             <div className="contact-form-container">
@@ -460,6 +457,8 @@ export default function About() { //This function is exported so that it can be 
               </div>
 
               
+
+              
               <button onClick={handlePress} className={`send-btn ${sent ? "sent" : "not-sent"}`}>
                 <span className="btn-text">
                   {sent ? "Sent" : "Send message"}
@@ -468,6 +467,13 @@ export default function About() { //This function is exported so that it can be 
                   <FaArrowRight size={20} color="#ffffff" />
                 )}
               </button>
+
+              
+            </div>
+
+            {/* Image Container */}
+            <div className="contact-img-container">
+              <img src={smiling2Img} alt="Profile Portrait" className="contact-img" />
             </div>
           </div>
         </motion.section>

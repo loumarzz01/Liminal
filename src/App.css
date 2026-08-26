@@ -581,8 +581,9 @@
     min-height: 550px;
     aspect-ratio: 1;
     background-color: #494949;
-    border-radius: 30px;
+    
     overflow: hidden;
+    border: none;
 }
 
 .contact-img {
