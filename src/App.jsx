@@ -252,7 +252,7 @@ export default function About() { //This function is exported so that it can be 
                 <div className="service-title">
                   Pipeline Audit
                 </div>
-                <div className="service-text">
+                <div className="service-text-sm">
                   Focus on opportunities that are most likely to succeed.
                 </div>
               </div>
