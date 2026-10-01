@@ -43,12 +43,15 @@ export default function About() { //This function is exported so that it can be 
   const [isHoveredServices, setIsHoveredServices] = useState(false); //used to check whether the services button is being hovered on
   const [isHoveredContact, setIsHoveredContact] = useState(false); //used to check whether the contact button is being hovered on
 
-  const [isAboutHovered, setIsAboutHovered] = useState(false); //used to check whether the about text is being hovered on
+  const [isHomeHovered, setIsHomeHovered] = useState(false); //used to check whether the about text is being hovered on
+  const [isAboutHovered, setIsAboutHovered] = useState(false);
   const [isCaseStudiesHovered, setIsCaseStudiesHovered] = useState(false); //used to check whether the case studies button is being hovered on
   const [isServicesHovered, setIsServicesHovered] = useState(false); //used to check whether the services button is being hovered on
 
   const scrollRef = useRef(null); //scrollref is a variable that holds a reference to a DOM
   const introRef = useRef(null); //creates a reference to the intro section
+  const aboutRef = useRef(null);
+  const whyWork = useRef(null);
   const servicesRef = useRef(null); //creates a reference to the services section
   const caseStudiesRef = useRef(null); //creates a reference to the case studies section
   const contactRef = useRef(null); //creates a reference to the contact section
@@ -73,7 +76,23 @@ export default function About() { //This function is exported so that it can be 
 
   const [sent, setSent] = useState(false); //used to change the styles of the 'Send message' button when it is clicked
 
+  const [vertical, setVertical] = useState(false)
+
   const visible = width > 800; //If the screen width is greater than 800, the navigation bar will be visible
+  
+
+  useEffect(() => {
+    const handleResize = () => {
+      setVertical(window.innerWidth > 800);
+    };
+
+    handleResize();
+
+    window.addEventListener('resize', handleResize);
+
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, [])
 
 
   const [focusedField, setFocusedField] = useState(null); //used to give whatever input that is clicked an outline
@@ -122,11 +141,20 @@ export default function About() { //This function is exported so that it can be 
           </div>
 
           <div className="nav-links-wrapper">
+
             <div onClick={() => scrollToSection(introRef)} onMouseEnter={() => setIsAboutHovered(true)} onMouseLeave={() => setIsAboutHovered(false)} className="nav-item">
               <span className="nav-text" style={{ transform: isAboutHovered ? "scale(1.1)" : "scale(1)" }}>
+                Home
+              </span>
+            </div>
+
+            <div onClick={() => scrollToSection(aboutRef)} onMouseEnter={() => setIsHomeHovered(true)} onMouseLeave={() => setIsHomeHovered(false)} className="nav-item">
+              <span className="nav-text" style={{ transform: isHomeHovered ? "scale(1.1)" : "scale(1)" }}>
                 About
               </span>
             </div>
+
+            
 
             <div onClick={() => scrollToSection(servicesRef)} onMouseEnter={() => setIsServicesHovered(true)} onMouseLeave={() => setIsServicesHovered(false)} className="nav-item">
               <span className="nav-text" style={{ transform: isServicesHovered ? "scale(1.1)" : "scale(1)" }}>
@@ -139,6 +167,7 @@ export default function About() { //This function is exported so that it can be 
                 Case Studies
               </span>
             </div>
+
           </div>
 
           {/* Contact Button*/}
@@ -223,6 +252,130 @@ export default function About() { //This function is exported so that it can be 
           </div>
         </motion.section>
 
+
+        {/* ABOUT SECTION */}
+        <motion.section //these motion sections (there are multiple) are used to create a fade in animation when the section is in view
+        initial={{opacity: 0, y:50}} //this is the starting appearance of the section. So it starts invisible and slightly upwards
+        whileInView={{opacity: 1, y: 0}} //while it is in view, the section is animated to become visible and move vertically slightly
+        transition={{ duration: 0.8}} //it lasts 0.8 seconds
+        viewport={{ once: true, amount: 0.1 }} //it only runs once and only starts when 10% of the section is in view
+        
+        ref={aboutRef} className="about-section">
+          <div className="about-content-wrapper">
+
+            
+            
+            <div className='about-container'>
+
+              <span className="about-title-text">
+                About
+              </span>
+
+              <div className='about-information'>
+                I got into fundraising for the buzz of watching money turn into real change for the
+                people who need it most. I&#39;ve stayed for a stronger reason: a conviction that most
+                people are only &quot;in need&quot; because of the circumstances they were born into — not
+                through any fault of their own. Give someone the right support, and there&#39;s rarely a
+                ceiling on what they can go on to achieve. Fundraising, done well, is one of the most
+                direct ways we have of levelling a very unequal playing field.
+                That belief shapes how I work with every charity I partner with. I&#39;m not interested in
+                chasing the next grant for its own sake. I start by understanding an organisation&#39;s
+                history — where it came from, what it has always stood for — and build a growth
+                strategy that&#39;s rooted in that, not bolted onto it. The result isn&#39;t just more income; it&#39;s
+                fundraising that deepens an organisation&#39;s sense of purpose as it scales.
+                You won&#39;t get a generic playbook from me. Every charity&#39;s history and context is
+                different, which is why I spend real time understanding yours before recommending
+                where to focus. And rather than trying to fix fundraising programmes that aren’t
+                working, I help you identify and back the two or three with genuine potential for step-
+                change growth — so your team&#39;s time and energy go where they&#39;ll do the most good.
+                Curious, warm and straightforward, I bring 15+ years of fundraising experience and a
+                track record of multiple 6- and 7-figure partnerships to every engagement. But it&#39;s the
+                strategic thinking behind those numbers — not the numbers themselves — that
+                clients tend to come back for.
+              </div>
+            </div>
+
+          </div>
+        </motion.section>
+
+        {/* WHY-WORK SECTION */}
+        <motion.section 
+        initial={{opacity: 0, y:50}}
+        whileInView={{opacity: 1, y: 0}}
+        transition={{ duration: 0.8}}
+        viewport={{ once: true, amount: 0.1 }}
+        ref={whyWork} className="services-section">
+          <div className="services-content-wrapper">
+
+            <div className="section-title-container">
+              <span className="section-title-text">
+                Why work with me
+              </span>
+            </div>
+
+            <div className="services-desc">
+              I provide clear, practical fundraising support for charities and community organisations.<br />My work helps teams focus their time, build confidence and secure funding they need.
+            </div>
+
+            {/* Updated 2x2 Grid Container */}
+            <div className="why-grid">
+              {/* History-led */}
+              <div className="why-card">
+                <div className="why-icon-container">
+                  <Search size={32} color="#db2c20" />
+                </div>
+                <div className="why-title">
+                  History-led, not generic
+                </div>
+                <div className="why-text">
+                  I uncover an organisation&#39;s institutional history
+                  and core values, then merge them with fresh strategic thinking, rather than
+                  applying a one-size-fits-all template.
+                </div>
+              </div>
+
+              {/* Mission-connected */}
+              <div className="why-card">
+                <div className="why-icon-container">
+                  <HandCoins size={32} color="#db2c20" />
+                </div>
+                <div className="why-title">
+                  Mission-connected, not transactional
+                </div>
+                <div className="why-text">
+                  Every recommendation is tied back to long-term impact, not just short-term cash flow.
+                </div>
+              </div>
+
+              {/* Focused */}
+              <div className="why-card">
+                <div className="why-icon-container">
+                  <Send size={32} color="#db2c20" />
+                </div>
+                <div className="why-title">
+                  Focused, not scattergun
+                </div>
+                <div className="why-text">
+                  instead of trying to fix every weak channel, I identify and elevate the two or three with the highest potential for real growth.
+                </div>
+              </div>
+
+              {/* Collaborative */}
+              <div className="why-card">
+                <div className="why-icon-container">
+                  <HeartHandshake size={32} color="#db2c20" />
+                </div>
+                <div className="why-title">
+                  Collaborative, not top-down
+                </div>
+                <div className="why-text">
+                  I work closely with your team to build strategies everyone genuinely believes in.
+                </div>
+              </div>
+            </div>
+          </div>
+        </motion.section>
+
         {/* SERVICES SECTION */}
         <motion.section 
         initial={{opacity: 0, y:50}}
@@ -236,65 +389,133 @@ export default function About() { //This function is exported so that it can be 
               <span className="section-title-text">
                 Services
               </span>
+
+              <div className="services-desc">
+                I do my best work with charities and non-profits delivering programmes and services — from new, innovative initiatives to established organisations — typically with £1m+ income, in causes like homelessness, disability and mental health. If you're not quite there yet but think the fit is right, get in touch anyway — I flex my pricing to work with smaller, growing charities too.
+
+              </div>
             </div>
 
-            <div className="services-desc">
-              I provide clear, practical fundraising support for charities and community organisations.<br />My work helps teams focus their time, build confidence and secure funding they need.
-            </div>
+            <div className='process-header'>STEP BY STEP PROCESS</div>
 
             {/* Services Boxes Container */}
             <div className="services-grid">
-              {/* Pipeline Audit */}
+
+
+              
+              {/* Discovery Call */}
               <div className="service-card">
                 <div className="service-icon-container">
-                  <Search size={40} color="#db2c20" />
+                  <p className='number'>1</p>
                 </div>
                 <div className="service-title">
+                  Discovery Call
+                </div>
+                <div className="service-text-sm">
+                  We start with a conversation, not a proposal template. I take the time to understand your history, your mission and where fundraising currently feels stuck.
+                </div>
+
+                <div className='service-gains-text'>
+                  You gain...
+                </div>
+
+                <div className='service-gains-subtext'>
+                  An honest, free assessment on where you stand, before we spend a penny of your budget.
+                </div>
+              </div>
+
+              {/* Pipeline Audit */}
+              <div className="service-card">
+                
+                <div className="service-icon-container">
+                  <p className='number'>2</p>
+                </div>
+
+                <span className="service-title">
                   Pipeline Audit
-                </div>
+                </span>
                 <div className="service-text-sm">
-                  Focus on opportunities that are most likely to succeed.
+                  I audit your existing pipeline against your organisation's real potential, not a generic scorecard, to see what's genuinely fundable.
+                </div>
+
+                <div className='service-gains-text'>
+                  You gain...
+                </div>
+
+                <div className='service-gains-subtext'>
+                  Clarity on the two or three opportunities worth your team’s time, and permission to let the rest go.
                 </div>
               </div>
 
-              {/* High-Value Bidding */}
+              {/* Strategy & High Value Bidding */}
               <div className="service-card">
                 <div className="service-icon-container">
-                  <HandCoins size={40} color="#db2c20" />
+                  {/*<Send size={40} color="#db2c20" /> */}
+                  <p className='number'>3</p>
                 </div>
                 <span className="service-title">
-                  High-Value Bidding
+                  Strategy & High Value Bidding
                 </span>
                 <div className="service-text-sm">
-                  Turn your strategy into strong, fundable proposals.
+                  Together we turn your strongest opportunities into a compelling case for support, rooted in your history and built for the funders you're targeting.
+                </div>
+                
+                <div className='service-gains-text'>
+                  You gain...
+                </div>
+
+                <div className='service-gains-subtext'>
+                  Fundable, distinctive proposals a funder can say yes to with confidence.
                 </div>
               </div>
 
-              {/* Change and Project Management */}
+              {/* Change & Project Management */}
               <div className="service-card">
                 <div className="service-icon-container">
-                  <Send size={40} color="#db2c20" />
+                  {/*<HeartHandshake size={40} color="#db2c20" /> */}
+                  <p className='number'>4</p>
                 </div>
                 <span className="service-title">
-                  Change and Project Management
+                  Change & Project Management
                 </span>
                 <div className="service-text-sm">
-                  Plan and deliver work with clarity.
+                  I help you plan and deliver the funded work with clarity, working alongside your team rather than parachuting in and out.
+                </div>
+
+                <div className='service-gains-text'>
+                  You gain...
+                </div>
+
+                <div className='service-gains-subtext'>
+                  A funded plan that actually gets delivered, on time, without burning out your team.
                 </div>
               </div>
+
 
               {/* Bespoke Stewardship */}
               <div className="service-card">
                 <div className="service-icon-container">
-                  <HeartHandshake size={40} color="#db2c20" />
+                  {/*<HeartHandshake size={40} color="#db2c20" /> */}
+                  <p className='number'>5</p>
                 </div>
                 <span className="service-title">
                   Bespoke Stewardship
                 </span>
                 <div className="service-text-sm">
-                  Build long-term donor relationships.
+                  Once funding lands, I help you build the long-term donor relationship that turns a single grant into a multi-year partnership.
+                </div>
+
+                <div className='service-gains-text'>
+                  You gain...
+                </div>
+
+                <div className='service-gains-subtext'>
+                  Sustainable, growing income, and a stronger, more resilient mission.
                 </div>
               </div>
+
+
+
             </div>
           </div>
         </motion.section>
@@ -417,7 +638,7 @@ export default function About() { //This function is exported so that it can be 
         transition={{ duration: 0.8}}
         viewport={{ once: true, amount: 0.1 }}
         ref={contactRef} className="contact-section">
-          <h2 className="section-title-text">
+          <h2 className="contact-section-title-text">
             Contact me
           </h2>
 

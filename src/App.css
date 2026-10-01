@@ -21,7 +21,7 @@
     padding-bottom: 10px;
     padding-left: 20px;
     padding-right: 20px;
-    gap: 200px;
+    gap: 170px;
     width: 95%;
     border-radius: 30px;
     border-color: #ececece0;
@@ -291,19 +291,209 @@
     color: #f53b3b;
 }
 
+/* About Section */
+
+.about-section {
+    display: flex;
+    flex-direction: column;
+    min-height: 700px;
+
+    width: 100%;
+    
+    background-color: white;
+
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.about-content-wrapper {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    border-radius: 40px;
+
+    
+    
+    overflow: hidden;
+    padding: 40px 0;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.about-title-text {
+
+    color: #160101;
+
+    font-size: 40px;
+
+    
+    width: 100%;
+    font-family: PoppinsSemiBold;
+    font-weight: 500;
+    text-align: center;
+    align-self: center;
+    margin: 0;
+}
+
+.about-container {
+    border: solid 3px #160101;
+    box-shadow: 0px 2px 10px rgba(245, 59, 59, 0.2);
+    cursor: default;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 50px;
+    gap: 50px;
+    border-radius: 15px;
+    margin-top: 50px;
+    
+    transition: ease 0.3s;
+}
+
+.about-container:hover {
+    transform: scale(1.03);
+}
+
+.about-information {
+    max-width: 1000px;
+    border-radius: 15px;
+    color: #160101;
+}
+
+/* Why-work Section */
+
+/* Add this container to force a 2x2 grid layout */
+.why-grid {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+    margin-top: 50px;
+    max-width: 900px;
+    width: 100%;
+    z-index: 1;
+    position: relative;
+    gap: 40px;
+}
+
+/* Update the card to have a white background, soft shadow, and left-aligned text */
+.why-card {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 400px;
+    padding: 40px;
+    align-items: flex-start;
+    cursor: default;
+    text-align: left;
+    border-radius: 30px;
+    background-color: white;
+    box-shadow: 0px 4px 25px rgba(19, 19, 19, 0.096);
+    position: relative;
+    box-sizing: border-box;
+    transition: 0.3s ease-in-out;
+}
+
+.why-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.041);
+}
+
+/* Keep the icon aligned to the left side */
+.why-icon-container {
+    display: flex;
+    margin-bottom: 20px;
+    align-items: center;
+    justify-content: flex-start;
+    align-self: flex-start;
+}
+
+.why-title {
+    font-family: PoppinsMedium;
+    font-weight: 500;
+    color: #160101;
+    font-size: 20px;
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+.why-text {
+    color: #595959;
+    font-family: PoppinsMedium;
+    font-weight: 400;
+    font-size: 15px;
+    text-align: left;
+    line-height: 1.6;
+}
+
 /* Services Section */
 .services-section {
+
     display: flex;
     flex-direction: column;
     min-height: 700px;
     margin: 0 auto;
     width: 100%;
+    
     background-color: white;
-    padding: 60px 20px 20px 20px;
+    
     align-items: center;
     justify-content: center;
     box-sizing: border-box;
 }
+
+.services-line-horizontal {
+    height: 7px;
+    background-color: #f53b3b;
+    width: 80%;
+
+    box-shadow: 0px 2px 10px rgba(245, 59, 59, 0.2);
+
+    border-radius: 99px;
+    
+    position: absolute;
+    top: 25px;  /* Centers the 10px line perfectly behind your 50px tall icons */
+    left: 10%;  /* Centers the 80% width line inside the container */
+    z-index: -1; /* Pushes the line to the back */
+}
+
+.services-line-vertical {
+    height: 90px;
+    width: 7px;
+    background-color: #f53b3b;
+}
+
+.process-header {
+    color: #f53b3b;
+    text-shadow: 0px 2px 10px rgba(245, 59, 59, 0.2);
+}
+
+.service-gains-text {
+    align-self: center;
+    margin-top: 20px;
+    color: #000000;
+    font-weight: 500;
+
+    padding-top: 20px;
+    margin-top: auto;
+}
+
+.service-gains-subtext {
+    color: #595959;
+    margin-top: 20px;
+    font-family: PoppinsMedium;
+    font-weight: 400;
+    font-size: 15px;
+    text-align: center;
+
+    min-height: 120px;
+}
+
 
 .services-content-wrapper {
     display: flex;
@@ -313,6 +503,7 @@
     align-items: center;
     justify-content: center;
     border-radius: 40px;
+    
     overflow: hidden;
     padding: 40px 0;
     position: relative;
@@ -322,6 +513,9 @@
 .section-title-container {
     display: flex;
     align-items: center;
+    max-width: 1000px;
+    
+    flex-direction: column;
     justify-content: center;
     z-index: 1;
 }
@@ -329,20 +523,25 @@
 .section-title-text {
     color: #160101;
     font-size: 40px;
+
+    max-width: 400px;
+    width: 100%;
     font-family: PoppinsSemiBold;
     font-weight: 500;
     text-align: center;
+    align-self: center;
     margin: 0;
 }
 
 .services-desc {
-    font-size: 20px;
+    font-size: 17px;
     margin-top: 40px;
     font-family: PoppinsMedium;
     font-weight: 400;
     color: #494949;
     text-align: center;
-    padding: 0 20px;
+    margin-bottom: 60px;
+    align-self: center;
     z-index: 1;
 }
 
@@ -350,27 +549,33 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    gap: 30px;
+    
     justify-content: center;
-    align-items: center;
+    align-items: stretch;
     margin-top: 50px;
-    max-width: 1000px;
+    max-width: 1500px;
     width: 100%;
     z-index: 1;
-    ;
+
+    position: relative;
+
+    gap: 80px;
 }
 
 .service-card {
     display: flex;
     flex-direction: column;
-    width: 90%;
-    max-width: 340px;
-    height: 250px;
-    background-color: #fcfcfc;
-    border-radius: 30px;
-    padding: 30px 30px;
-    box-shadow: 0px 0px 40px rgba(22, 1, 1, 0.137);
-    justify-content: center;
+    width: 100%;
+    max-width: 200px;
+    align-items: center;
+    cursor: default;
+
+    text-align: center;
+    
+    border-radius: 30px; 
+    padding:0px 0px;
+    /* box-shadow: 0px 0px 40px rgba(22, 1, 1, 0.137); */
+    justify-content: flex-start;
 
     position: relative;
     box-sizing: border-box;
@@ -382,12 +587,34 @@
 }
 
 .service-icon-container {
+    display: flex;
     margin-bottom: 20px;
+    width: 50px;
+    background-color: white;
+    height: 50px;
+    border-radius: 15px;
     
-    border-radius: 20px;
+    border: solid 3px #f53b3b;
+    box-shadow: 0px 2px 10px rgba(245, 59, 59, 0.2);
     justify-content: center;
     align-items: center;
+    text-align: center;
+    align-self: center;
 
+}
+
+.number-icon-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.number {
+    font-weight: 700;
+    font-size: 20px;
+    align-self: center;
+    color: #f53b3b;
+    font-family: PoppinsMedium;
 }
 
 .service-title {
@@ -395,8 +622,9 @@
     font-weight: 400;
     color: #160101;
     font-size: 20px;
+    text-align: center;
+    min-height: 60px;
 }
-
 
 
 .service-text {
@@ -405,6 +633,7 @@
     font-family: PoppinsMedium;
     font-weight: 400;
     font-size: 17px;
+    
 }
 
 .service-text-sm {
@@ -413,7 +642,11 @@
     font-family: PoppinsMedium;
     font-weight: 400;
     font-size: 15px;
+    text-align: center;
+
+    flex-grow: 1;
 }
+
 
 /* Case Studies Section */
 .case-studies-section {
@@ -426,6 +659,8 @@
     align-items: center;
     justify-content: center;
     box-sizing: border-box;
+
+    margin-bottom: 50px;
 }
 
 .case-studies-wrapper {
@@ -459,6 +694,7 @@
     flex-direction: column;
     border-radius: 30px;
     width: 400px;
+    cursor: default;
     max-width: 90%;
     background-color: #ffffff;
     padding: 30px;
@@ -518,6 +754,18 @@
     font-weight: 400;
     margin-top: 20px;
     font-size: 15px;
+}
+
+.contact-section-title-text {
+    color: #160101;
+    font-size: 40px;
+
+    max-width: 400px;
+    width: 100%;
+    font-family: PoppinsSemiBold;
+    font-weight: 500;
+    text-align: center;
+    margin: 0;
 }
 
 .cs-outcome-label {
